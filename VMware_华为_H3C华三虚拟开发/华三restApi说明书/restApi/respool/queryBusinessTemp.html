@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询业务模板详细信息</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">根据业务模板ID查询业务模板详细信息
+  。
+  <h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/resPool/temp/{id}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">无</pre>
+  </div>
+</dl>
+<dl>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+<table id="pubmethods" class="jd-sumtable">
+  <tbody>
+    <tr>
+      <th colspan="2">路径参数（Path Parameter）</th>
+    </tr>
+    <tr>
+      <td class="jd-typecol">id</td>
+      <td width="100%" class="jd-linkcol"><span class="sympad">业务模板 ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型，必须。</div></td>
+    </tr>
+</table>
+<dl>
+  <dt>&nbsp;</dt>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 274<br>Date: Sat, 24 Feb 2018 09:43:51 GMT<br>Server: CVM<br>
+  </pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;businessTem&gt;<br>  &lt;id&gt;1&lt;/id&gt;<br>  &lt;name&gt;非编业务&lt;/name&gt;<br>  &lt;description/&gt;<br>  &lt;priority&gt;0&lt;/priority&gt;<br>  &lt;proportion&gt;99&lt;/proportion&gt;<br>  &lt;command&gt;ww&lt;/command&gt;<br>  &lt;commandResult&gt;www&lt;/commandResult&gt;<br>  &lt;handleMode&gt;0&lt;/handleMode&gt;<br>&lt;/businessTem&gt;<br>
+  </pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">businessTem</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">业务模板 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">业务模板名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+      <td class="jd-linkcol"><span class="sympad">业务模板描述。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">priority</span></td>
+      <td class="jd-linkcol"><span class="sympad">优先级。</span>
+          0：高，2：低
+            <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">proportion</span></td>
+      <td class="jd-linkcol"><span class="sympad">资源分配比例1~100。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">command</span></td>
+      <td class="jd-linkcol"><span class="sympad">停止业务命令。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">commandResult</span></td>
+      <td class="jd-linkcol"><span class="sympad">命令返回结果。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">handleMode</span></td>
+      <td class="jd-linkcol"><span class="sympad">停止业务失败，处理方式。</span>
+          0：强制关闭虚拟机，1：查找下一个低优先级虚拟机
+            <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+</table>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询id是1的业务模板详细信息
+  。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/resPool/temp/1
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 274<br>Date: Sat, 24 Feb 2018 09:43:51 GMT<br>Server: CVM<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;businessTem&gt;<br>  &lt;id&gt;1&lt;/id&gt;<br>  &lt;name&gt;非编业务&lt;/name&gt;<br>  &lt;description/&gt;<br>  &lt;priority&gt;0&lt;/priority&gt;<br>  &lt;proportion&gt;99&lt;/proportion&gt;<br>  &lt;command&gt;ww&lt;/command&gt;<br>  &lt;commandResult&gt;www&lt;/commandResult&gt;<br>  &lt;handleMode&gt;0&lt;/handleMode&gt;<br>&lt;/businessTem&gt;<br></pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

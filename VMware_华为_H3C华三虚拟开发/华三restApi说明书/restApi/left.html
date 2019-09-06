@@ -1,0 +1,384 @@
+﻿<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="./css/docs.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+<!--
+.STYLE1 {color: #FF0000}
+-->
+</style>
+</head>
+<body>
+<div id="side-nav"><ul>
+    <li><a href="home.html" target="contentframe">首页</a></li>
+	<li><a href="event/event.html" target="contentframe">事件推送</a></li>
+	<li>
+		<h2>主机池管理</h2>
+		<ul>
+		  <li><a href="hostpool/hostPoolList.html" target="contentframe">查询所有主机池</a></li>
+		  <li><a href="hostpool/hostPoolHostAndClusterList.html" target="contentframe">查询主机及集群</a></li>
+		  <li><a href="hostpool/getDomainList.html" target="contentframe">查询主机池下所有虚拟机</a></li>
+		  <li><a href="hostpool/hostPoolSummary.html" target="contentframe">查询主机池的概要信息</a></li>
+<!--		  
+		  <li><a href="hostpool/hostPoolHostTop5.html" target="contentframe">查询主机Top5信息</a></li>
+		  <li><a href="hostpool/hostPoolVirtualHostTop5.html" target="contentframe">查询虚拟机Top5信息</a></li>
+		  <li><a href="hostpool/hostPoolHostTrend.html" target="contentframe">查询的主机趋势信息</a></li>
+		  -->
+		  <li><a href="hostpool/addHostpool.html" target="contentframe">创建主机池</a></li>
+		  <li><a href="hostpool/delHostpool.html" target="contentframe">删除主机池</a></li>
+		  <li><a href="hostpool/hostPoolShareFileSystemList.html" target="contentframe">查询共享文件系统列表</a></li>
+		  <li><a href="hostpool/hostPoolHostList.html" target="contentframe">查询主机列表</a></li>
+		  <li><a href="hostpool/delShareFileSystem.html" target="contentframe">删除的共享文件系统</a></li>
+		  <li><a href="hostpool/connAllHost.html" target="contentframe">连接主机池下的所有主机（<span class="STYLE1">强烈建议不使用该接口</span>）</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>集群管理</h2>
+		<ul>
+			<li><a href="cluster/queryClusterDetailbyId.html" target="contentframe">查询指定集群详细信息</a></li>
+			<li><a href="cluster/queryClusterDetailbyName.html" target="contentframe">查询指定集群信息</a></li>
+			<li><a href="cluster/addCluster.html" target="contentframe">增加集群</a></li>
+			<li><a href="cluster/deleteCluster.html" target="contentframe">删除集群</a></li>
+			<li><a href="cluster/renameCluster.html" target="contentframe">集群重命名</a></li>
+			<li><a href="cluster/haCluster.html" target="contentframe">修改集群高可靠性集群</a></li>
+			<li><a href="cluster/lbCluster.html" target="contentframe">动态资源调度</a></li>
+			<li><a href="cluster/ipmCluster.html" target="contentframe">电源智能管理</a></li>
+			<li><a href="cluster/queryClusterSummarybyId.html" target="contentframe">查询指定集群概要信息</a></li>			
+			<li><a href="cluster/clusterHost.html" target="contentframe">查询集群下的主机信息</a></li>
+			<li><a href="cluster/getDomainList.html" target="contentframe">查询集群下所有虚拟机</a></li>
+			<li><a href="cluster/clusterList.html" target="contentframe">查询所有集群</a></li>
+			<li><a href="cluster/hostTopN.html" target="contentframe">查询指定集群性能的topN主机列表</a></li>
+			<!--			
+			<li><a href="cluster/computeRes.html" target="contentframe">查询集群的计算资源</a></li>
+			<li><a href="cluster/computeResList.html" target="contentframe">查询指定集群的计算资源</a></li>
+			<li><a href="cluster/hostNodes.html" target="contentframe">查询指定集群的主机列表</a></li>
+			<li><a href="cluster/hostTopN.html" target="contentframe">查询指定集群性能的topN主机列表</a></li>
+			<li><a href="cluster/hostTrend.html" target="contentframe">查询指定集群的top5主机的指定性能类型的趋势数据</a></li>
+		
+			<li><a href="cluster/netRes.html" target="contentframe">查询CAS系统中指定集群列表的网络资源</a></li>
+-->				
+		</ul>
+	</li>
+    <li>
+		<h2>主机管理</h2>
+		<ul>
+		  <li><a href="host/hostList.html" target="contentframe">查询所有主机</a></li>
+		  <li><a href="host/hostDetail.html" target="contentframe">查询主机详细信息</a></li>
+		  <li><a href="host/getDomainList.html" target="contentframe">查询主机所有虚拟机</a></li>
+		  <li><a href="host/hostMonitor.html" target="contentframe">查询指定主机的CPU、内存、硬盘利用率</a></li>
+<!--		  
+		  <li><a href="host/vmcpuList.html" target="contentframe">查询主机所有虚拟机的cpu利用率</a></li>
+		  <li><a href="host/vmmemList.html" target="contentframe">查询主机所有虚拟机的内存利用率</a></li>
+		  <li><a href="host/vmioList.html" target="contentframe">查询主机所有虚拟机的IO吞吐量</a></li>
+		  <li><a href="host/vmnetioList.html" target="contentframe">查询主机所有虚拟机的网络吞吐量</a></li>
+		  <li><a href="host/queryHostIOTrend.html" target="contentframe">查询主机磁盘I/O趋势数据</a></li>
+		  <li><a href="host/queryHostNetIOTrend.html" target="contentframe">查询主机网络I/O趋势数据</a></li>
+		  <li><a href="host/queryHostDiskRateTrend.html" target="contentframe">查询主机磁盘利用率趋势数据</a></li>
+		  <li><a href="host/queryHostMemoryTrend.html" target="contentframe">查询主机内存利用率趋势数据</a></li>
+		  <li><a href="host/queryHostCpuTrend.html" target="contentframe">查询主机CPU利用率趋势数据</a></li>		  
+		  <li><a href="host/hostCpu.html" target="contentframe">查询主机 CPU 使用情况</a></li>		  
+		  <li><a href="host/hostMem.html" target="contentframe">查询主机内存使用情况</a></li>
+<!--		  
+		  <li><a href="host/hostCpuPie.html" target="contentframe">查询主机CPU利用率饼图</a></li>
+		  <li><a href="host/hostMemPie.html" target="contentframe">查询主机内存利用率饼图</a></li>
+		  <li><a href="host/topVmCpuRate.html" target="contentframe">查询主机下虚拟机CPU利用率TOPN</a></li>
+		  <li><a href="host/topVmMemRate.html" target="contentframe">查询主机下虚拟机内存利用率TOPN</a></li>
+		  -->		  
+		  <li><a href="host/storeList.html" target="contentframe">查询主机所有共享存储</a></li>
+		  <li><a href="host/queryPartitionList.html" target="contentframe">查询主机分区数据</a></li>
+		  <li><a href="host/addHost.html" target="contentframe">增加主机</a></li>
+		  <li><a href="host/deleteHost.html" target="contentframe">删除主机</a></li>
+		  <li><a href="host/editHost.html" target="contentframe">修改主机</a></li>
+		  <li><a href="host/connectHost.html" target="contentframe">连接主机（<span class="STYLE1">旧接口，不建议使用</span>）</a></li>
+		  <li><a href="host/connectHostV2.html" target="contentframe">连接主机（新接口，建议使用）</a></li>
+		  <li><a href="host/shutoffHost.html" target="contentframe">关闭主机</a></li>
+		  <li><a href="host/rebootHost.html" target="contentframe">重启主机</a></li>
+		  <li><a href="host/wakeHost.html" target="contentframe">远程唤醒主机</a></li>
+		  <li><a href="host/editHostWake.html" target="contentframe">修改主机唤醒方式</a></li>
+		  <li><a href="host/intoMaintainStatus.html" target="contentframe">进入维护状态</a></li>
+		  <li><a href="host/exitMaintainStatus.html" target="contentframe">退出维护状态</a></li>
+		  <li><a href="host/getPhyInterface.html" target="contentframe">查询主机物理网卡信息</a></li>
+		  <li><a href="host/queryPhyNetTrafficInfo.html" target="contentframe">查询主机物理网卡流量信息</a></li>
+		  <li><a href="host/startNetwork.html" target="contentframe">启动主机物理网卡</a></li>
+		  <li><a href="host/pausePhyNet.html" target="contentframe">暂停主机物理网卡</a></li>
+		  <li><a href="host/queryHostStorageAdapterInfo.html" target="contentframe">查询主机存储适配器信息</a></li>
+		  <li><a href="host/queryStorageDeviceInfo.html" target="contentframe">查询存储适配器的存储设备信息</a></li>
+		  <li><a href="host/editHostIscsiInfo.html" target="contentframe">修改主机的iscsi信息</a></li>
+		  <li><a href="host/hostBasicInfo.html" target="contentframe">查询主机基本信息</a></li>
+<!--		  
+		  <li><a href="host/hostIscsi.html" target="contentframe">查询主机下iscsi信息</a></li>
+		  <li><a href="host/modifyHostIscsi.html" target="contentframe">修改主机下iscsi信息</a></li>
+		  <li><a href="host/hostInitiator.html" target="contentframe">查询主机下Initiator信息</a></li>
+		  <li><a href="host/hostUsb.html" target="contentframe">查询主机下的USB信息</a></li>
+		  <li><a href="host/hostPci.html" target="contentframe">查询主机下的PCI信息</a></li>
+		  <li><a href="host/queryFCHBAInfo.html" target="contentframe">查询主机FC HBA(存储适配器)信息</a></li>
+		  <li><a href="host/vportList.html" target="contentframe">查询指定虚拟交换机虚拟口信息</a></li>
+-->		  
+		  <li><a href="host/vsList.html" target="contentframe">查询主机所有虚拟交换机</a></li>
+		  <li><a href="host/queryVSwtichNameList.html" target="contentframe">查询主机或集群虚拟交换机名称列表</a></li>
+		  <li><a href="host/vsInfo.html" target="contentframe">查询主机某一个虚拟交换机信息</a></li>
+		  <li><a href="host/addVSwitch.html" target="contentframe">创建虚拟交换机</a></li>
+		  <li><a href="host/modifyVSwitch.html" target="contentframe">修改虚拟交换机</a></li>
+		  <li><a href="host/delVSwitch.html" target="contentframe">删除虚拟交换机</a></li>
+		  <!--li><a href="host/isVswitchUsedByOrg.html" target="contentframe">检查虚拟交换机是否被组织使用</a></li-->
+		  <li><a href="host/startNetwork.html" target="contentframe">启动虚拟交换机</a></li>
+		  <li><a href="host/pauseNetwork.html" target="contentframe">暂停虚拟交换机</a></li>
+		  <li><a href="host/queryVswitchModel.html" target="contentframe">查询虚拟交换机实体信息</a></li>
+		  <li><a href="host/getPortTrafficData.html" target="contentframe">查询虚拟交换机端口详细信息</a></li>
+		  <li><a href="host/queryVPortTrafficInfo.html" target="contentframe">查询虚拟交换机端口流量的详细信息</a></li>
+		  <li><a href="host/isVswitchNameExist.html" target="contentframe">检查虚拟交换机名称是否已经存在</a></li>
+		  <li><a href="host/queryPhyInterfaceLldp.html" target="contentframe">查询主机下指定物理网卡LLDP信息</a></li>
+		  <li><a href="host/editPhyInterfaceLldp.html" target="contentframe">启用或禁用主机下指定物理网卡LLDP</a></li>
+		  <li><a href="host/queryPhyInterfaceSriovInfo.html" target="contentframe">查询主机下指定物理网卡SR-IOV信息</a></li>
+		  <li><a href="host/queryPhyInterfaceSriovInfos.html" target="contentframe">查询主机下所有支持SR-IOV的物理网卡SR-IOV信息</a></li>
+		  <li><a href="host/editPhyInterfaceSriov.html" target="contentframe">修改主机下指定物理网卡SR-IOV</a></li>
+		  <li><a href="host/getPhyInterfaceForDpdk.html" target="contentframe">查询主机所有支持DPDK的物理网卡列表（<span class="STYLE1">新接口</span>）</a></li>
+		  <li><a href="host/queryDpdkConfig.html" target="contentframe">查询主机DPDK配置</a></li>
+		  <li><a href="host/editDpdkConfig.html" target="contentframe">修改主机DPDK配置</a></li>
+		  <li><a href="host/queryIsolatedCPUConfig.html" target="contentframe">查询主机CPU隔离配置</a></li>
+		  <li><a href="host/editIsolatedCPUConfig.html" target="contentframe">修改主机CPU隔离配置</a></li>
+		  <li><a href="host/queryHugePageConfig.html" target="contentframe">查询主机大页内存配置</a></li>
+		  <li><a href="host/editHugePageConfig.html" target="contentframe">修改主机大页内存配置</a></li>
+		  <li><a href="host/queryIommu.html" target="contentframe">查询主机IOMMU配置</a></li>
+		  <li><a href="host/modifyIommu.html" target="contentframe">修改主机IOMMU配置</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>虚拟机管理</h2>
+		<ul>
+		  <li><a href="vm/addVm.html" target="contentframe">创建虚拟机</a></li>
+		  <li><a href="vm/vmRun.html" target="contentframe">启动虚拟机</a></li>
+		  <li><a href="vm/vmShutdown.html" target="contentframe">正常关闭虚拟机</a></li>
+		  <li><a href="vm/vmPowerOff.html" target="contentframe">关闭虚拟机电源</a></li>
+		  <li><a href="vm/vmPause.html" target="contentframe">暂停虚拟机</a></li>
+		  <li><a href="vm/vmRestore.html" target="contentframe">恢复虚拟机</a></li>
+		  <li><a href="vm/vmRestart.html" target="contentframe">重启虚拟机</a></li>
+		  <li><a href="vm/vmSleep.html" target="contentframe">休眠虚拟机</a></li>
+		  <li><a href="vm/vmDelete.html" target="contentframe">删除虚拟机</a></li>		  
+		  <li><a href="vm/vmDetail.html" target="contentframe">查询虚拟机详细信息</a></li>
+		  <li><a href="vm/vmNetwork.html" target="contentframe">查询虚拟机网络信息</a></li>
+		  <li><a href="vm/vmSnapshotList.html" target="contentframe">查询虚拟机快照信息</a></li>
+		  <li><a href="vm/addVmSnapshot.html" target="contentframe">创建虚拟机快照</a></li>
+		  <li><a href="vm/delVmSnapshot.html" target="contentframe">删除虚拟机快照</a></li>
+		  <li><a href="vm/vmResumFromSnapshot.html" target="contentframe">从快照还原</a></li>
+		  <li><a href="vm/vmMigrate.html" target="contentframe">迁移虚拟机</a></li>
+		  <!--li><a href="vm/vmXmlDefine.html" target="contentframe">查询虚拟机XML信息</a></li-->
+		  <li><a href="vm/vmDetailInfo.html" target="contentframe">查询虚拟机全部详细信息</a></li>
+		  <li><a href="vm/editVmBasic.html" target="contentframe">修改虚拟机基本信息</a></li>
+		  <li><a href="vm/editVmCPU.html" target="contentframe">修改虚拟机CPU配置</a></li>
+		  <li><a href="vm/editVmMemory.html" target="contentframe">修改虚拟机内存配置</a></li>
+		  <li><a href="vm/editVmBootdev.html" target="contentframe">修改虚拟机引导设备配置</a></li>
+		  <li><a href="vm/editVmStorage.html" target="contentframe">修改虚拟机存储配置</a></li>
+		  <li><a href="vm/editVmNetwork.html" target="contentframe">修改虚拟机网络配置</a></li>
+		  <li><a href="vm/editVmVnc.html" target="contentframe">修改虚拟机VNC配置</a></li>
+		  <li><a href="vm/editVmVideo.html" target="contentframe">修改虚拟机显卡配置</a></li>
+		  <li><a href="vm/editVmAdvance.html" target="contentframe">修改虚拟机高级配置</a></li>
+		  <li><a href="vm/editVmNuma.html" target="contentframe">修改虚拟机NUMA配置</a></li>
+		  <li><a href="vm/editVmDisconnetcd.html" target="contentframe">断开虚拟机光驱</a></li>
+		  <li><a href="vm/editVmConnectcd.html" target="contentframe">连接虚拟机光驱</a></li>
+		  <li><a href="vm/addVmStorage.html" target="contentframe">虚拟机添加虚拟硬盘</a></li>
+		  <li><a href="vm/delVmStorage.html" target="contentframe">卸载虚拟机虚拟硬盘</a></li>
+		  <li><a href="vm/addVmNetwork.html" target="contentframe">虚拟机添加虚拟网卡</a></li>
+		  <li><a href="vm/delVmNetwork.html" target="contentframe">卸载虚拟机虚拟网卡</a></li>
+		  <li><a href="vm/addVmVideo.html" target="contentframe">虚拟机添加虚拟显卡</a></li>
+		  <li><a href="vm/delVmVideo.html" target="contentframe">卸载虚拟机虚拟显卡</a></li>
+		  <li><a href="vm/connectVnic.html" target="contentframe">修改虚拟机网卡连接</a></li>
+		  <li><a href="vm/disconnectVnic.html" target="contentframe">删除虚拟机网卡连接</a></li>
+		  <li><a href="vm/addVmGpu.html" target="contentframe">虚拟机添加GPU设备</a></li>
+		  <li><a href="vm/editVmGpu.html" target="contentframe">修改虚拟机GPU设备</a></li>		  
+		  <li><a href="vm/delVmGpu.html" target="contentframe">卸载虚拟机GPU设备</a></li>
+		  <li><a href="vm/addSoundDev.html" target="contentframe">虚拟机添加虚拟声卡</a></li>
+		  <li><a href="vm/addSpiceDev.html" target="contentframe">虚拟机添加Spice控制台</a></li>
+		  <li><a href="vmworkflow/isExistDomainName.html" target="contentframe">虚拟机名称重名检测</a></li>
+		  <li><a href="vm/vmClone.html" target="contentframe">克隆虚拟机</a></li>
+		  <li><a href="vm/vmDeploy.html" target="contentframe">部署虚拟机</a></li>
+		  <!--li><a href="vm/vmBatchDeploy.html" target="contentframe">批量部署虚拟机</a></li-->
+		  <li><a href="vm/vmBackUp.html" target="contentframe">备份虚拟机</a></li>
+		  <li><a href="vm/queryVmBackUpList.html" target="contentframe">查询虚拟机备份列表</a></li>
+		  <li><a href="vm/vmRestoreFromBackupV2.html" target="contentframe">还原虚拟机（新接口，建议使用）</a></li>
+		  <li><a href="vm/vmRestoreFromBackup.html" target="contentframe">还原虚拟机（<span class="STYLE1">旧接口，不建议使用</span>）</a></li>
+		  <li><a href="vm/vncParam.html" target="contentframe">查询VNC配置参数</a></li>
+		  <li><a href="vm/spiceParam.html" target="contentframe">查询Spice配置参数</a></li>
+		  <li><a href="vm/renameVM.html" target="contentframe">修改虚拟机名称</a></li>
+		  <!--li><a href="vm/registerVM.html" target="contentframe">注册虚拟机</a></li>
+		  <li><a href="vm/queryVmBackfilePath.html" target="contentframe">查询虚拟机镜像文件路径</a></li>
+		  <li><a href="vm/snapshotVMDisk.html" target="contentframe">快照虚拟机磁盘</a></li>
+		  <li><a href="vm/extenalSnapCreate.html" target="contentframe">虚拟机外部快照</a></li>
+		  <li><a href="vm/extenalSnapCommit.html" target="contentframe">虚拟机外部快照合并</a></li-->
+		  <li><a href="vm/vmMonitor.html" target="contentframe">查询虚拟机监控信息</a></li>
+		  <li><a href="vm/createRestorePoint.html" target="contentframe">创建虚拟机还原点</a></li>
+		  <li><a href="vm/restorePoint.html" target="contentframe">还原点还原虚拟机</a></li>
+		  <li><a href="vm/queryVmDiskRateTrend.html" target="contentframe">查询虚拟机磁盘利用率趋势数据</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>备份策略管理</h2>
+		<ul>
+		  <li><a href="backupstrategy/backUpStrategyList.html" target="contentframe">查询备份策略列表</a></li>
+		  <li><a href="backupstrategy/addBackUpStrategy.html" target="contentframe">增加备份策略</a></li>
+		  <li><a href="backupstrategy/deleteBackUpStrategy.html" target="contentframe">删除备份策略</a></li>
+		  <li><a href="backupstrategy/editBackUpStrategy.html" target="contentframe">修改备份策略</a></li>
+		  <li><a href="backupstrategy/searchBackUpStrategy.html" target="contentframe">查询备份策略详细信息</a></li>
+		  <li><a href="backupstrategy/deleteVMInStrategy.html" target="contentframe">删除备份策略中的虚拟机</a></li>
+		  <li><a href="backupstrategy/searchStrategyVms.html" target="contentframe">查询备份策略中的虚拟机列表</a></li>  
+		</ul>
+	</li>
+	<li>
+		<h2>快照策略管理</h2>
+		<ul>
+		  <li><a href="snapshotstrategy/snapshotStrategyList.html" target="contentframe">查询快照策略列表</a></li>
+		  <li><a href="snapshotstrategy/addSnapshotStrategy.html" target="contentframe">增加快照策略</a></li>
+		  <li><a href="snapshotstrategy/deleteSnapshotStrategy.html" target="contentframe">删除快照策略</a></li>
+		  <li><a href="snapshotstrategy/modifySnapshotStrategy.html" target="contentframe">修改快照策略</a></li>
+		  <li><a href="snapshotstrategy/searchSnapshotStrategy.html" target="contentframe">查询快照策略详细信息</a></li>
+		  <li><a href="snapshotstrategy/deleteVMInStrategy.html" target="contentframe">删除快照策略中的虚拟机</a></li>
+		  <li><a href="snapshotstrategy/getVMListInStrategy.html" target="contentframe">查询快照策略中的虚拟机列表</a></li>  
+		</ul>
+	</li>
+	<li>
+		<h2>虚拟机模板管理</h2>
+		<ul>
+		  <li><a href="template/vmTemplateList.html" target="contentframe">查询虚拟机模板列表</a></li>
+		  <li><a href="template/addvmTemplate.html" target="contentframe">增加虚拟机模板</a></li>
+		  <li><a href="template/delvmTemplate.html" target="contentframe">删除虚拟机模板</a></li>
+		  <li><a href="template/modifyVmTemplate.html" target="contentframe">修改虚拟机模板</a></li>
+		  <li><a href="template/distributeVmTemplate.html" target="contentframe">分发虚拟机模板</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>存储管理</h2>
+		<ul>
+		  <li><a href="storage/addStoragePool.html" target="contentframe">增加存储池</a></li>
+		  <li><a href="storage/queryHostStoragePoolList.html" target="contentframe">查询存储池列表</a></li>
+		  <li><a href="storage/queryVolumeList.html" target="contentframe">查询存储卷列表</a></li>
+		  <li><a href="storage/volAdd.html" target="contentframe">增加存储卷（<span class="STYLE1">旧接口，不建议使用</span>）</a></li>
+		  <li><a href="storage/volAdd2.html" target="contentframe">增加存储卷（新接口，建议使用）</a></li>
+		  <li><a href="storage/volDelete.html" target="contentframe">删除存储卷</a></li>
+		  <li><a href="storage/startStoragePool.html" target="contentframe">启动存储池</a></li>
+		  <li><a href="storage/stopStoragePool.html" target="contentframe">暂停存储池</a></li>
+		  <li><a href="storage/deleteStoragePool.html" target="contentframe">删除存储池</a></li>
+		  <!--li><a href="storage/deleteLocalStoragePool.html" target="contentframe">删除本地存储池（<span class="STYLE1">仅供云学堂使用</span>）</a></li -->
+		  <li><a href="storage/refreshStoragePool.html" target="contentframe">刷新存储池</a></li>
+		  <li><a href="storage/queryStoragePoolInfo.html" target="contentframe">查询存储池详细信息</a></li>
+		  <li><a href="storage/addShareFileSystem.html" target="contentframe">增加共享文件系统</a></li>
+		  <li><a href="storage/editShareFileSystem.html" target="contentframe">修改共享文件系统</a></li>
+		  <li><a href="storage/deleteShareFileSystem.html" target="contentframe">删除共享文件系统</a></li>
+		  <li><a href="storage/formatShareFileSystem.html" target="contentframe">格式化共享文件系统</a></li>
+		  <li><a href="storage/queryShareFileSystemInfo.html" target="contentframe">查询共享文件系统详细信息</a></li>
+		  <li><a href="storage/queryShareFileSystemList.html" target="contentframe">查询共享文件系统列表</a></li>
+		  <!--li><a href="storage/queryShareFileSystem.html" target="contentframe">查询CAS系统中集群挂载共享文件系统的主机列表</a></li-->
+		</ul>
+	</li>
+	<li>
+		<h2>监控策略管理</h2>
+		<ul>
+		  <li><a href="monitor/queryMonitorStrategyList.html" target="contentframe">查询监控策略列表</a></li>
+		  <li><a href="monitor/queryMonitorStrategyById.html" target="contentframe">查询指定监控策略信息</a></li>
+		  <li><a href="monitor/addMonitorStrategy.html" target="contentframe">增加监控策略</a></li>
+		  <li><a href="monitor/modifyMonitorStrategy.html" target="contentframe">修改监控策略</a></li>
+		  <li><a href="monitor/deleteMonitorStrategy.html" target="contentframe">删除监控策略</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>网络管理</h2>
+		<ul>
+			<li><a href="profile/queryProfileList.html" target="contentframe">查询网络策略模板列表</a></li>
+			<li><a href="profile/queryProfileById.html" target="contentframe">查询指定网络策略模板信息</a></li>
+			<li><a href="profile/addProfile.html" target="contentframe">增加网络策略模板</a></li>
+			<li><a href="profile/modifyProfile.html" target="contentframe">修改网络策略模板</a></li>
+			<li><a href="profile/deleteProfile.html" target="contentframe">删除网络策略模板</a></li>
+			<li><a href="profile/domainNameExist.html" target="contentframe">检查网络策略模板名称是否存在</a></li>
+			<!--li><a href="profile/queryVsiInfoImc.html" target="contentframe">从IMC中查询VSI的网络ID，VSI的ID和版本的ID</a></li-->
+			<li><a href="profile/getAclList.html" target="contentframe">根据条件查询ACL 策略列表</a></li>
+			<li><a href="profile/getAclById.html" target="contentframe">查询指定ACL策略</a></li>
+			<li><a href="profile/addAcl.html" target="contentframe">增加ACL策略</a></li>
+			<li><a href="profile/modifyAcl.html" target="contentframe">修改ACL策略</a></li>
+			<li><a href="profile/deleteAcl.html" target="contentframe">删除ACL策略</a></li>
+		</ul>
+	</li>
+	<!--
+	<li>
+		<h2>组织管理</h2>
+		<ul>
+			<li><a href="org/batchDeployVms.html" target="contentframe">组织批量部署虚拟机</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>租户管理</h2>
+		<ul>
+		  <a href="user/userList.html" target="contentframe">查询租户列表</a></li>
+		  <li><a href="user/vmList.html" target="contentframe">查询租户的虚拟机列表</a></li>
+		  <li><a href="user/vmTempletList.html" target="contentframe">查询租户的虚拟机模板列表</a></li>
+		  <li><a href="user/operateLog.html" target="contentframe">查询用户操作日志</a></li>
+		  <li><a href="user/addOperateLog.html" target="contentframe">增加用户操作日志</a></li>
+		  <li><a href="user/userAuth.html" target="contentframe">租户登录</a></li>
+		  <li><a href="user/queryParameter.html" target="contentframe">查询租户参数</a></li>
+		  <li><a href="user/updateParameter.html" target="contentframe">更新租户参数</a></li>
+		  <li><a href="vmworkflow/vmWorkflowList.html" target="contentframe">查询虚拟机电子流</a></li>
+		  <li><a href="vmworkflow/addVmWorkflow.html" target="contentframe">增加虚拟机电子流</a></li>
+		  <li><a href="vmworkflow/updateVmWorkflow.html" target="contentframe">撤销虚拟机电子流</a></li>
+		  <!--li><a href="user/addUser.html" target="contentframe">增加租户</a></li>
+		  <li><a href="user/modifyUser.html" target="contentframe">修改租户</a></li>
+		  <li><a href="user/deleteUser.html" target="contentframe">删除租户</a></li>
+		  <li><a href="user/userDetail.html" target="contentframe">查询租户详细信息</a></li>
+		</ul>
+	</li>
+	 -->
+	<li>
+		<h2>告警管理</h2>
+		<ul>
+		  <li><a href="warnmanage/warnManageList.html" target="contentframe">查询告警信息列表</a></li>
+		  <li><a href="warnmanage/modifyWarnManage.html" target="contentframe">确认告警信息</a></li>
+		  <li><a href="warnmanage/delWarnManage.html" target="contentframe">删除告警信息</a></li>
+		  <li><a href="warnmanage/batchDelWarnManage.html" target="contentframe">批量删除告警信息</a></li>
+		  <li><a href="warnmanage/queryWarnInfo.html" target="contentframe">查询告警详细信息</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>任务消息管理</h2>
+		<ul>
+		  <li><a href="message/search.html" target="contentframe">查看任务详细信息</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>资源池管理</h2>
+		<ul>
+		  <li><a href="respool/resPoolList.html" target="contentframe">查看资源池列表</a></li>
+		  <li><a href="respool/addResPool.html" target="contentframe">增加资源池</a></li>
+		  <li><a href="respool/modifyResPool.html" target="contentframe">修改资源池</a></li>
+		  <li><a href="respool/deleteResPool.html" target="contentframe">删除资源池</a></li>
+		  <li><a href="respool/queryResPool.html" target="contentframe">查询资源池详细信息</a></li>
+		  <li><a href="respool/getResPoolGpuList.html" target="contentframe">查看资源池下GPU资源列表</a></li>
+		  <li><a href="respool/getResPoolVgpuList.html" target="contentframe">查看资源池下vGPU资源列表</a></li>	  
+		  <li><a href="respool/getFreeGpuCount.html" target="contentframe">查看资源池下空闲GPU数量</a></li>
+		  <li><a href="respool/businessTemList.html" target="contentframe">查看业务模板列表</a></li>
+		  <li><a href="respool/addBusinessTemp.html" target="contentframe">增加业务模板</a></li>
+		  <li><a href="respool/modifyBusinessTemp.html" target="contentframe">修改业务模板</a></li>
+		  <li><a href="respool/deleteBusinessTemp.html" target="contentframe">删除业务模板</a></li>
+		  <li><a href="respool/queryBusinessTemp.html" target="contentframe">查询业务模板详细信息</a></li>
+		  <li><a href="respool/hostGpuList.html" target="contentframe">查询主机下的GPU资源列表</a></li>
+		  <li><a href="respool/vGpuList.html" target="contentframe">查询GPU下的vGPU资源列表</a></li>
+		  <li><a href="respool/addVgpu.html" target="contentframe">切分GPU资源</a></li>
+		  <li><a href="respool/deleteVgpu.html" target="contentframe">回收vGPU资源</a></li>		  
+		  <li><a href="respool/clusterFreeGpuList.html" target="contentframe">查询集群下空闲GPU资源列表</a></li>
+		  <li><a href="respool/clusterFreeVgpuList.html" target="contentframe">查询集群下空闲vGPU资源列表</a></li>
+		  <li><a href="respool/historyList.html" target="contentframe">查询资源池下资源使用历史列表</a></li>
+		  <li><a href="respool/vmList.html" target="contentframe">查询资源池下虚拟机列表</a></li>
+		</ul>
+	</li>
+	<li>
+		<h2>监控管理</h2>
+		<ul>
+		  <li><a href="report/healthInfo.html" target="contentframe">查看系统健康度</a></li>		  
+		</ul>
+	</li>
+	<li>
+		<h2>系统管理</h2>
+		<ul>
+		  <li><a href="systemmanage/queryOperatorInfo.html" target="contentframe">查看操作员的全部信息</a></li>		  
+		</ul>
+	</li>
+</ul>
+</div>
+</body>
+</html>

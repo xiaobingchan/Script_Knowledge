@@ -1,0 +1,105 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>创建虚拟机模板</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>创建虚拟机模板。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vmTemplate/addVmTemplate?id={id}&amp;domainName={domainName}&amp;desc={desc}&amp;opType={opType}&amp;templetStoragePath={path}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query Parameter）</th>
+      </tr>
+	    <tr>
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+      <tr>
+        <td class="jd-typecol">domainName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板名称 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">desc</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板描述 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">opType</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">创建虚拟机形式 。</span>
+          <div class="jd-descrdiv">整形（Integer）类型。必须。 枚举值 1克隆 2 转移</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">templetStoragePath</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">模板存储目录 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div>        </td>
+      </tr>
+  </table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)： 成功。</li>
+    <li>409(Conflict)：失败。</li>
+    </ul>
+  </dd>
+    <dt><b>回应</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 232<br>Date: Tue, 16 Sep 2014 08:17:59 GMT<br>Server: H3C-CVM
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;taskMsg&gt;<br>  &lt;msgId&gt;1410850291728&lt;/msgId&gt;<br>  &lt;targetId&gt;20&lt;/targetId&gt;<br>  &lt;targetName&gt;DRX-_001&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;<br>
+  </pre>
+  </div>
+  <dt>&nbsp;</dt>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+
+<table id="pubmethods" class="jd-sumtable">
+  <tbody>
+    <tr>
+      <th colspan="2">返回创建虚拟机模板任务id，可根据任务id查询任务进度。</th>
+    </tr>
+</table>
+<br>
+<h2><a name="example"></a>应用举例</h2>
+    <p>创建虚拟机模板。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST 
+http://localhost:8080/cas/casrs/vmTemplate/addVmTemplate?id=67&amp;domainName=sssaaa01&amp;desc=qqqq&amp;opType=1&amp;<span class="jd-typecol">templetStoragePath</span>=/vms/templet
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 232<br>Date: Tue, 16 Sep 2014 08:17:59 GMT<br>Server: H3C-CVM
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;taskMsg&gt;<br>  &lt;msgId&gt;1410850291728&lt;/msgId&gt;<br>  &lt;targetId&gt;20&lt;/targetId&gt;<br>  &lt;targetName&gt;DRX-_001&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>事件推送接口</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>CAS系统中虚拟机相关的信息发生变更后，例会增加、修改、删除、启动、关闭、迁移虚拟机时，会自动向监听这些事件的客户端发送相关的事件通知。客户端必须首先通过身份认证，即HTTP 摘要认证（参考<A href="http://www.ietf.org/rfc/rfc2617.txt" target="_blank">RFC2617</A>）。才能与CAS创建HTTP常连接并进行事件监听注册。CAS每隔一分钟会自动向这些常连接客户端发送心跳报文，报文的内容为“#HEART_BEAT\r\n\r\n”。</p>
+      <p>事件类型eventType定义如下：</p>
+      <table width="552" border="1" class="jd-sumtable">
+        <tr>
+          <th width="115">事件类型</th>
+          <th width="912">事件内容</th>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>增加虚拟机</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>删除虚拟机</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>修改虚拟机</td>
+        </tr>
+        <tr>
+          <td>30</td>
+          <td>启动虚拟机</td>
+        </tr>
+
+        <tr>
+          <td>31</td>
+          <td>关闭虚拟机电源</td>
+        </tr>
+        <tr>
+          <td>32</td>
+          <td>正常关闭虚拟机</td>
+        </tr>
+        <tr>
+          <td>38</td>
+          <td>迁移虚拟机</td>
+        </tr>
+      </table>
+      <p>增加虚拟机事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;20&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;<br>  &lt;hostId&gt;44&lt;/hostId&gt;<br>&lt;/event&gt;</pre>
+      </p>
+      <p>删除虚拟机事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;21&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;<br>  &lt;hostId&gt;44&lt;/hostId&gt;<br>&lt;/event&gt;</pre>
+      </p>
+      <p>修改虚拟机事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;22&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;<br>  &lt;hostId&gt;44&lt;/hostId&gt;<br>&lt;/event&gt;</pre>
+      </p>
+      <p>启动虚拟机事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;30&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;<br>  &lt;hostId&gt;44&lt;/hostId&gt;<br>&lt;/event&gt;</pre>
+      </p>
+      <p>关闭虚拟机电源事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;31&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;<br>  &lt;hostId&gt;44&lt;/hostId&gt;<br>&lt;/event&gt;</pre>
+      </p>
+      <p>正常关闭虚拟机事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;32&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;<br>  &lt;hostId&gt;44&lt;/hostId&gt;<br>&lt;/event&gt;</pre>
+      </p>
+      <p>迁移虚拟机事件内容如下：
+      <pre class="prettyprint lang-xml">&lt;event&gt;<br>  &lt;eventType&gt;38&lt;/eventType&gt;<br>  &lt;vmId&gt;20&lt;/vmId&gt;
+  &lt;migrate&gt;
+    &lt;srcHostId&gt;33&lt;/srcHostId&gt;
+    &lt;destHostId&gt;44&lt;/destHostId&gt;
+  &lt;/migrate&gt;<br>&lt;/event&gt;</pre>
+      </p>
+ 事件内容各子元素如下：      
+ <dl>
+        <table id="pubmethods" class="jd-sumtable">
+          <tbody>
+            <tr>
+              <th colspan="2">各子元素</th>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">eventType</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">事件类型。</span>
+                  <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">vmId</span></td>
+              <td class="jd-linkcol"><span class="sympad">虚拟机ID。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">hostId</span></td>
+              <td class="jd-linkcol"><span class="sympad">虚拟机属主主机ID。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">srcHostId</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机迁移前的属主主机ID。</span>
+                <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">destHostId</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机迁移后的属主主机ID。</span>
+                <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+              </table>
+      </dl>
+      <h2><a name="uri"></a>事件注册接口 URI</h2>
+      <p>/cas/casrs/events?type=1</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+		<dd>GET请求方法中应该设置请求返回的数据格式为application/xml或者application/json。</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">事件类型 。</span>
+                <div class="jd-descrdiv">整数（int）类型。必须。1代表消息事件。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>202(OK)：事件监听注册成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">
+HTTP/1.1 202 Accept
+</pre>
+	      </div>
+      </dl>
+      
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

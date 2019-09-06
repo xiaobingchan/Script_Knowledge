@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>从快照还原</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>为指定虚拟机的快照还原。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/snapshot/resume</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;snapshot&gt;<br>  &lt;vmId&gt;31&lt;/vmId&gt;<br>  &lt;name&gt;test4&lt;/name&gt;<br>&lt;/snapshot&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">snapshot</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">vmId</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机 ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td class="jd-linkcol"><span class="sympad">快照名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+  </table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：提交删除任务成功。</li>
+  </ul>
+  <ul>
+    <li>409(Conflict)：失败。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;taskMsg&gt;<br>  &lt;msgId&gt;1393831560400&lt;/msgId&gt;<br>  &lt;targetId&gt;3&lt;/targetId&gt;<br>  &lt;targetName&gt;vm110-1&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>&lt;/taskMsg&gt;</pre>
+  </div>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>从名称为&quot;test4&quot;的快照还原虚拟机。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.4:8080/cas/casrs/vm/snapshot/resume
+accept: application/xml
+
+
+&lt;snapshot&gt;<br>  &lt;vmId&gt;87&lt;/vmId&gt;<br>  &lt;name&gt;test4&lt;/name&gt;<br>&lt;/snapshot&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;taskMsg&gt;<br>  &lt;msgId&gt;1393831560400&lt;/msgId&gt;<br>  &lt;targetId&gt;87&lt;/targetId&gt;<br>  &lt;targetName&gt;vm110-1&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>&lt;/taskMsg&gt;</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

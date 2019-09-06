@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>修改主机大页内存配置</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据主机id修改大页内存配置。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/host/{id}/hugePage</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>PUT</dd>
+		<dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">&lt;hugePageConfig&gt;<br>        &lt;status&gt;1&lt;/status&gt;<br>        &lt;hugepageSize&gt;1G&lt;/hugepageSize&gt;<br>        &lt;hugepageNum&gt;24&lt;/hugepageNum&gt;<br>&lt;/hugePageConfig&gt;
+    </pre>
+  </div>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+              <td class="jd-linkcol"><span class="sympad">主机id 。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+            </tr>
+        </table>
+      </dl>
+<dl>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+<table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">大页配置状态。true：启用，false：未启用</span>
+	            <div class="jd-descrdiv">布尔（Boolean)类型。</div>	          </td>
+          </tr>       
+		  	<tr>
+	          <td class="jd-typecol">hugepageSize</td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">页大小。</span>
+	            <div class="jd-descrdiv">字符串（String)类型。</div>	          </td>
+	        </tr>     
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">hugepageNum</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">页数。</span>
+	            <div class="jd-descrdiv">整型（int)类型。</div>	          </td>
+	        </tr>     
+      </table>
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>204(No Content)：成功。</li>
+    		</ul></dd>
+	    <h2><a name="example"></a>应用举例</h2>
+      </dl>
+      
+
+      <p>修改主机id为6的主机大页内存配置。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+PUT http://localhost:8080/cas/casrs/host/6/hugePage
+accept: application/xml
+...       
+&lt;hugePageConfig&gt;<br>        &lt;status&gt;1&lt;/status&gt;<br>        &lt;hugepageSize&gt;1G&lt;/hugepageSize&gt;<br>        &lt;hugepageNum&gt;24&lt;/hugepageNum&gt;<br>&lt;/hugePageConfig&gt;</pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 204 No Content<br></pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询CAS系统中存储卷列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询CAS系统中主机下指定存储池下的存储卷列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/storage/volume?hostId={hostId}&poolName={poolName}&offset={offset}&amp;pageSize={pageSize}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Query Parameter）</th>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol">hostId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">存储池所属的主机id 。</span>
+          <div class="jd-descrdiv">长整数（Long）类型。必须，无缺省值。</div>        </td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol">poolName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">存储池名称 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须，无缺省值。</div>        </td>
+      </tr>
+       <tr class="alt-color">
+        <td class="jd-typecol">volumeName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">存储卷名称 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div>        </td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol">offset</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">分页查询结果偏移值 。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。可选项，缺省值为0。</div>        </td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol">pageSize</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">分页查询结果数量 。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。可选项，缺省值为30。</div>        </td>
+      </tr>
+  </table>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Type: application/xml<br>Content-Length: 2489<br>Date: Mon, 25 Nov 2013 09:21:00 GMT</pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;list&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;6.00390625&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;2cpu2cores&lt;/name&gt;<br>    &lt;size&gt;10.0&lt;/size&gt;<br>    &lt;users&gt;2cpu2cores&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;aads&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users&gt;rest_add3&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;name&gt;ccd&lt;/name&gt;<br>    &lt;size&gt;2000.0&lt;/size&gt;<br>    &lt;users/&gt;<br>  &lt;/storageVolume&gt;<br>......
+<br>&lt;/list&gt;<br>
+  </pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2">storagePool各子元素</th>
+    
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">存储卷名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol">size</td>
+      <td class="jd-linkcol"><span class="sympad">文件分配大小，单位M。</span>
+          <div class="jd-descrdiv">双精度（Double）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol">allocation</td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">已用空间，单位M。</span>
+          <div class="jd-descrdiv">双精度（Double）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol">format</td>
+      <td class="jd-linkcol"><span class="sympad">类型。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol">backingStore</td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">基础镜像文件。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol">users</td>
+      <td class="jd-linkcol" width="100%">存储卷的使用者。
+        <div class="jd-descrdiv">字符串数组（String[]）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询 CAS系统中主机id为1的主机下，存储池defaultpool下的存储卷列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://192.168.0.2:8080/cas/casrs/storage/volume?hostId=1&amp;poolName=defaultpool
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Type: application/xml<br>Content-Length: 2489<br>Date: Mon, 25 Nov 2013 09:21:00 GMT
+<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;list&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;6.00390625&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;2cpu2cores&lt;/name&gt;<br>    &lt;size&gt;10.0&lt;/size&gt;<br>    &lt;users&gt;2cpu2cores&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;aads&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users&gt;rest_add3&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;name&gt;ccd&lt;/name&gt;<br>    &lt;size&gt;2000.0&lt;/size&gt;<br>    &lt;users/&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;name&gt;ge&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users/&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;kkk&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users&gt;rest_add2&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;name&gt;mobanxxx&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users/&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;ssa&lt;/name&gt;<br>    &lt;size&gt;1237.0&lt;/size&gt;<br>    &lt;users&gt;2cpu2cores,fdasf&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;tret&lt;/name&gt;<br>    &lt;size&gt;1001.0&lt;/size&gt;<br>    &lt;users&gt;fdasf&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;uuu&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users&gt;fdasf&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;6.00390625&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;name&gt;vol_test&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users/&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;6.00390625&lt;/allocation&gt;<br>    &lt;backingStore&gt;/vms/images/vol_test&lt;/backingStore&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;name&gt;vol_test2&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users/&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.01171875&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;vvvdd&lt;/name&gt;<br>    &lt;size&gt;1.23456789E8&lt;/size&gt;<br>    &lt;users&gt;rest_add2,rest_add3&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>  &lt;storageVolume&gt;<br>    &lt;allocation&gt;4.0078125&lt;/allocation&gt;<br>    &lt;backingStore/&gt;<br>    &lt;format&gt;qcow2&lt;/format&gt;<br>    &lt;level&gt;0&lt;/level&gt;<br>    &lt;name&gt;xxx&lt;/name&gt;<br>    &lt;size&gt;1000.0&lt;/size&gt;<br>    &lt;users&gt;rest_add&lt;/users&gt;<br>  &lt;/storageVolume&gt;<br>&lt;/list&gt;
+        </pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

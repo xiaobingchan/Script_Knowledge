@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>增加快照策略</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据指定的参数增加快照策略。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/snapStrategy/addSnapStrategy</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;snapStrategy&gt;<br>    &lt;name&gt;name&lt;/name&gt;<br>    &lt;desc&gt;description&lt;/desc&gt;<br>    &lt;state&gt;0&lt;/state&gt;<br>    &lt;flag&gt;1&lt;/flag&gt;<br>    &lt;maxSnapshotNum&gt;3&lt;/maxSnapshotNum&gt;<br>    &lt;frequency&gt;0&lt;/frequency&gt;<br>    &lt;day&gt;5&lt;/day&gt;<br>    &lt;hour&gt;7&lt;/hour&gt;<br>    &lt;minutes&gt;0&lt;/minutes&gt;<br>    &lt;snapStrategyVm&gt;<br>        &lt;domainId&gt;315&lt;/domainId&gt;<br>    &lt;/snapStrategyVm&gt;<br>    &lt;snapStrategyVm&gt;<br>        &lt;domainId&gt;314&lt;/domainId&gt;<br>    &lt;/snapStrategyVm&gt;<br>&lt;/snapStrategy&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">snapStrategy</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">快照策略名称，名称的最大输入长度为32个字符，且只允许输入汉字、字母、数字、减号、下划线及点。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">desc</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">快照策略描述，最大输入长度为120个字符。</span>
+          <div class="jd-descrdiv">字符串（String）类型，可选。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">state</span></td>
+        <td class="jd-linkcol"><span class="sympad">快照策略状态：1：生效；0：不生效。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">flag</span></td>
+        <td class="jd-linkcol"><span class="sympad">是否快照内存标志，0：快照磁盘，1：快照内存。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">maxSnapshotNum</span></td>
+        <td class="jd-linkcol"><span class="sympad">允许快照保存的最大个数, 0为不限制，大于0为限制保留最大快照个数。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">frequency</span></td>
+        <td class="jd-linkcol"><span class="sympad">频率 :0：每月:1：每周，2：每日。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">day</span></td>
+        <td class="jd-linkcol"><span class="sympad">自动快照的日期-日。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hour</span></td>
+        <td class="jd-linkcol"><span class="sympad">自动快照的日期-时。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">minutes</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>自动快照的日期-分。
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">snapStrategyVm</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>快照策略中的虚拟机。
+          <div class="jd-descrdiv">列表（List）类型。</div></td>
+      </tr>
+    </table>
+	<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">snapStrategyVm</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">domainId</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+  </table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>HTTP/1.1 204 No Content：成功。</li>
+    <li>409(Conflict)：失败。 </li>
+  </ul>
+  </dd>
+  <dt><b>回应</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">无</pre>
+  </div>
+  <dt>&nbsp;</dt>
+</dl>
+<dt>
+    <h2><a name="example"></a>应用举例</h2>
+    <p>创建快照策略name。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.10.80:8080/cas/casrs/snapStrategy/addSnapStrategy
+accept: application/xml
+
+
+
+&lt;snapStrategy&gt;<br>    &lt;name&gt;name&lt;/name&gt;<br>    &lt;desc&gt;description&lt;/desc&gt;<br>    &lt;state&gt;0&lt;/state&gt;<br>    &lt;flag&gt;1&lt;/flag&gt;<br>    &lt;maxSnapshotNum&gt;3&lt;/maxSnapshotNum&gt;<br>    &lt;frequency&gt;0&lt;/frequency&gt;<br>    &lt;day&gt;5&lt;/day&gt;<br>    &lt;hour&gt;7&lt;/hour&gt;<br>    &lt;minutes&gt;0&lt;/minutes&gt;<br>    &lt;snapStrategyVm&gt;<br>        &lt;domainId&gt;315&lt;/domainId&gt;<br>    &lt;/snapStrategyVm&gt;<br>    &lt;snapStrategyVm&gt;<br>        &lt;domainId&gt;314&lt;/domainId&gt;<br>    &lt;/snapStrategyVm&gt;<br>&lt;/snapStrategy&gt;</pre>
+        </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">无</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

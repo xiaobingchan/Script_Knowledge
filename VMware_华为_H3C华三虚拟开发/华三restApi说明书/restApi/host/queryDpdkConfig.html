@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询主机DPDK配置信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据主机id查询DPDK配置信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/host/{id}/dpdkConfig</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+              <td class="jd-linkcol"><span class="sympad">主机id 。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+            </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 193<br>Date: Wed, 17 Sep 2014 09:41:54 GMT<br>Server: H3C-CVM	        </pre>
+        </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;dpdkConfig&gt;<br>    &lt;status&gt;true&lt;/status&gt;<br>    &lt;numaNodeInfo&gt;<br>        &lt;numaNode&gt;1&lt;/numaNode&gt;<br>        &lt;numaCpu&gt;10&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;11&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;12&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;13&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;14&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;15&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;16&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;17&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;18&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;19&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;30&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;31&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;32&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;33&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;34&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;35&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;36&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;37&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;38&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;39&lt;/numaCpu&gt;<br>        &lt;bindCpu&gt;18&lt;/bindCpu&gt;<br>        &lt;bindCpu&gt;33&lt;/bindCpu&gt;<br>        &lt;bindMem&gt;3072&lt;/bindMem&gt;<br>    &lt;/numaNodeInfo&gt;<br>    &lt;numaNodeInfo&gt;<br>        &lt;numaNode&gt;0&lt;/numaNode&gt;<br>        &lt;numaCpu&gt;0&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;1&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;2&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;3&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;4&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;5&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;6&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;7&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;8&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;9&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;20&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;21&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;22&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;23&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;24&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;25&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;26&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;27&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;28&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;29&lt;/numaCpu&gt;<br>        &lt;bindCpu&gt;6&lt;/bindCpu&gt;<br>        &lt;bindCpu&gt;21&lt;/bindCpu&gt;<br>        &lt;bindCpu&gt;22&lt;/bindCpu&gt;<br>        &lt;bindMem&gt;2048&lt;/bindMem&gt;<br>    &lt;/numaNodeInfo&gt;<br>&lt;/dpdkConfig&gt;<br></pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">DPDK状态。true：启用，false：未启用</span>
+	            <div class="jd-descrdiv">布尔（Boolean)类型。</div>	          </td>
+	        </tr>       
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">numaNodeInfo</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">主机每个NUMA节点配置信息。</span>
+	            <div class="jd-descrdiv">自定义类型。</div>	          </td>
+	        </tr>     
+					<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">numaNode</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">NUMA节点号。</span>
+	            <div class="jd-descrdiv">整型（int)类型。</div>	          </td>
+	        </tr>     
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">numaCpu</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">NUMA节点中的CPU号。</span>
+	            <div class="jd-descrdiv">整型（int)类型。</div>	          </td>
+	        </tr>     
+					<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">bindCpu</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">NUMA节点中设置了绑定的CPU号。</span>
+	            <div class="jd-descrdiv">整型（int)类型。</div>	          </td>
+	        </tr>   
+					<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">bindMem</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">NUMA节点绑定的内存大小，单位MB。</span>
+	            <div class="jd-descrdiv">整型（int)类型。</div>	          </td>
+	        </tr>       
+        </table>
+	    <h2><a name="example"></a>应用举例</h2>
+      </dl>
+      
+
+      <p>查询主机id为6的主机DPDK配置信息</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+GET http://localhost:8080/cas/casrs/host/6/dpdkConfig
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;dpdkConfig&gt;<br>    &lt;status&gt;true&lt;/status&gt;<br>    &lt;numaNodeInfo&gt;<br>        &lt;numaNode&gt;1&lt;/numaNode&gt;<br>        &lt;numaCpu&gt;10&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;11&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;12&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;13&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;14&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;15&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;16&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;17&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;18&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;19&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;30&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;31&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;32&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;33&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;34&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;35&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;36&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;37&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;38&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;39&lt;/numaCpu&gt;<br>        &lt;bindCpu&gt;18&lt;/bindCpu&gt;<br>        &lt;bindCpu&gt;33&lt;/bindCpu&gt;<br>        &lt;bindMem&gt;3072&lt;/bindMem&gt;<br>    &lt;/numaNodeInfo&gt;<br>    &lt;numaNodeInfo&gt;<br>        &lt;numaNode&gt;0&lt;/numaNode&gt;<br>        &lt;numaCpu&gt;0&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;1&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;2&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;3&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;4&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;5&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;6&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;7&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;8&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;9&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;20&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;21&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;22&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;23&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;24&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;25&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;26&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;27&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;28&lt;/numaCpu&gt;<br>        &lt;numaCpu&gt;29&lt;/numaCpu&gt;<br>        &lt;bindCpu&gt;6&lt;/bindCpu&gt;<br>        &lt;bindCpu&gt;21&lt;/bindCpu&gt;<br>        &lt;bindCpu&gt;22&lt;/bindCpu&gt;<br>        &lt;bindMem&gt;2048&lt;/bindMem&gt;<br>    &lt;/numaNodeInfo&gt;<br>&lt;/dpdkConfig&gt;<br></pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询虚拟机的性能监控数据</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p><span dir="ltr">根据虚拟机ID或虚拟机UUID查询CPU利用率、内存利用率、磁盘空间利用率、I/O读写吞吐量、磁盘读/写IOPS、磁盘I/O延迟、网卡入出流量、报文数</span>。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/id/{vmId}/monitor</p>
+<p>或者</p>
+<p>/cas/casrs/vm/{uuid}/monitor</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">vmId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div>        </td>
+      </tr>
+	  <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机的UUID。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK</pre>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;domain&gt;<br>  &lt;id&gt;1191&lt;/id&gt;<br>  &lt;cpuRate&gt;0.25&lt;/cpuRate&gt;<br>  &lt;memRate&gt;15.43&lt;/memRate&gt;<br>  &lt;disk&gt;<br>    &lt;device&gt;hda&lt;/device&gt;<br>    &lt;ioStat&gt;2.4&lt;/ioStat&gt;<br>    &lt;readStat&gt;0.0&lt;/readStat&gt;<br>    &lt;writeStat&gt;2.4&lt;/writeStat&gt;<br>    &lt;readReqest&gt;0.0&lt;/readReqest&gt;<br>    &lt;writeReqest&gt;0.0&lt;/writeReqest&gt;<br>    &lt;readLatency&gt;0.0&lt;/readLatency&gt;<br>    &lt;writeLatency&gt;1.121&lt;/writeLatency&gt;<br>  &lt;/disk&gt;<br>  &lt;net&gt;<br>    &lt;mac&gt;0c:da:41:1d:ca:e9&lt;/mac&gt;<br>    &lt;readFlow&gt;0.011817423502604167&lt;/readFlow&gt;<br>    &lt;readPackets&gt;381.0&lt;/readPackets&gt;<br>    &lt;writeFlow&gt;0.0&lt;/writeFlow&gt;<br>    &lt;writePackets&gt;0.0&lt;/writePackets&gt;<br>  &lt;/net&gt;<br>  &lt;partition&gt;<br>    &lt;device&gt;C:&lt;/device&gt;<br>    &lt;usage&gt;11.7&lt;/usage&gt;<br>  &lt;/partition&gt;<br>&lt;/domain&gt;<br><br></pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">cpuRate</span></td>
+      <td class="jd-linkcol"><span class="sympad">CPU利用率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">memRate</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">内存利用率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">disk</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">device</span></td>
+      <td class="jd-linkcol"><span class="sympad">磁盘镜像物理名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">ioStat</span></td>
+      <td class="jd-linkcol"><span class="sympad">I/O吞吐量。</span>
+          单位：KBps
+            <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">readStat</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">I/O读吞吐量。</span>
+          
+          单位：KBps
+            
+            <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">writeStat</span></td>
+      <td class="jd-linkcol"><span class="sympad">I/O写吞吐量。</span>
+          
+          单位：
+            KBps
+            <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">readReqest</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘读IOPS。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">writeReqest</span></td>
+      <td class="jd-linkcol"><span class="sympad">磁盘写IOPS。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">readLatency</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘I/O读延迟。</span>
+        
+          单位：ms
+            <div class="jd-descrdiv">小数（double）类型。</div></td></tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">writeLatency</span></td>
+      <td class="jd-linkcol"><span class="sympad">磁盘I/O写延迟。</span>
+          
+          单位：
+            ms
+            <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">net</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">mac</span></td>
+      <td class="jd-linkcol"><span class="sympad">网卡MAC地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">readFlow</span></td>
+      <td class="jd-linkcol"><span class="sympad">网卡读流量。</span>
+          
+          单位：
+            Mbps
+            <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">readPackets</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">网卡读报文数。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">writeFlow</span></td>
+      <td class="jd-linkcol"><span class="sympad">网卡写流量。</span>
+          
+          单位：
+            
+            Mbps
+            <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">writePackets</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">网卡写报文数。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">partition</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">device</span></td>
+      <td class="jd-linkcol"><span class="sympad">逻辑磁盘名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">usage</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘利用率数据。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询<span dir="ltr">虚拟机ID为1191的CPU利用率、内存利用率、磁盘空间利用率、I/O读写吞吐量、磁盘读/写IOPS、磁盘I/O延迟、网卡入出流量、报文数</span>。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/vm/id/1191/monitor
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;domain&gt;<br>  &lt;id&gt;1191&lt;/id&gt;<br>  &lt;cpuRate&gt;0.25&lt;/cpuRate&gt;<br>  &lt;memRate&gt;15.43&lt;/memRate&gt;<br>  &lt;disk&gt;<br>    &lt;device&gt;hda&lt;/device&gt;<br>    &lt;ioStat&gt;2.4&lt;/ioStat&gt;<br>    &lt;readStat&gt;0.0&lt;/readStat&gt;<br>    &lt;writeStat&gt;2.4&lt;/writeStat&gt;<br>    &lt;readReqest&gt;0.0&lt;/readReqest&gt;<br>    &lt;writeReqest&gt;0.0&lt;/writeReqest&gt;<br>    &lt;readLatency&gt;0.0&lt;/readLatency&gt;<br>    &lt;writeLatency&gt;1.121&lt;/writeLatency&gt;<br>  &lt;/disk&gt;<br>  &lt;net&gt;<br>    &lt;mac&gt;0c:da:41:1d:ca:e9&lt;/mac&gt;<br>    &lt;readFlow&gt;0.011817423502604167&lt;/readFlow&gt;<br>    &lt;readPackets&gt;381.0&lt;/readPackets&gt;<br>    &lt;writeFlow&gt;0.0&lt;/writeFlow&gt;<br>    &lt;writePackets&gt;0.0&lt;/writePackets&gt;<br>  &lt;/net&gt;<br>  &lt;partition&gt;<br>    &lt;device&gt;C:&lt;/device&gt;<br>    &lt;usage&gt;11.7&lt;/usage&gt;<br>  &lt;/partition&gt;<br>&lt;/domain&gt;</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

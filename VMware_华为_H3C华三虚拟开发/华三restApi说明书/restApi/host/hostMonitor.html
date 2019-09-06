@@ -1,0 +1,139 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询主机的CPU、内存、磁盘利用率、磁盘的I/O吞吐量读写、磁盘读写请求(IOPS)、磁盘读写延迟</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据主机id查询指定物理主机下的CPU、内存、磁盘利用率、磁盘的I/O吞吐量读写、磁盘读写请求(IOPS)、磁盘读写延迟。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/host/id/{hostId}/monitor</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">hostId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机id 。</span><div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK</pre>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;host&gt;<br>  &lt;cpuRate&gt;14.86&lt;/cpuRate&gt;<br>  &lt;memRate&gt;73.48&lt;/memRate&gt;<br>  &lt;disk&gt;<br>    &lt;device&gt;sda1&lt;/device&gt;<br>    &lt;usage&gt;6.0&lt;/usage&gt;<br>    &lt;rd_stat&gt;1.0&lt;/rd_stat&gt;<br>    &lt;wr_stat&gt;1.0&lt;/wr_stat&gt;<br>    &lt;rd_req&gt;1.0&lt;/rd_req&gt;<br>    &lt;wr_req&gt;1.0&lt;/wr_req&gt;<br>    &lt;rd_latency&gt;1.0&lt;/rd_latency&gt;<br>    &lt;wr_latency&gt;1.0&lt;/wr_latency&gt;<br>  &lt;/disk&gt;<br>  &lt;disk&gt;<br>    &lt;device&gt;sda7&lt;/device&gt;<br>    &lt;usage&gt;6.0&lt;/usage&gt;<br>    &lt;rd_stat&gt;1.0&lt;/rd_stat&gt;<br>    &lt;wr_stat&gt;1.0&lt;/wr_stat&gt;<br>    &lt;rd_req&gt;1.0&lt;/rd_req&gt;<br>    &lt;wr_req&gt;1.0&lt;/wr_req&gt;<br>    &lt;rd_latency&gt;1.0&lt;/rd_latency&gt;<br>    &lt;wr_latency&gt;1.0&lt;/wr_latency&gt;<br>  &lt;/disk&gt;<br>&lt;/host&gt;<br></pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">host</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">cpuRate</span></td>
+      <td class="jd-linkcol"><span class="sympad">CPU利用率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">memRate</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">内存利用率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">disk</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">device</span></td>
+      <td class="jd-linkcol"><span class="sympad">磁盘名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">usage</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘利用率数据。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rd_stat</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘读速率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">wr_stat</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘写速率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rd_req</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘IPOS读。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">wr_req</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘IPOS写。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rd_latency</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘读延迟。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">wr_latency</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">磁盘写延迟。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询主机id为2的CPU、内存、磁盘利用率、磁盘的I/O吞吐量读写、磁盘读写请求(IOPS)、磁盘读写延迟。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/host/id/2/monitor
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;host&gt;<br>  &lt;cpuRate&gt;14.86&lt;/cpuRate&gt;<br>  &lt;memRate&gt;73.48&lt;/memRate&gt;<br>  &lt;disk&gt;<br>    &lt;device&gt;sda1&lt;/device&gt;<br>    &lt;usage&gt;6.0&lt;/usage&gt;<br>    &lt;rd_stat&gt;1.0&lt;/rd_stat&gt;<br>    &lt;wr_stat&gt;1.0&lt;/wr_stat&gt;<br>    &lt;rd_req&gt;1.0&lt;/rd_req&gt;<br>    &lt;wr_req&gt;1.0&lt;/wr_req&gt;<br>    &lt;rd_latency&gt;1.0&lt;/rd_latency&gt;<br>    &lt;wr_latency&gt;1.0&lt;/wr_latency&gt;<br>  &lt;/disk&gt;<br>  &lt;disk&gt;<br>    &lt;device&gt;sda7&lt;/device&gt;<br>    &lt;usage&gt;6.0&lt;/usage&gt;<br>    &lt;rd_stat&gt;1.0&lt;/rd_stat&gt;<br>    &lt;wr_stat&gt;1.0&lt;/wr_stat&gt;<br>    &lt;rd_req&gt;1.0&lt;/rd_req&gt;<br>    &lt;wr_req&gt;1.0&lt;/wr_req&gt;<br>    &lt;rd_latency&gt;1.0&lt;/rd_latency&gt;<br>    &lt;wr_latency&gt;1.0&lt;/wr_latency&gt;<br>  &lt;/disk&gt;<br>&lt;/host&gt;<br>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询指定主机池的概要信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据主机池id查询指定主机池的概要信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/hostpool/summary/{hpId}</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+
+	        <tr >
+	          <td class="jd-typecol">hpId</td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">主机池id 。</span>
+                <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 515
+Date: Tue, 16 Sep 2014 08:09:29 GMT
+Server: H3C-CVM
+</pre>
+	      </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;list&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;主机&lt;/key&gt;<br>    &lt;value&gt;6&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;CPU总核数&lt;/key&gt;<br>    &lt;value&gt;70&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;总内存&lt;/key&gt;<br>    &lt;value&gt;143.52GB&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;本地总存储&lt;/key&gt;<br>    &lt;value&gt;1.94TB&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;本地总可用存储&lt;/key&gt;<br>    &lt;value&gt;1.90TB&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;虚拟机&lt;/key&gt;<br>    &lt;value&gt;104&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;虚拟机密度&lt;/key&gt;<br>    &lt;value&gt;17.33&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>&lt;/list&gt;         </pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2"><span class="prettyprint lang-xml">keyValue</span>各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">key</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">参数名称。</span>
+	            <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+
+        <tr class="alt-color">
+          <td class="jd-typecol"><span class="prettyprint lang-xml">value</span></td>
+          <td class="jd-linkcol"><span class="sympad"></span>参数值。
+            <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>
+        </table>
+        <dt>&nbsp;</dt>
+      </dl>
+
+
+      <h2><a name="example"></a>应用举例</h2>
+      <p>查询 ID为”2“的主机池概要信息。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+GET http://localhost:8080/cas/casrs/hostpool/summary/2
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+
+Content-Type: application/xml<br>Content-Length: 515<br>Date: Tue, 16 Sep 2014 08:09:29 GMT<br>Server: H3C-CVM<br>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;list&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;主机&lt;/key&gt;<br>    &lt;value&gt;6&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;CPU总核数&lt;/key&gt;<br>    &lt;value&gt;70&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;总内存&lt;/key&gt;<br>    &lt;value&gt;143.52GB&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;本地总存储&lt;/key&gt;<br>    &lt;value&gt;1.94TB&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;本地总可用存储&lt;/key&gt;<br>    &lt;value&gt;1.90TB&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;虚拟机&lt;/key&gt;<br>    &lt;value&gt;104&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>  &lt;keyValue&gt;<br>    &lt;key&gt;虚拟机密度&lt;/key&gt;<br>    &lt;value&gt;17.33&lt;/value&gt;<br>  &lt;/keyValue&gt;<br>&lt;/list&gt;         </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

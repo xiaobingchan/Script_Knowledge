@@ -6,6 +6,8 @@ ls  ————列出当前目录内容命令
 cd  ————打开目录命令
 pwd ————列出当前目录命令
 find ———— 查找文件命令
+cut ———— 分隔字符串
+                                echo "12:34:56:23" | cut -d: -f2  #  获取":"符号的第二次出现后跟着的字符串
 cat ————输出文件内容命令 ：     cat a.txt
 head ———输出前n行文件内容命令： cat a.txt | head -2
 wc  ————统计文件行数命令：      cat a.txt | wc -l
@@ -16,8 +18,27 @@ grep ————输出过滤关键词命令
 #  cat a.txt |  grep "abc"  # 只列出含有"abc"的内容
 #  cat a.txt |  grep -v "abc"  # 列出不含有"abc"的内容
 #  cat a.txt |  grep -E "ab*"  # 列出"ab"开头的内容
+#  grep -rn "cc" a.txt         # 获取含有"cc"的行数
 sed  ————文本处理命令
+sed命令删除文件中含有“abc”的一行
+#  sed -i -e '/abc/d' /etc/exports
+sed命令获取含有“abc”的行数
+#  sed -n -e '/abc/='  shit.txt
+sed命令插入“rrr”到第2行前面
+#  sed '2 irrr' -i shit.txt
+sed命令插入“rrr2”到第2行后面
+#  sed '2 arrr2' -i a.txt
 awk  ————行运算命令
+
+开放防火墙端口命令
+#  centos6 iptables用法：
+#  vi /etc/sysconfig/iptables
+#  -A INPUT -p tcp -m state --state NEW -m tcp --dport 8888 -j ACCEPT
+#  service iptables restart
+
+#  centos7 firewalld用法：
+#  firewall-cmd --zone=public --add-port=8888/tcp --permanent    
+#  firewall-cmd --reload
 
 压缩解压命令：
 # 解压tar包到指定目录： tar -xzvf a.tgz -C /usr/local/
@@ -188,23 +209,27 @@ EOF
 33，批量杀进程：  # 
 ps -aux | grep httpd | grep -v grep | cut -c 7-15 | xargs kill -9
 
+34，文件
+#  stat a.txt   # 列出当前文件的详细修改信息
+#  md5sum test.py    # 获取文件md5值
+#  sha1sum test.py   # 获取文件sha1值
+#  sha256sum test.py # 获取文件sha256值
 
+35，获取当前系统时间： # date
+
+36，过滤只剩下数字：echo "afdw34r45t" | tr -cd  "[0-9]"
+                    echo "afdw34r45t" | tr a-z A-Z      # 把小写字母转换成大写字母
+
+37，将DOS格式文本文件转换成UNIX格式：  #  dos2unix  a.txt
+
+38，查看端口监听情况：netstat -lntp
 
 查看密码策略：/etc/pam.d/common_password
 21，列出当前tty登陆： #  w
 22，锁定用户密码 ： usermod -L lyj
-将DOS格式文本文件转换成UNIX格式：  #  dos2unix  a.txt
 
-mysql:
-# mysql -h127.0.0.1 -P3306 -uroot -p123456 -e "CREATE USER 'dog'@'%' IDENTIFIED BY '12345678990'"
-# CREATE USER 'dog'@'%' IDENTIFIED BY '12345678990';
-# mysql -h127.0.0.1 -P3306 -uroot -p123456 -e "DROP USER 'dog'@'%'"
-# DROP USER 'dog'@'%';
-# mysql -h127.0.0.1 -P3306 -uroot -p123456 -e "SET PASSWORD FOR 'dog'@'%' = PASSWORD('1234564e6456456456')"
-# SET PASSWORD FOR 'dog'@'%' = PASSWORD('1234564e6456456456');
-#https://www.cnblogs.com/clover-siyecao/p/5591992.html
-#set global validate_password_policy=LOW;
-#SHOW VARIABLES LIKE 'validate_password%';
+
+
 
 redis:
 #/usr/local/redis-5.0.3/src/redis-cli -h 127.0.0.1 -a a12345678 info | grep -e "connected_clients" -e "used_memory_rss_human" -e "used_memory_peak_human" -e "total_connections_received" -e "instantaneous_ops_per_sec" -e "instantaneous_input_kbps" -e "instantaneous_output_kbps" -e "rejected_connections" -e "expired_keys" -e "evicted_keys" -e "keyspace_hits" -e "keyspace_misses"
@@ -215,21 +240,13 @@ rpm卸载：rpm -e --nodeps
 rpm查询：rpm -qa
 rpm安装: rpm -ivh
 
-*******************   16，文件md5值
-md5sum test.py
-sha1sum test.py
-sha256sum test.py
-
-stat a.txt
-
-删除不存在的行：sed -i "/\<status\>/I! d" file
 
 
 笔记
 
 照峰：
 1，bind_ip 为 0.0.0.0 才能外部访问
-2，查看端口监听情况：netstat -lntp
+
 3，查看远程登陆情况：w
 
 晓书：

@@ -1,0 +1,167 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询资源池下资源使用历史列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据资源池ID查询资源使用历史列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/resPool/history?resPoolId={resPoolId}&amp;offset={offset}&amp;limit={limit}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt><br>
+  <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">查询参数（Query Parameter）</th>
+        </tr>
+	        <tr >
+	          <td class="jd-typecol">resPoolId</td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">资源池id 。</span>
+                <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+			 <tr>
+          <td class="jd-typecol">offset</td>
+          <td class="jd-linkcol" width="100%"><span class="sympad">查询起始位置 。</span>
+              <div class="jd-descrdiv">整数（int）类型。 可选。</div></td>
+        </tr>
+        <tr>
+          <td class="jd-typecol">limit</td>
+          <td class="jd-linkcol" width="100%"><span class="sympad">查询记录数 。 </span>
+              <div class="jd-descrdiv">整数（int）类型。 可选。 </div></td>
+        </tr>
+        </table>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 2607<br>Date: Sat, 24 Feb 2018 09:42:43 GMT</pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;list xmlns:casprivate=&quot;cas_private_data&quot; xmlns:nsprd=&quot;prealloc_data&quot; xmlns:private=&quot;private_data&quot; xmlns:qemu=&quot;http://libvirt.org/schemas/domain/qemu/1.0&quot;&gt;<br>&lt;resUseHistory&gt;<br>    &lt;id&gt;5&lt;/id&gt;<br>    &lt;bus&gt;0000:06:00.0&lt;/bus&gt;<br>    &lt;producers&gt;NVIDIA Corporation&lt;/producers&gt;<br>    &lt;hostId&gt;13&lt;/hostId&gt;<br>    &lt;hostName&gt;cvk2059&lt;/hostName&gt;<br>    &lt;startTime&gt;2018-02-23T17:30:26+08:00&lt;/startTime&gt;<br>    &lt;endTime&gt;2018-02-24T13:46:47+08:00&lt;/endTime&gt;<br>    &lt;type&gt;nvidia-11&lt;/type&gt;<br>    &lt;name&gt;GRID M60-0B&lt;/name&gt;<br>    &lt;maxInstance&gt;16&lt;/maxInstance&gt;<br>    &lt;framebuffer&gt;512M&lt;/framebuffer&gt;<br>    &lt;maxResolution&gt;2560x1600&lt;/maxResolution&gt;<br>    &lt;uuid&gt;05b21330-0600-56bd-a7f8-5397d44d8f14&lt;/uuid&gt;<br>    &lt;heads&gt;2&lt;/heads&gt;<br>    &lt;title&gt;win7-pt2&lt;/title&gt;<br>  &lt;/resUseHistory&gt;<br>  &lt;resUseHistory&gt;<br>    &lt;id&gt;4&lt;/id&gt;<br>    &lt;bus&gt;0000:06:00.0&lt;/bus&gt;<br>    &lt;producers&gt;NVIDIA Corporation&lt;/producers&gt;<br>    &lt;hostId&gt;13&lt;/hostId&gt;<br>    &lt;hostName&gt;cvk2059&lt;/hostName&gt;<br>    &lt;startTime&gt;2018-02-23T17:22:08+08:00&lt;/startTime&gt;<br>    &lt;endTime&gt;2018-02-23T17:30:25+08:00&lt;/endTime&gt;<br>    &lt;type&gt;nvidia-11&lt;/type&gt;<br>    &lt;name&gt;GRID M60-0B&lt;/name&gt;<br>    &lt;maxInstance&gt;16&lt;/maxInstance&gt;<br>    &lt;framebuffer&gt;512M&lt;/framebuffer&gt;<br>    &lt;maxResolution&gt;2560x1600&lt;/maxResolution&gt;<br>    &lt;uuid&gt;05b21330-0600-56bd-a7f8-5397d44d8f14&lt;/uuid&gt;<br>    &lt;heads&gt;2&lt;/heads&gt;<br>    &lt;title&gt;win7-pt3&lt;/title&gt;<br>  &lt;/resUseHistory&gt;<br>&lt;/list&gt;<br>
+  </pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">resPool</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源使用历史 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol">bus</td>
+      <td class="jd-linkcol"><span class="sympad">槽位号。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol">producers</td>
+      <td class="jd-linkcol"><span class="sympad">厂商。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostId</span></td>
+      <td class="jd-linkcol"><span class="sympad">主机id。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostName</span></td>
+      <td class="jd-linkcol"><span class="sympad">主机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">startTime</span></td>
+      <td class="jd-linkcol"><span class="sympad">资源开始使用时间。</span>
+          <div class="jd-descrdiv">日期（Date）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">endTime</span></td>
+      <td class="jd-linkcol"><span class="sympad">资源结束使用时间。</span>
+          <div class="jd-descrdiv">日期（Date）类型。</div></td>
+    </tr>
+	<tr>
+	  <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+	  <td class="jd-linkcol"><span class="sympad">虚拟GPU切分类型。</span>
+	    <div class="jd-descrdiv">字符串（String）类型。</div>
+	    </td>
+	  </tr>
+	<tr>
+	  <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+	  <td class="jd-linkcol"><span class="sympad">虚拟GPU切分类型的名称。</span>
+	  	 <div class="jd-descrdiv">字符串（String）类型。</div>
+	  </td>
+	  </tr>
+	  <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+      <td class="jd-linkcol"><span class="sympad">vGPU UUID。</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	</tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">heads</span></td>
+      <td class="jd-linkcol"><span class="sympad">显示器接口数。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">framebuffer</span></td>
+      <td class="jd-linkcol"><span class="sympad">帧缓冲区。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">maxResolution</span></td>
+      <td class="jd-linkcol"><span class="sympad">最大分辨率。</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">maxInstance</span></td>
+      <td class="jd-linkcol"><span class="sympad">最大虚拟个数。</span>
+        <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+	</tr>
+	 <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">title</span></td>
+      <td class="jd-linkcol"><span class="sympad">使用资源的虚拟机显示名称。</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	</tr>
+</table>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询资源池下资源使用历史列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/resPool/history?resPoolId=1
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Total: 2<br>Content-Type: application/xml<br>Content-Length: 623<br>Date: Sat, 03 Feb 2018 08:33:01 GMT<br>Server: H3C-CVM
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;list&gt;<br>&lt;resUseHistory&gt;<br>    &lt;id&gt;5&lt;/id&gt;<br>    &lt;bus&gt;0000:06:00.0&lt;/bus&gt;<br>    &lt;producers&gt;NVIDIA Corporation&lt;/producers&gt;<br>    &lt;hostId&gt;13&lt;/hostId&gt;<br>    &lt;hostName&gt;cvk2059&lt;/hostName&gt;<br>    &lt;startTime&gt;2018-02-23T17:30:26+08:00&lt;/startTime&gt;<br>    &lt;endTime&gt;2018-02-24T13:46:47+08:00&lt;/endTime&gt;<br>    &lt;type&gt;nvidia-11&lt;/type&gt;<br>    &lt;name&gt;GRID M60-0B&lt;/name&gt;<br>    &lt;maxInstance&gt;16&lt;/maxInstance&gt;<br>    &lt;framebuffer&gt;512M&lt;/framebuffer&gt;<br>    &lt;maxResolution&gt;2560x1600&lt;/maxResolution&gt;<br>    &lt;uuid&gt;05b21330-0600-56bd-a7f8-5397d44d8f14&lt;/uuid&gt;<br>    &lt;heads&gt;2&lt;/heads&gt;<br>    &lt;title&gt;win7-pt2&lt;/title&gt;<br>  &lt;/resUseHistory&gt;<br>  &lt;resUseHistory&gt;<br>    &lt;id&gt;4&lt;/id&gt;<br>    &lt;bus&gt;0000:06:00.0&lt;/bus&gt;<br>    &lt;producers&gt;NVIDIA Corporation&lt;/producers&gt;<br>    &lt;hostId&gt;13&lt;/hostId&gt;<br>    &lt;hostName&gt;cvk2059&lt;/hostName&gt;<br>    &lt;startTime&gt;2018-02-23T17:22:08+08:00&lt;/startTime&gt;<br>    &lt;endTime&gt;2018-02-23T17:30:25+08:00&lt;/endTime&gt;<br>    &lt;type&gt;nvidia-11&lt;/type&gt;<br>    &lt;name&gt;GRID M60-0B&lt;/name&gt;<br>    &lt;maxInstance&gt;16&lt;/maxInstance&gt;<br>    &lt;framebuffer&gt;512M&lt;/framebuffer&gt;<br>    &lt;maxResolution&gt;2560x1600&lt;/maxResolution&gt;<br>    &lt;uuid&gt;05b21330-0600-56bd-a7f8-5397d44d8f14&lt;/uuid&gt;<br>    &lt;heads&gt;2&lt;/heads&gt;<br>    &lt;title&gt;win7-pt3&lt;/title&gt;<br>  &lt;/resUseHistory&gt;<br>&lt;/list&gt;</pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

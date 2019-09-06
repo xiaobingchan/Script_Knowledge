@@ -1,0 +1,126 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询CAS系统中所有业务模板列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询CAS系统中所有的业务模板列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/resPool/queryBusinessTem?offset={offset}&amp;limit={limit}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt><br>
+  <table class="jd-sumtable" id="pubmethods">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query Parameter）</th>
+      </tr>
+
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">offset</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">返回的第一条记录在总结果集中的位置。</span>
+            <div class="jd-descrdiv">整数（int）类型，非必须。</div></td>
+      </tr>
+      <tr >
+        <td class="jd-typecol"><span class="prettyprint lang-xml">limit</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">返回记录总数。</span>
+            <div class="jd-descrdiv">整数（int）类型，非必须。</div></td>
+      </tr>
+    </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Total: 0<br>Content-Type: application/xml<br>Content-Length: 562<br>Date: Sat, 03 Feb 2018 08:33:01 GMT<br>Server: H3C-CVM</pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;list&gt;<br>  &lt;businessTem&gt;<br>    &lt;id&gt;11&lt;/id&gt;<br>    &lt;name&gt;hight&lt;/name&gt;<br>    &lt;priority&gt;0&lt;/priority&gt;<br>    &lt;proportion&gt;60&lt;/proportion&gt;<br>    &lt;command&gt;ls&lt;/command&gt;<br>    &lt;commandResult&gt;0&lt;/commandResult&gt;<br>    &lt;handleMode&gt;0&lt;/handleMode&gt;<br>  &lt;/businessTem&gt;<br>  &lt;businessTem&gt;<br>    &lt;id&gt;19&lt;/id&gt;<br>    &lt;name&gt;ttt&lt;/name&gt;<br>    &lt;description&gt;wedasd&lt;/description&gt;<br>    &lt;priority&gt;0&lt;/priority&gt;<br>    &lt;proportion&gt;5&lt;/proportion&gt;<br>    &lt;handleMode&gt;1&lt;/handleMode&gt;<br>  &lt;/businessTem&gt;<br>&lt;/list&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">businessTem</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">业务模板 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">业务模板名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+      <td class="jd-linkcol"><span class="sympad">业务模板描述。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">priority</span></td>
+      <td class="jd-linkcol"><span class="sympad">优先级。</span>
+          0：高，2：低
+            <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">proportion</span></td>
+      <td class="jd-linkcol"><span class="sympad">资源分配比例1~100。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">command</span></td>
+      <td class="jd-linkcol"><span class="sympad">停止业务命令。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">commandResult</span></td>
+      <td class="jd-linkcol"><span class="sympad">命令返回结果。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">handleMode</span></td>
+      <td class="jd-linkcol"><span class="sympad">停止业务失败，处理方式。</span>
+          0：强制关闭虚拟机，1：查找下一个低优先级虚拟机
+            <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+</table>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询 CAS系统中所有业务模板列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/resPool/queryBusinessTem
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Set-Cookie: JSESSIONID=BBA458E99F0D751A832FCA8D447B053F; Path=/cas<br>Total: 0<br>Content-Type: application/xml<br>Content-Length: 595<br>Date: Sat, 03 Feb 2018 08:33:01 GMT<br>Server: H3C-CVM<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;list&gt;<br>  &lt;businessTem&gt;<br>    &lt;id&gt;11&lt;/id&gt;<br>    &lt;name&gt;hight&lt;/name&gt;<br>    &lt;priority&gt;0&lt;/priority&gt;<br>    &lt;proportion&gt;60&lt;/proportion&gt;<br>    &lt;command&gt;ls&lt;/command&gt;<br>    &lt;commandResult&gt;0&lt;/commandResult&gt;<br>    &lt;handleMode&gt;0&lt;/handleMode&gt;<br>  &lt;/businessTem&gt;<br>  &lt;businessTem&gt;<br>    &lt;id&gt;19&lt;/id&gt;<br>    &lt;name&gt;ttt&lt;/name&gt;<br>    &lt;description&gt;wedasd&lt;/description&gt;<br>    &lt;priority&gt;0&lt;/priority&gt;<br>    &lt;proportion&gt;5&lt;/proportion&gt;<br>    &lt;handleMode&gt;1&lt;/handleMode&gt;<br>  &lt;/businessTem&gt;<br>&lt;/list&gt;</pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

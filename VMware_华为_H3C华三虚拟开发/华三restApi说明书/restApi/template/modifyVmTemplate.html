@@ -1,0 +1,164 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>修改虚拟机模板</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>修改虚拟机模板。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vmTemplate/modifyVmTemplate</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+</dl>
+<dt>
+          <b>消息体</b>
+      </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;domain&gt;<br>    &lt;id&gt;1195&lt;/id&gt;<br>    &lt;name&gt;lxwtt-template&lt;/name&gt;
+    &lt;description&gt;rest modify&lt;/description&gt;<br>    &lt;memory&gt;1024&lt;/memory&gt;<br>    &lt;memoryInit&gt;1024&lt;/memoryInit&gt;<br>    &lt;memoryUnit&gt;MB&lt;/memoryUnit&gt;<br>    &lt;cpuSockets&gt;1&lt;/cpuSockets&gt;<br>    &lt;cpuCores&gt;1&lt;/cpuCores&gt;<br>    &lt;cpu&gt;2&lt;/cpu&gt;<br>    &lt;cpuMax&gt;8&lt;/cpuMax&gt;<br>    &lt;storage&gt;<br>      &lt;id&gt;130&lt;/id&gt;<br>      &lt;storeFile&gt;lxwtt-template&lt;/storeFile&gt;<br>      &lt;capacity&gt;100&lt;/capacity&gt;<br>    &lt;/storage&gt;<br>&lt;/domain&gt;</pre>
+      </div>
+        
+  <dt>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">domain</span>参数</th>
+      </tr>
+	    <tr>
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+      <tr>
+        <td class="jd-typecol">name</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板名称 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div>        </td>
+      </tr>
+	  <tr >
+        <td class="alt-color"><span class="prettyprint lang-xml">description</span></td>
+        <td class="jd-linkcol"><span class="sympad">描述,最大输入长度为120个字符。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">memory</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板内存大小，单位为M。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">memoryInit</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板内存单位。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cpuSockets</span></td>
+        <td class="jd-linkcol"><span class="sympad">CPU个数，最小值为1。</span>
+            <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cpuCores</span></td>
+        <td class="jd-linkcol"><span class="sympad">CPU核数，最小值为1。</span>
+            <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cpuMax</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机模板CPU最大核数。</span>
+            <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cpu</span></td>
+        <td class="jd-linkcol"><p class="sympad">虚拟机模板CPU当前总核数（CPU个数 * CPU核数）。
+            </p>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">storage</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储配置。</span>
+            <div class="jd-descrdiv">自定义类型，必须。</div></td>
+      </tr>
+  </table>
+  
+   <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">storage各子元素</th>
+      </tr>
+      
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">存储id。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">storeFile</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储文件。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">capacity</span></td>
+        <td class="jd-linkcol"><span class="sympad">分配存储容量。
+          单位（M）。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td></tr>
+  </table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)： 成功。</li>
+    <li>409(Conflict)：失败。</li>
+    </ul>
+  </dd>
+    <dt><b>回应</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 232<br>Date: Tue, 16 Sep 2014 08:17:59 GMT<br>Server: H3C-CVM
+
+&lt;taskMsg&gt;<br>  &lt;msgId&gt;1416904446733&lt;/msgId&gt;<br>  &lt;targetId&gt;1195&lt;/targetId&gt;<br>  &lt;targetName&gt;lxwtt-template&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;<br><br>
+  </pre>
+  </div>
+  <dt>&nbsp;</dt>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+
+<table id="pubmethods" class="jd-sumtable">
+  <tbody>
+    <tr>
+      <th colspan="2">返回修改虚拟机模板任务id，可根据任务id查询任务进度。</th>
+    </tr>
+</table>
+<br>
+<h2><a name="example"></a>应用举例</h2>
+    <p>修改虚拟机模板。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT 
+http://localhost:8080/cas/casrs/vmTemplate/modifyVmTemplate
+&lt;domain&gt;<br>    &lt;id&gt;1195&lt;/id&gt;<br>    &lt;name&gt;lxwtt-template&lt;/name&gt;<br>    &lt;memory&gt;1024&lt;/memory&gt;<br>    &lt;memoryInit&gt;1024&lt;/memoryInit&gt;<br>    &lt;memoryUnit&gt;MB&lt;/memoryUnit&gt;<br>    &lt;cpuSockets&gt;1&lt;/cpuSockets&gt;<br>    &lt;cpuCores&gt;1&lt;/cpuCores&gt;<br>    &lt;cpu&gt;2&lt;/cpu&gt;<br>    &lt;cpuMax&gt;8&lt;/cpuMax&gt;<br>    &lt;storage&gt;<br>      &lt;id&gt;130&lt;/id&gt;<br>      &lt;storeFile&gt;lxwtt-template&lt;/storeFile&gt;<br>      &lt;capacity&gt;100&lt;/capacity&gt;<br>    &lt;/storage&gt;<br>&lt;/domain&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 232<br>Date: Tue, 16 Sep 2014 08:17:59 GMT<br>Server: H3C-CVM
+
+&lt;taskMsg&gt;<br>  &lt;msgId&gt;1416904446733&lt;/msgId&gt;<br>  &lt;targetId&gt;1195&lt;/targetId&gt;<br>  &lt;targetName&gt;lxwtt-template&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

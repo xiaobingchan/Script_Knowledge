@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>自动登录虚拟机中的操作系统</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>自动指定ID的虚拟机中的操作系统，实现单点登录。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/spice/login</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;spice&gt;<br>  &lt;id&gt;31&lt;/id&gt;<br>  &lt;userName&gt;administrator&lt;/userName&gt;<br>  &lt;domain&gt;h3c/domain&gt;
+  &lt;password&gt;123456/password&gt;<br>&lt;/spice&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">spice</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><p class="prettyprint lang-xml">id</p>
+          </td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机 ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">userName</span></td>
+        <td class="jd-linkcol"><span class="sympad">操作系统登录用户名。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">domain</span></td>
+        <td class="jd-linkcol"><span class="sympad">登录域。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">password</span></td>
+        <td class="jd-linkcol"><span class="sympad">操作系统登录密码。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+  </table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200 (OK)：成功。</li>
+  </ul>
+  </dd>
+    <dt><b>消息头</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+</pre>
+  </div>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为”87“的虚拟机创建快照。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.4:8080/cas/casrs/spice/login
+accept: application/xml
+
+
+&lt;spice&gt;<br>  &lt;id&gt;31&lt;/id&gt;<br>  &lt;userName&gt;administrator&lt;/userName&gt;<br>  &lt;domain&gt;h3c/domain&gt;
+  &lt;password&gt;123456/password&gt;<br>&lt;/spice&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+        <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+</pre>
+  </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

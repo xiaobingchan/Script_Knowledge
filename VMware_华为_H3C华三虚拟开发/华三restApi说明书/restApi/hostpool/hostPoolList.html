@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询CAS系统中所有主机池列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询CAS系统中所有的主机池列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/hostpool/all</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt><br>无
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: H3C-CVM<br>Content-Type: application/xml<br>Content-Length: 363<br>Date: Tue, 16 Sep 2014 07:18:11 GMT
+  </pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;list&gt;
+  &lt;hostpool&gt;
+    &lt;id&gt;1&lt;/id&gt;
+    &lt;name&gt;iPool-1&lt;/name&gt;
+    &lt;operatorGroupId&gt;1&lt;/operatorGroupId&gt;
+    &lt;operatorGroupCode&gt;00&lt;/operatorGroupCode&gt;
+    &lt;childNum&gt;3&lt;/childNum&gt;
+    &lt;/hostpool&gt;
+  &lt;hostpool&gt;
+    &lt;id&gt;2&lt;/id&gt;
+    &lt;name&gt;iPool-2&lt;/name&gt;
+    &lt;operatorGroupId&gt;1&lt;/operatorGroupId&gt;
+    &lt;operatorGroupCode&gt;00&lt;/operatorGroupCode&gt;
+    &lt;childNum&gt;2&lt;/childNum&gt;
+  &lt;/hostpool&gt;
+&lt;/list&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">cluster</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">主机 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">主机池名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">operatorGroupId</span></td>
+      <td class="jd-linkcol"><span class="sympad">操作员分组ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">operatorGroupCode</span></td>
+      <td class="jd-linkcol"><span class="sympad">操作员分组编号。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">childNum</span></td>
+      <td class="jd-linkcol"><span class="sympad">直接子节点数量。主机池下的一级主机和集群数量。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询 CAS系统中所有主机池列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/hostpool/all
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: H3C-CVM<br>Content-Type: application/xml<br>Content-Length: 363<br>Date: Tue, 16 Sep 2014 07:18:11 GMT
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;list&gt;
+  &lt;hostpool&gt;
+    &lt;id&gt;1&lt;/id&gt;
+    &lt;name&gt;iPool-1&lt;/name&gt;
+    &lt;operatorGroupId&gt;1&lt;/operatorGroupId&gt;
+    &lt;operatorGroupCode&gt;00&lt;/operatorGroupCode&gt;
+    &lt;childNum&gt;3&lt;/childNum&gt;
+  &lt;/hostpool&gt;
+  &lt;hostpool&gt;
+    &lt;id&gt;2&lt;/id&gt;
+    &lt;name&gt;iPool-2&lt;/name&gt;
+    &lt;operatorGroupId&gt;1&lt;/operatorGroupId&gt;
+    &lt;operatorGroupCode&gt;00&lt;/operatorGroupCode&gt;
+    &lt;childNum&gt;2&lt;/childNum&gt;
+  &lt;/hostpool&gt;
+&lt;/list&gt;        </pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

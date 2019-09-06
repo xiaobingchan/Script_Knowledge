@@ -1,0 +1,192 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询主机某一个虚拟交换机信息</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据主机id查询主机某一个虚拟交换机信息。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/host/id/{hostId}/vswitch/{vswitchId}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">hostId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机id 。</span><div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+      <tr>
+        <td class="jd-typecol">vswitchId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机id 。</span><div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Total: 7</pre>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;vSwitch&gt;<br>	&lt;id&gt;4&lt;/id&gt;<br>	&lt;name&gt;vswitch0&lt;/name&gt;<br>	&lt;portNum&gt;32&lt;/portNum&gt;<br>	&lt;mode&gt;0&lt;/mode&gt;<br>	&lt;pnic&gt;eth0&lt;/pnic&gt;<br>	&lt;status&gt;1&lt;/status&gt;<br>	&lt;address&gt;192.168.0.8&lt;/address&gt;<br>	&lt;netmask&gt;255.255.255.0&lt;/netmask&gt;<br>	&lt;gateway&gt;192.168.0.1&lt;/gateway&gt;<br>	&lt;enableLacp&gt;false&lt;/enableLacp&gt;<br>	&lt;vNIC&gt;<br>		&lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>		&lt;vPortName&gt;vnet1&lt;/vPortName&gt;<br>		&lt;vmName&gt;wfg-vm-01&lt;/vmName&gt;<br>		&lt;vmMac&gt;0c:da:41:1d:b6:71&lt;/vmMac&gt;<br>		&lt;rxPkts&gt;99&lt;/rxPkts&gt;<br>		&lt;rxBytes&gt;7789&lt;/rxBytes&gt;<br>		&lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>		&lt;txPkts&gt;99&lt;/txPkts&gt;<br>		&lt;txBytes&gt;133369&lt;/txBytes&gt;<br>		&lt;txErrs&gt;0&lt;/txErrs&gt;<br>	&lt;/vNIC&gt;<br>	&lt;vNIC&gt;<br>		&lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>		&lt;vPortName&gt;vnet2&lt;/vPortName&gt;<br>		&lt;vmName&gt;vm-jjun&lt;/vmName&gt;<br>		&lt;vmMac&gt;0c:da:41:1d:85:94&lt;/vmMac&gt;<br>		&lt;rxPkts&gt;17269&lt;/rxPkts&gt;<br>		&lt;rxBytes&gt;1113090&lt;/rxBytes&gt;<br>		&lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>		&lt;txPkts&gt;17269&lt;/txPkts&gt;<br>		&lt;txBytes&gt;56667241&lt;/txBytes&gt;<br>		&lt;txErrs&gt;0&lt;/txErrs&gt;<br>	&lt;/vNIC&gt;
+......<br>&lt;/vSwitch&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">vSwitch</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">portNum</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">端口数量。</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">mode</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">转发模式。0 : veb; 1: vepa; 2:多通道。</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">pnic</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vSwitch绑定的所有物理网卡名。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机交换状态。0:不活动 1:活动。</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+ 	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">address</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">IP地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">netmask</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">网络掩码。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">gateway</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">网关。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">enableLacp</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">是否启用LACP(启用：true，未启用：false。</span>
+          <div class="jd-descrdiv">布尔（Boolean）类型。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">vNIC</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsName</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vPortName</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟端口名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vmName</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vmMac</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机MAC地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rxPkts</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">接收报文数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rxBytes</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">接收字节数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rxErrs</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad"></span>接收错包数 <span class="sympad">。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">txPkts</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">发送报文数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">txBytes</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">发送字节数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">txErrs</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">发送错包数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询主机id为2，虚拟交换机id为4的虚拟交换机的详细信息。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/host/id/2/vswitch/4
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;vSwitch&gt;<br>	&lt;id&gt;4&lt;/id&gt;<br>	&lt;name&gt;vswitch0&lt;/name&gt;<br>	&lt;portNum&gt;32&lt;/portNum&gt;<br>	&lt;mode&gt;0&lt;/mode&gt;<br>	&lt;pnic&gt;eth0&lt;/pnic&gt;<br>	&lt;status&gt;1&lt;/status&gt;<br>	&lt;address&gt;192.168.0.8&lt;/address&gt;<br>	&lt;netmask&gt;255.255.255.0&lt;/netmask&gt;<br>	&lt;gateway&gt;192.168.0.1&lt;/gateway&gt;<br>	&lt;enableLacp&gt;false&lt;/enableLacp&gt;<br>	&lt;vNIC&gt;<br>		&lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>		&lt;vPortName&gt;vnet1&lt;/vPortName&gt;<br>		&lt;vmName&gt;wfg-vm-01&lt;/vmName&gt;<br>		&lt;vmMac&gt;0c:da:41:1d:b6:71&lt;/vmMac&gt;<br>		&lt;rxPkts&gt;99&lt;/rxPkts&gt;<br>		&lt;rxBytes&gt;7789&lt;/rxBytes&gt;<br>		&lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>		&lt;txPkts&gt;99&lt;/txPkts&gt;<br>		&lt;txBytes&gt;133369&lt;/txBytes&gt;<br>		&lt;txErrs&gt;0&lt;/txErrs&gt;<br>	&lt;/vNIC&gt;<br>	&lt;vNIC&gt;<br>		&lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>		&lt;vPortName&gt;vnet2&lt;/vPortName&gt;<br>		&lt;vmName&gt;vm-jjun&lt;/vmName&gt;<br>		&lt;vmMac&gt;0c:da:41:1d:85:94&lt;/vmMac&gt;<br>		&lt;rxPkts&gt;17269&lt;/rxPkts&gt;<br>		&lt;rxBytes&gt;1113090&lt;/rxBytes&gt;<br>		&lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>		&lt;txPkts&gt;17269&lt;/txPkts&gt;<br>		&lt;txBytes&gt;56667241&lt;/txBytes&gt;<br>		&lt;txErrs&gt;0&lt;/txErrs&gt;<br>	&lt;/vNIC&gt;<br>	&lt;vNIC&gt;<br>		&lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>		&lt;vPortName&gt;vnet0&lt;/vPortName&gt;<br>		&lt;vmName&gt;yu-clone&lt;/vmName&gt;<br>		&lt;vmMac&gt;0c:da:41:1d:31:d6&lt;/vmMac&gt;<br>		&lt;rxPkts&gt;6751&lt;/rxPkts&gt;<br>		&lt;rxBytes&gt;408109&lt;/rxBytes&gt;<br>		&lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>		&lt;txPkts&gt;6751&lt;/txPkts&gt;<br>		&lt;txBytes&gt;9985762&lt;/txBytes&gt;<br>		&lt;txErrs&gt;0&lt;/txErrs&gt;<br>	&lt;/vNIC&gt;<br>&lt;/vSwitch&gt;<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

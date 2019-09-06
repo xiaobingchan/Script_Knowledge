@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>分发虚拟机模板</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>分发虚拟机模板。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vmTemplate/distribution</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+</dl>
+<dt>
+          <b>消息体</b>
+      </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;template&gt;<br>    &lt;id&gt;1195&lt;/id&gt;<br>    &lt;targetHostId&gt;1&lt;/targetHostId&gt;
+    &lt;storagePoolName&gt;pool&lt;/storagePoolName&gt;<br>    &lt;cover&gt;true&lt;/cover&gt;<br>&lt;/template&gt;</pre>
+      </div>
+        
+  <dt>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">template</span>参数</th>
+      </tr>
+	    <tr>
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">targetHostId</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">目的主机id 。</span>
+            <div class="jd-descrdiv">长整数（long）类型。必须。</div>
+          <div class="jd-descrdiv"></div>        </td></tr>
+	  <tr >
+        <td class="alt-color"><span class="prettyprint lang-xml">storagePoolName</span></td>
+        <td class="jd-linkcol"><span class="sympad">目的存储池名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cover</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">是否覆盖。</span>
+          <div class="jd-descrdiv">布尔型（Boolean）类型（true：覆盖；false：不覆盖）</div>        </td>
+      </tr>
+  </table>
+  
+   <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)： 成功。</li>
+    <li>409(Conflict)：失败。</li>
+    </ul>
+  </dd>
+    <dt><b>回应</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 238<br>Date: Tue, 15 Aug 2017 08:17:35 GMT<br>Server: H3C-CVM
+&lt;taskMsg&gt;<br>  &lt;msgId&gt;1502764789354&lt;/msgId&gt;<br>  &lt;targetId&gt;53&lt;/targetId&gt;<br>  &lt;targetName&gt;mini_for_v_cvk&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;    </pre>
+  </div>
+  <dt>&nbsp;</dt>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+
+<table id="pubmethods" class="jd-sumtable">
+  <tbody>
+    <tr>
+      <th colspan="2">返回分发虚拟机模板任务id，可根据任务id查询任务进度。</th>
+    </tr>
+</table>
+<br>
+<h2><a name="example"></a>应用举例</h2>
+    <p>分发虚拟机模板。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT 
+http://localhost:8080/cas/casrs/vmTemplate/distribution
+&lt;template&gt;<br>	&lt;id&gt;53&lt;/id&gt;<br>	&lt;targetHostId&gt;5&lt;/targetHostId&gt;<br>	&lt;storagePoolName&gt;share400g&lt;/storagePoolName&gt;<br>	&lt;cover&gt;true&lt;/cover&gt;<br>&lt;/template&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 238<br>Date: Tue, 15 Aug 2017 08:17:35 GMT<br>Server: H3C-CVM
+&lt;taskMsg&gt;<br>  &lt;msgId&gt;1502764789354&lt;/msgId&gt;<br>  &lt;targetId&gt;53&lt;/targetId&gt;<br>  &lt;targetName&gt;mini_for_v_cvk&lt;/targetName&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>增加存储卷（<span class="STYLE1">旧接口，不建议使用</span>）</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>在指定存储池下增加指定存储卷</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/storage/volume/add</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;volAddParameter&gt;<br>  &lt;hostId&gt;4&lt;/hostId&gt;<br>  &lt;spName&gt;t2&lt;/spName&gt;<br>  &lt;volName&gt;jj08&lt;/volName&gt;<br>  &lt;capacity&gt;39582&lt;/capacity&gt;<br>  &lt;format&gt;qcow2&lt;/format&gt;<br>  &lt;baseFile&gt;/vms/t2/jj01&lt;/baseFile&gt;<br>&lt;/volAddParameter&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">vmParamter</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">hostId</td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">指定存储池所在的主机 ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">spName</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储池名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">volName</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储卷名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">capacity</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储卷的最大容量。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">format</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储卷的格式：支持raw和qcow2格式。</span>
+          <div class="jd-descrdiv">枚举：raw，qcow2。</div></td>
+	  </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">baseFile</span></td>
+        <td class="jd-linkcol"><span class="sympad">基础镜像文件（绝对路径），可选。   </span>
+          <div class="jd-descrdiv">字符串（String）类型。</div>
+          <DIV></DIV>
+          </td>
+	  </tr>
+  </table>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 ( No Content)：成功。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>在存储池t2下增加存储卷jj08。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.4:8080/cas/casrs/storage/volume/add
+accept: application/xml
+
+
+&lt;volAddParameter&gt;<br>  &lt;hostId&gt;4&lt;/hostId&gt;<br>  &lt;spName&gt;t2&lt;/spName&gt;<br>  &lt;volName&gt;jj08&lt;/volName&gt;<br>  &lt;capacity&gt;39582&lt;/capacity&gt;<br>  &lt;format&gt;qcow2&lt;/format&gt;<br>  &lt;baseFile&gt;/vms/t2/jj01&lt;/baseFile&gt;<br>&lt;/volAddParameter&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Content-Type: application/xml<br>
+无消息体
+</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

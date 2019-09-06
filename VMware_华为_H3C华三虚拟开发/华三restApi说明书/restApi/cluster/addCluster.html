@@ -1,0 +1,190 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>创建集群</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>创建集群。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/cluster/add</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt>
+          <b>消息体</b>
+        </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+&lt;cluster&gt;
+    &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;
+    &lt;name&gt;clu&lt;/name&gt;
+    &lt;description&gt;cluxs&lt;/description&gt;
+    &lt;enableHA&gt;1&lt;/enableHA&gt;
+    &lt;priority&gt;2&lt;/priority&gt;
+    &lt;enableLB&gt;1&lt;/enableLB&gt;
+    &lt;persistTime&gt;5&lt;/persistTime&gt;
+    &lt;checkInterval&gt;10&lt;/checkInterval&gt;
+    &lt;enableIPM&gt;0&lt;/enableIPM&gt;
+    &lt;persistTimeIPM&gt;0&lt;/persistTimeIPM&gt;
+    &lt;checkIntervalIPM&gt;0&lt;/checkIntervalIPM&gt;
+    &lt;lbMonitorId&gt;4&lt;/lbMonitorId&gt;
+    &lt;HaMinHost&gt;1&lt;/HaMinHost&gt;
+&lt;/cluster&gt;
+  </pre>
+        </div>
+        
+  <dt><b>参数</b></dt>
+  <table class="jd-sumtable" id="pubmethods">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+
+      <tr>
+        <td class="jd-typecol">hostPoolId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机池ID 。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。必须。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">name</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">集群名称 。</span>
+            <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">description</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">集群描述信息 。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">enableHA</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">是否启用HA  0:不启用HA 1:启用HA。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">priority</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">启动优先级  0:低级  1:中级 2:高级 。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">enableLB</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">是否启用LB 0:不启用负载均衡 1:启用负载均衡。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">persistTime</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">持续时间。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">checkInterval</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">检查间隔。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">enableIPM</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">是否启用电源智能管理 0:不启用电源智能管理 1:启用电源智能管理。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">persistTimeIPM</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">持续时间。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+       <tr>
+        <td class="jd-typecol">checkIntervalIPM</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">检查间隔。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+       <tr>
+        <td class="jd-typecol">lbMonitorId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">动态资源调度引用的监控策略ID。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。</div></td>
+      </tr>
+      
+       <tr>
+        <td class="jd-typecol">HaMinHost</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">最少提供ha服务主机数。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+    </table>
+  <dt>&nbsp;</dt>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204(No Content)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b><br>
+  </dt>
+  <pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Content-Type: application/xml<br>Date: Wed, 17 Sep 2014 00:48:42 GMT<br>Server: H3C-CVM</pre>
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.创建名称为“aa”的集群</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://localhost:8080/cas/casrs/cluster/add/aa
+accept: application/xml
+</pre>
+      </div>
+      
+      dt>
+          <b>消息体</b>
+        </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+&lt;cluster&gt;
+    &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;
+    &lt;name&gt;clu&lt;/name&gt;
+    &lt;description&gt;cluxs&lt;/description&gt;
+    &lt;enableHA&gt;1&lt;/enableHA&gt;
+    &lt;priority&gt;2&lt;/priority&gt;
+    &lt;enableLB&gt;1&lt;/enableLB&gt;
+    &lt;persistTime&gt;5&lt;/persistTime&gt;
+    &lt;checkInterval&gt;10&lt;/checkInterval&gt;
+    &lt;enableIPM&gt;0&lt;/enableIPM&gt;
+    &lt;persistTimeIPM&gt;0&lt;/persistTimeIPM&gt;
+    &lt;checkIntervalIPM&gt;0&lt;/checkIntervalIPM&gt;
+    &lt;lbMonitorId&gt;4&lt;/lbMonitorId&gt;
+    &lt;HaMinHost&gt;1&lt;/HaMinHost&gt;
+&lt;/cluster&gt;
+  </pre>
+        </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Date: Wed, 17 Sep 2014 00:48:42 GMT<br>Server: H3C-CVM
+<br>无消息体<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

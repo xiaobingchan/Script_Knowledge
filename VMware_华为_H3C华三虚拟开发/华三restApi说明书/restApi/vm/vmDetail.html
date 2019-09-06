@@ -1,0 +1,450 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询指定虚拟机详细信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据虚拟机id查询指定虚拟机的详细信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/vm/{id}</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须，无缺省值。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+</pre>
+	      </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;domain&gt;<br>  &lt;id&gt;52&lt;/id&gt;<br>  &lt;hostId&gt;3&lt;/hostId&gt;<br>  &lt;clusterId&gt;1&lt;/clusterId&gt;<br>  &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;<br>  &lt;name&gt;win7_it_test02&lt;/name&gt;<br>  &lt;title&gt;win7_it_test02&lt;/title&gt;<br>  &lt;description/&gt;<br>  &lt;memory&gt;2048&lt;/memory&gt;<br>  &lt;cpu&gt;2&lt;/cpu&gt;<br>  &lt;status&gt;3&lt;/status&gt;<br>  &lt;uuid&gt;9d42d644-2e1a-4328-9055-58be8125fc19&lt;/uuid&gt;<br>  &lt;osBit&gt;x86_64&lt;/osBit&gt;<br>  &lt;system&gt;0&lt;/system&gt;
+  &lt;protectModel&gt;0&lt;/protectModel&gt;<br>  &lt;network&gt;<br>    &lt;mac&gt;02:36:b8:a5:f2:3d&lt;/mac&gt;<br>    &lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>    &lt;vlan&gt;0&lt;/vlan&gt;<br>    &lt;isLimitInBound&gt;false&lt;/isLimitInBound&gt;<br>    &lt;isLimitOutBound&gt;false&lt;/isLimitOutBound&gt;<br>    &lt;mode&gt;VEB&lt;/mode&gt;<br>    &lt;virtualport&gt;false&lt;/virtualport&gt;<br>  &lt;/network&gt;<br>  &lt;network&gt;<br>    &lt;mac&gt;02:36:b8:c4:db:a6&lt;/mac&gt;<br>    &lt;vsName&gt;vs3&lt;/vsName&gt;<br>    &lt;vlan&gt;20&lt;/vlan&gt;<br>    &lt;isLimitInBound&gt;false&lt;/isLimitInBound&gt;<br>    &lt;isLimitOutBound&gt;false&lt;/isLimitOutBound&gt;<br>    &lt;mode&gt;VEPA&lt;/mode&gt;<br>    &lt;virtualport&gt;false&lt;/virtualport&gt;<br>  &lt;/network&gt;<br>  &lt;storage&gt;<br>    &lt;storeFile&gt;/vms/target13/win7_it_test02_c&lt;/storeFile&gt;<br>    &lt;capacity&gt;25000&lt;/capacity&gt;<br>    &lt;targetBus&gt;ide&lt;/targetBus&gt;<br>    &lt;type&gt;file&lt;/type&gt;<br>    &lt;device&gt;hda&lt;/device&gt;<br>    &lt;diskDevice&gt;磁盘&lt;/diskDevice&gt;<br>    &lt;mode&gt;2&lt;/mode&gt;	
+	&lt;clusterSize&gt;65536&lt;/clusterSize&gt;<br>  &lt;/storage&gt;<br>  &lt;storage&gt;<br>    &lt;storeFile&gt;/vms/target13/win7_it_test02_d&lt;/storeFile&gt;<br>    &lt;capacity&gt;35000&lt;/capacity&gt;<br>    &lt;targetBus&gt;ide&lt;/targetBus&gt;<br>    &lt;type&gt;file&lt;/type&gt;<br>    &lt;device&gt;hdb&lt;/device&gt;<br>    &lt;diskDevice&gt;磁盘&lt;/diskDevice&gt;<br>    &lt;mode&gt;2&lt;/mode&gt;
+    &lt;clusterSize&gt;65536&lt;/clusterSize&gt;<br>  &lt;/storage&gt;<br>  &lt;storage&gt;<br>    &lt;storeFile/&gt;<br>    &lt;capacity&gt;0&lt;/capacity&gt;<br>    &lt;targetBus&gt;ide&lt;/targetBus&gt;<br>    &lt;type&gt;file&lt;/type&gt;<br>    &lt;device&gt;hdc&lt;/device&gt;<br>    &lt;diskDevice&gt;光驱&lt;/diskDevice&gt;<br>  &lt;/storage&gt;
+  &lt;gpu&gt;<br>    &lt;bus&gt;0000:05:00.0&lt;/bus&gt;<br>    &lt;producers&gt;NVIDIA&lt;/producers&gt;<br>    &lt;name&gt;GRID M60-0Q&lt;/name&gt;
+    &lt;type&gt;nvidia-12&lt;/type&gt;
+    &lt;heads&gt;2&lt;/heads&gt;
+    &lt;framebuffer&gt;512M&lt;/framebuffer&gt;
+    &lt;maxResolution&gt;2560x1600&lt;/maxResolution&gt;
+    &lt;maxInstance&gt;16&lt;/maxInstance&gt;
+    &lt;uuid&gt;c2177883-f1bb-47f0-914d-32a22e3a8804&lt;uuid&gt;<br>  &lt;/gpu&gt;<br>  &lt;autoMigrate&gt;0&lt;/autoMigrate&gt;<br>  &lt;createDate&gt;2012-05-08T14:07:38+08:00&lt;/createDate&gt;<br>  &lt;flag&gt;1&lt;/flag&gt;<br>  &lt;deployed&gt;false&lt;/deployed&gt;<br>  &lt;auto&gt;0&lt;/auto&gt;<br>&lt;/domain&gt;
+          </pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机 ID。</span>
+	            <div class="jd-descrdiv">长整数（long）类型。</div>	          </td>
+	        </tr>
+			
+        <tr class="alt-color">
+          <td class="jd-typecol">hostId</td>
+          <td class="jd-linkcol"><span class="sympad">运行的主机ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+        </tr>
+        <tr>
+          <td class="jd-typecol"><span class="prettyprint lang-xml">clusterId</span></td>
+          <td class="jd-linkcol"><span class="sympad">所属的集群 ID。</span>
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+        </tr>
+        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">hostPoolId</span></td>
+	          <td class="jd-linkcol" width="100%"><span class="sympad">所属的主机池 ID。</span>
+	            <div class="jd-descrdiv">长整数（long）类型。</div>	          </td></tr>
+	        <tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机名称。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">title</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机显示名称。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机描述信息。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">memory</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机内存大小，</span>单位（M）
+                <span class="sympad">。</span>
+              <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">cpu</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机CPU个数。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+	        <tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机状态。 2：运行 3：关闭 4：暂停。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			 <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机UUID。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">osBit</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机安装的操作系统位数。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+			 <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">system</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机安装的操作系统类型。0：Windows 1：Linux。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr>
+			  <td class="jd-typecol"><span class="prettyprint lang-xml">osVersion</span></td>
+			  <td class="jd-linkcol"><p class="sympad">操作系统版本，枚举值：</p>
+			    <p class="sympad">当操作系统为Windows:</p>
+			    <p class="sympad">Microsoft Windows Server 2012, Microsoft Windows Server 2012 R2, Microsoft Windows Server 2008 R2(64-bit), Microsoft Windows Server 2008(64-bit), Microsoft Windows Server 2008(32-bit), Microsoft Windows Server 2003(64-bit), Microsoft Windows Server 2003(32-bit), Microsoft Windows 8(64-bit), Microsoft Windows 8(32-bit), Microsoft Windows 7(64-bit), Microsoft Windows 7(32-bit), Microsoft Windows Vista(64-bit), Microsoft Windows Vista(32-bit), Microsoft Windows XP Professional(64-bit), Microsoft Windows XP Professional(32-bit), Microsoft Windows 2000, Microsoft Windows NT, Microsoft Windows 98, Microsoft Windows 95, Microsoft Windows 3.1, Microsoft MS-DOS				</p>
+				<p class="sympad">当操作系统为Linux:</p>
+			    <p class="sympad">Red Hat Enterprise Linux6(64-bit), Red Hat Enterprise Linux6(32-bit), Red Hat Enterprise Linux5(64-bit), Red Hat Enterprise Linux5(32-bit), Red Hat Enterprise Linux4(64-bit), Red Hat Enterprise Linux4(32-bit), Red Hat Enterprise Linux3(64-bit), Red Hat Enterprise Linux3(32-bit), Red Hat Enterprise Linux2.1, Novell SUSE Linux Enterprise 11(64-bit), Novell SUSE Linux Enterprise 11(32-bit), Novell SUSE Linux Enterprise 10(64-bit), Novell SUSE Linux Enterprise 10(32-bit), Novell SUSE Linux Enterprise 8/9(64-bit), Novell SUSE Linux Enterprise 8/9(32-bit), CentOS 4/5/6(64bit), CentOS 4/5/6(32bit), Debian GUN/Linux 6(64-bit), Debian GUN/Linux 6(32-bit), Debian GUN/Linux 5(64-bit), Debian GUN/Linux 5(32-bit), Debian GUN/Linux 4(64-bit), Debian GUN/Linux 4(32-bit), Asianux 4(64-bit), Asianux 4(32-bit), Asianux 3(64-bit), Asianux 3(32-bit), Oracle Linux 4/5/6(64-bit), Oracle Linux 4/5/6(32-bit), Ubuntu Linux(64-bit), Ubuntu Linux(32-bit), Other 2.6.x Linux(64-bit), Other 2.6.x Linux(32-bit), Other 2.4.x Linux(64-bit), Other 2.4.x Linux(32-bit), Other Linux(64-bit), Other Linux(32-bit)</p>			  </td>
+		    </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">bootingDevice</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">引导设备。1：disk 2：cdrom。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">autoBooting</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">是否自动启动：0:不自动启动1:自动启动。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">autoMigrate</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机是否允许自动迁移。0：不允许 1：允许</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">createDate</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机创建日期。</span>
+                <div class="jd-descrdiv">日期（Date）类型。</div>	          </td>
+	        </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">flag</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机所属标志 0:不属于用户以及用户组 1:属于用户 2:属于用户组。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机类型 0:CAS虚拟机 1:VMware虚拟机。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">deployed</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">是否快速部署过。注：该参数为模板参数，对虚拟机无意义。</span>
+                <div class="jd-descrdiv">布尔（Boolean）类型。</div>	          </td>
+	        </tr>
+			<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">auto</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">VNC端口自动配置 0：自动1：手动。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">existRaw</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">是否存在raw格式。</span>
+                <div class="jd-descrdiv">布尔（Boolean）类型。</div>	          </td>
+	        </tr>
+			<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">protectModel</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机是否启用保护模式。 1：启用，0：不启用</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">network</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机网卡信息列表。</span>
+                <div class="jd-descrdiv">集合（List）类型。</div>	          </td>
+	        </tr>
+			 <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">storage</span></td>
+	          <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机存储列表。</span>
+	            <div class="jd-descrdiv">集合（List）类型。</div>	          </td>
+	        </tr>	          
+        </table>
+	    <table id="pubmethods" class="jd-sumtable">
+	      <tbody>
+	        <tr>
+	          <th colspan="2"><span class="prettyprint lang-xml">network</span>各子元素</th>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">mac</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">网卡MAC地址。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">ipAddr</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">网卡IP地址。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">vsName</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">网卡</span>使用的虚拟交换机名称<span class="sympad">。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">vlan</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">网卡所属的VLAN。</span>
+                  <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">isLimitInBound</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">是否限制入方向带宽。 true：限制 false：不限制。</span>
+                  <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">inAvgBandwidth</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">入方向平均带宽。</span>
+                  单位（kbps）。
+                  <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">inPeakBandwidth</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">入方向峰值带宽。</span>单位（kbps）。
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">inBurst</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">入方向突发缓冲大小。
+                  单位（kBytes）。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">isLimitOutBound</span></td>
+              <td class="jd-linkcol"><span class="sympad">是否限制出方向带宽。 true：限制 false：不限制。</span>
+                  <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">outAvgBandwidth</span></td>
+              <td class="jd-linkcol"><span class="sympad">出方向平均带宽。</span> 单位（kbps）。
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">outPeakBandwidth</span></td>
+              <td class="jd-linkcol"><span class="sympad">出方向峰值带宽。</span>单位（kbps）。
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">outBurst</span></td>
+              <td class="jd-linkcol"><span class="sympad">出方向突发缓冲大小。
+                单位（kBytes）。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">mode</span></td>
+              <td class="jd-linkcol"><span class="sympad">转发模式。</span><div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+			<tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">virtualport</span></td>
+              <td class="jd-linkcol"><span class="sympad">是否配置了vport。true:配置 false:未配置</span>
+                  <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+            </tr>
+			<tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">address</span></td>
+              <td class="jd-linkcol"><span class="sympad">物理网卡直连或者SR-IOV直连的地址。</span>
+			  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+			<tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">netType</span></td>
+              <td class="jd-linkcol"><span class="sympad">网卡类型：0：桥接 1：NAT 2：不使用网络 3：物理直通网卡  4：SR-IOV网卡。</span>
+			  <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>
+        </table>
+	    <table class="jd-sumtable" id="pubmethods">
+          <tbody>
+            <tr>
+              <th colspan="2"><span class="prettyprint lang-xml">storage</span>各子元素</th>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">storeFile</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">存储镜像文件名。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">capacity</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">镜像文件大小。
+                单位（M）。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">device</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">挂接逻辑设备名称</span><span class="sympad">。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">diskDevice</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">磁盘类型。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+			<tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">targetBus</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">总线类型，枚举值：ide，scsi，virtio，usb</span><span class="sympad">。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+			<tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">存储类型，枚举值：file，block</span><span class="sympad">。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+           <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">mode</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">预分配，0：延迟置零 1：置零 2：精简</span><span class="sympad">。</span>
+                  <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+            </tr>
+			<tr>
+				<td class="jd-typecol"><span class="prettyprint lang-xml">clusterSize</span></td>
+				<td class="jd-linkcol"><span class="sympad">存储卷簇大小，枚举值：65536（64K）、131072（128K）、262144（256K）、524288（512K）、1048576（1M）、2097152（2M）</span>
+				<div class="jd-descrdiv">字符串（String）类型。</div>				</td>
+			</tr>
+      </tr>
+        </table>
+	    <table class="jd-sumtable" id="pubmethods">
+          <tbody>
+            <tr>
+              <th colspan="2">gpu各子元素</th>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">bus</span></td>
+              <td width="100%" class="jd-linkcol"><span class="sympad">GPU槽号。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">producers</span></td>
+              <td class="jd-linkcol"><span class="sympad">设备产商。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的类型。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的名称。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">maxInstance</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的最大虚拟个数。</span>
+                  <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">framebuffer</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的缓存。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">maxResolution</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的最大分辨率。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">heads</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的显示器接口数。</span>
+                  <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+              <td class="jd-linkcol"><span class="sympad">vGPU的UUID唯一标识符。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+        </table>
+	    <dt>&nbsp;</dt>
+      </dl>
+      
+
+      <h2><a name="example"></a>应用举例</h2>
+      <p>查询 ID为”52“的虚拟机详细信息。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+GET http://localhost:8080/cas/casrs/vm/52
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;domain&gt;<br>  &lt;id&gt;52&lt;/id&gt;<br>  &lt;hostId&gt;3&lt;/hostId&gt;<br>  &lt;clusterId&gt;1&lt;/clusterId&gt;<br>  &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;<br>  &lt;name&gt;win7_it_test02&lt;/name&gt;<br>  &lt;title&gt;win7_it_test02&lt;/title&gt;<br>  &lt;description/&gt;<br>  &lt;memory&gt;2048&lt;/memory&gt;<br>  &lt;cpu&gt;2&lt;/cpu&gt;<br>  &lt;status&gt;3&lt;/status&gt;<br>  &lt;uuid&gt;9d42d644-2e1a-4328-9055-58be8125fc19&lt;/uuid&gt;<br>  &lt;osBit&gt;x86_64&lt;/osBit&gt;<br>  &lt;system&gt;0&lt;/system&gt;<br>  &lt;network&gt;<br>    &lt;mac&gt;02:36:b8:a5:f2:3d&lt;/mac&gt;<br>    &lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>    &lt;vlan&gt;0&lt;/vlan&gt;<br>    &lt;isLimitInBound&gt;false&lt;/isLimitInBound&gt;<br>    &lt;isLimitOutBound&gt;false&lt;/isLimitOutBound&gt;<br>    &lt;mode&gt;VEB&lt;/mode&gt;<br>    &lt;virtualport&gt;false&lt;/virtualport&gt;<br>  &lt;/network&gt;<br>  &lt;network&gt;<br>    &lt;mac&gt;02:36:b8:c4:db:a6&lt;/mac&gt;<br>    &lt;vsName&gt;vs3&lt;/vsName&gt;<br>    &lt;vlan&gt;20&lt;/vlan&gt;<br>    &lt;isLimitInBound&gt;false&lt;/isLimitInBound&gt;<br>    &lt;isLimitOutBound&gt;false&lt;/isLimitOutBound&gt;<br>    &lt;mode&gt;VEPA&lt;/mode&gt;<br>    &lt;virtualport&gt;false&lt;/virtualport&gt;<br>  &lt;/network&gt;<br>  &lt;storage&gt;<br>    &lt;storeFile&gt;/vms/target13/win7_it_test02_c&lt;/storeFile&gt;<br>    &lt;capacity&gt;25000&lt;/capacity&gt;<br>    &lt;targetBus&gt;ide&lt;/targetBus&gt;<br>    &lt;type&gt;file&lt;/type&gt;<br>    &lt;device&gt;hda&lt;/device&gt;<br>    &lt;diskDevice&gt;磁盘&lt;/diskDevice&gt;<br>    &lt;mode&gt;2&lt;/mode&gt;<br>  &lt;/storage&gt;<br>  &lt;storage&gt;<br>    &lt;storeFile&gt;/vms/target13/win7_it_test02_d&lt;/storeFile&gt;<br>    &lt;capacity&gt;35000&lt;/capacity&gt;<br>    &lt;targetBus&gt;ide&lt;/targetBus&gt;<br>    &lt;type&gt;file&lt;/type&gt;<br>    &lt;device&gt;hdb&lt;/device&gt;<br>    &lt;diskDevice&gt;磁盘&lt;/diskDevice&gt;<br>    &lt;mode&gt;2&lt;/mode&gt;<br>  &lt;/storage&gt;<br>  &lt;storage&gt;<br>    &lt;storeFile/&gt;<br>    &lt;capacity&gt;0&lt;/capacity&gt;<br>    &lt;targetBus&gt;ide&lt;/targetBus&gt;<br>    &lt;type&gt;file&lt;/type&gt;<br>    &lt;device&gt;hdc&lt;/device&gt;<br>    &lt;diskDevice&gt;光驱&lt;/diskDevice&gt;<br>  &lt;/storage&gt;
+  &lt;gpu&gt;<br>    &lt;bus&gt;0000:05:00.0&lt;/bus&gt;<br>    &lt;producers&gt;NVIDIA&lt;/producers&gt;<br>    &lt;name&gt;GRID M60-0Q&lt;/name&gt;
+    &lt;type&gt;nvidia-12&lt;/type&gt;
+    &lt;heads&gt;2&lt;/heads&gt;
+    &lt;framebuffer&gt;512M&lt;/framebuffer&gt;
+    &lt;maxResolution&gt;2560x1600&lt;/maxResolution&gt;
+    &lt;maxInstance&gt;16&lt;/maxInstance&gt;
+    &lt;uuid&gt;c2177883-f1bb-47f0-914d-32a22e3a8804&lt;uuid&gt;<br>  &lt;/gpu&gt;<br>  &lt;autoMigrate&gt;0&lt;/autoMigrate&gt;<br>  &lt;createDate&gt;2012-05-08T14:07:38+08:00&lt;/createDate&gt;<br>  &lt;flag&gt;1&lt;/flag&gt;<br>  &lt;deployed&gt;false&lt;/deployed&gt;<br>  &lt;auto&gt;0&lt;/auto&gt;<br>  &lt;existRaw&gt;0&lt;/existRaw&gt;<br>&lt;/domain&gt;
+          </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

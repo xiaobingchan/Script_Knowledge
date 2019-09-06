@@ -1,0 +1,149 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询操作员的全部信息</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询操作员的全部信息。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/operator/operatorInfoList</p>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Type: application/xml<br>Content-Length: 704<br>Date: Thu, 21 Nov 2013 06:48:36 GMT</pre></div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;operator&gt;<br>  &lt;id&gt;1&lt;/id&gt;<br>  &lt;loginName&gt;a&lt;/loginName&gt;<br>  &lt;authType&gt;0&lt;/authType&gt;<br>  &lt;name&gt;a&lt;/name&gt;<br>  &lt;email&gt;fd@d.c&lt;/email&gt;<br>  &lt;phone&gt;1253&lt;/phone&gt;<br>  &lt;groupId&gt;1&lt;/groupId&gt;<br>  &lt;enable&gt;1&lt;/enable&gt;<br>  &lt;onlineNum&gt;0&lt;/onlineNum&gt;<br>  &lt;cluster&gt;<br>    &lt;id&gt;1&lt;/id&gt;<br>    &lt;name&gt;cluter&lt;/name&gt;<br>  &lt;/cluster&gt;<br>&lt;/operator&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">operatorInfoList</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">操作员 ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">loginName</span></td>
+      <td class="jd-linkcol"><span class="sympad">操作员登录名。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">操作员名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">authType</span></td>
+      <td class="jd-linkcol"><span class="sympad">认证类型。</span>
+          <div class="jd-descrdiv">整数（int）类型。枚举值：0 密码类型，1 LADP认证</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">email</span></td>
+      <td class="jd-linkcol"><span class="sympad">邮件。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">phone</span></td>
+      <td class="jd-linkcol"><span class="sympad">电话号码。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">groupId</span></td>
+      <td class="jd-linkcol"><span class="sympad">操作员分组id。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">enable</span></td>
+      <td class="jd-linkcol"><span class="sympad">是否禁止操作员。</span>
+          <div class="jd-descrdiv">boolean类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">onlineNum</span></td>
+      <td class="jd-linkcol"><span class="sympad">在线数量。</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol"><span class="sympad">集群id。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+     <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">集群名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">主机 ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">ipAddr</span></td>
+      <td class="jd-linkcol"><span class="sympad">IP地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机 ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">domainName</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">title</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机title。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机的UUID。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>查询所有操作员的信息。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/operator/operatorInfoList
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: application/xml
+...<br>&lt;operator&gt;<br>  &lt;id&gt;1&lt;/id&gt;<br>  &lt;loginName&gt;a&lt;/loginName&gt;<br>  &lt;authType&gt;0&lt;/authType&gt;<br>  &lt;name&gt;a&lt;/name&gt;<br>  &lt;email&gt;fd@d.c&lt;/email&gt;<br>  &lt;phone&gt;1253&lt;/phone&gt;<br>  &lt;groupId&gt;1&lt;/groupId&gt;<br>  &lt;enable&gt;1&lt;/enable&gt;<br>  &lt;onlineNum&gt;0&lt;/onlineNum&gt;<br>  &lt;cluster&gt;<br>    &lt;id&gt;1&lt;/id&gt;<br>    &lt;name&gt;cluter&lt;/name&gt;<br>  &lt;/cluster&gt;<br>  &lt;/operator&gt;</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

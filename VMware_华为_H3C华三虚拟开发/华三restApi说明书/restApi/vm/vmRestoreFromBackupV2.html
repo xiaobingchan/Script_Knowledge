@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>还原虚拟机</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>从备份文件还原指定的虚拟机</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/v2/restore?backupId={backupId}&tmpDir={tmpDir}&isForce={isForce}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+   <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query  Parameter）</th>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol">backupId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">备份记录 id 。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。必须，无缺省值。</div></td>
+      </tr>
+	    <tr class="alt-color">
+        <td class="jd-typecol">tmpDir</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">还原时所用的临时目录（空间必须足够大）。</span>
+            <div class="jd-descrdiv">字符串（String）类型。必须，无缺省值。</div></td>
+      </tr>
+	   <tr class="alt-color">
+        <td class="jd-typecol">isForce</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">在虚拟机磁盘配置发生变化时（增删了磁盘）是否强制还原</span>
+            <div class="jd-descrdiv">字符串（String）类型。非必须，缺省值 true 。</div></td>
+      </tr>
+    </table>
+  <dt>&nbsp;</dt>
+  <dt>&nbsp;</dt>
+  
+</dl>
+
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：提交任务成功。</li>
+  </ul>
+  <ul>
+    <li>409(Conflict)：失败。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;taskMsg&gt;<br>	&lt;msgId&gt;1414980660458&lt;/msgId&gt;<br>	&lt;targetId&gt;331&lt;/targetId&gt;<br>	&lt;targetName&gt;qw&lt;/targetName&gt;<br>	&lt;completed&gt;false&lt;/completed&gt;<br>	&lt;progress&gt;0&lt;/progress&gt;<br>	&lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+  </div>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>还原备份记录 ID 为1的备份。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.4:8080/cas/casrs/vm/v2/restore?backupId=1&tmpDir=/vms/backuptmp/
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;<br>&lt;taskMsg&gt;<br>	&lt;msgId&gt;1414980660458&lt;/msgId&gt;<br>	&lt;targetId&gt;331&lt;/targetId&gt;<br>	&lt;targetName&gt;qw&lt;/targetName&gt;<br>	&lt;completed&gt;false&lt;/completed&gt;<br>	&lt;progress&gt;0&lt;/progress&gt;<br>	&lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+      </div>
+    </dl>
+      <p>还原备份记录 ID 为1的备份，但是对应的虚拟机添加了磁盘，且入参 isForce 为 false 。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.4:8080/cas/casrs/vm/v2/restore?backupId=1&tmpDir=/vms/backuptmp/&isForce=false
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 409 Conflict<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT <br>Error-Code: 1918
+</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

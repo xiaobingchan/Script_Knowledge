@@ -1,0 +1,190 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询FC共享文件系统的NAA列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询FC共享文件系统的NAA列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/storage/fc/query?hpId=2&hostId=1&shareFileSystemId=20</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol">hpId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机池ID 。</span>
+          <div class="jd-descrdiv">长整数（Long）类型。必须，无缺省值。</div>        </td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol">hostId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机ID 。</span>
+          <div class="jd-descrdiv">长整数（Long）类型。</div>        </td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol">shareFileSystemId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">共享文件系统ID 。</span>
+          <div class="jd-descrdiv">长整数（Long）类型。</div>        </td>
+      </tr>
+  </table>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Type: application/xml<br>Content-Length: 216<br>Date: Mon, 25 Nov 2013 08:25:58 GMT</pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">
+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;list&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000700001030000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000700001030000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;42949672960&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b900005000005a0000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b900005000005a0000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;322122547200&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000600000970000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000600000970000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;332859965440&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000600001f60000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000600001f60000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;279172874240&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000600002220000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000600002220000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;536870912000&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000900000960000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000900000960000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;8589934592&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+&lt;/list&gt;
+  </pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2">rsFsLunInfo各子元素</th>
+    
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">naa</span></td>
+      <td class="jd-linkcol"><span class="sympad">NAA</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">naaName</span></td>
+      <td class="jd-linkcol"><span class="sympad">NAA名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">model</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">厂商</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol">capacity</td>
+      <td class="jd-linkcol"><span class="sympad">存储空间。</span>
+            <div class="jd-descrdiv">长整形（Long）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询FC共享文件系统的NAA列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://192.168.0.28:8080/cas/casrs/storage/fc/query?hpId=2&hostId=1&shareFileSystemId=20
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Content-Type: application/xml<br>Content-Length: 384<br>Date: Mon, 25 Nov 2013 08:32:46 GMT<br>
+ &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+ &lt;list&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000700001030000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000700001030000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;42949672960&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b900005000005a0000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b900005000005a0000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;322122547200&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000600000970000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000600000970000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;332859965440&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000600001f60000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000600001f60000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;279172874240&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000600002220000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000600002220000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;536870912000&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+  &lt;rsFsLunInfo&gt;
+    &lt;naa&gt;36001438009b051b90000900000960000&lt;/naa&gt;
+    &lt;naaName&gt;HP HSV340:36001438009b051b90000900000960000&lt;/naaName&gt;
+    &lt;model&gt;HP HSV340&lt;/model&gt;
+    &lt;capacity&gt;8589934592&lt;/capacity&gt;
+  &lt;/rsFsLunInfo&gt;
+&lt;/list&gt;
+        </pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询虚拟机XML信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据虚拟机id查询指定虚拟机XML信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/vm/xml/{id}</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须，无缺省值。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+</pre>
+	      </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+&lt;domain type="kvm" xmlns:ns2="http://libvirt.org/schemas/domain/qemu/1.0"&gt;
+    &lt;name&gt;centos7_001&lt;/name&gt;
+    &lt;uuid&gt;390a2331-4397-4ae9-8da0-3422c552550e&lt;/uuid&gt;
+    &lt;title&gt;Y2VudG9zN18wMDE=lt;/title&gt;
+    &lt;os&gt;
+        &lt;type arch="x86_64" machine="pc-i440fx-2.1"&gt;hvm&lt;/type&gt;
+        &lt;system&gt;linux&lt;/system&gt;
+        &lt;boot dev="hd"/&gt;
+        &lt;boot dev="cdrom"/&gt;
+    &lt;/os&gt;
+    &lt;memory&gt;4194304&lt;/memory&gt;
+    &lt;currentMemory&gt;4194304&lt;/currentMemory&gt;
+    &lt;osha&gt;0&lt;/osha&gt;
+    &lt;timesync&gt;0&lt;/timesync&gt;
+    &lt;memoryBacking&gt;
+        &lt;locked&gt;0&lt;/locked&gt;
+    &lt;/memoryBacking&gt;
+    &lt;memorySlots&gt;10&lt;/memorySlots&gt;
+    &lt;maxMemory&gt;1073741824&lt;/maxMemory&gt;
+    &lt;blkiotune&gt;
+        &lt;weight&gt;300&lt;/weight&gt;
+    &lt;/blkiotune&gt;
+    &lt;memtune&gt;
+        &lt;priority&gt;1&lt;/priority&gt;
+    &lt;/memtune&gt;
+    &lt;vcpu current="4"&gt;160&lt;/vcpu&gt;
+    &lt;cputune&gt;
+        &lt;shares&gt;512&lt;/shares&gt;
+        &lt;period&gt;1000000&lt;/period&gt;
+        &lt;quota&gt;-1&lt;/quota&gt;
+    &lt;/cputune&gt;
+    &lt;cpu&gt;
+        &lt;topology sockets="80" cores="2" threads="1"/&gt;
+        &lt;gurantee unit="MHz"&gt;0&lt;/gurantee&gt;
+        &lt;numa&gt;
+            &lt;cell cpus="0-3" memory="4194304"/&gt;
+        &lt;/numa&gt;
+    &lt;/cpu&gt;
+    &lt;on_poweroff&gt;destroy&lt;/on_poweroff&gt;
+    &lt;on_reboot&gt;restart&lt;/on_reboot&gt;
+    &lt;on_crash&gt;restart&lt;/on_crash&gt;
+    &lt;features&gt;
+        &lt;acpi/&gt;
+        &lt;apic/&gt;
+        &lt;pae/&gt;
+    &lt;/features&gt;
+    &lt;clock offset="utc"/&gt;
+    &lt;devices&gt;
+        &lt;emulator&gt;/usr/bin/kvm&lt;/emulator&gt;
+        &lt;disk type="file" device="disk"&gt;
+            &lt;source file="/vms/share2/centos7_001_clone1"/&gt;
+            &lt;target dev="vda" bus="virtio"/&gt;
+            &lt;driver name="qemu" type="qcow2" cache="directsync"/&gt;
+            &lt;address type="pci" bus="0x00" slot="0x09" function="0x0" domain="0x0000"/&gt;
+        &lt;/disk&gt;
+        &lt;disk type="file" device="cdrom"&gt;
+            &lt;target dev="hdd" bus="ide"/&gt;
+            &lt;driver name="qemu" type="raw"/&gt;
+            &lt;address type="drive" bus="1" controller="0" unit="1" target="0"/&gt;
+            &lt;readonly/&gt;
+        &lt;/disk&gt;
+        &lt;controller type="usb" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x01" function="0x2" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="usb" index="1" model="ehci"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x04" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="usb" index="2" model="nec-xhci"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x05" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="scsi" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x06" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="scsi" index="1" model="virtio-scsi"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x07" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="ide" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x01" function="0x1" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="virtio-serial" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x08" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="pci" index="0" model="pci-root"/&gt;
+        &lt;interface type="direct"&gt;
+            &lt;source dev="eth1" mode="bridge"/&gt;
+            &lt;mac address="0c:da:41:1d:fa:8d"/&gt;
+            &lt;priority type="low"/&gt;
+            &lt;model type="e1000"/&gt;
+            &lt;address type="pci" bus="0x00" slot="0x03" function="0x0" domain="0x0000"/&gt;
+        &lt;/interface&gt;
+        &lt;input type="tablet" bus="usb"/&gt;
+        &lt;input type="mouse" bus="ps2"/&gt;
+        &lt;graphics type="vnc" port="-1" autoport="yes" listen="0.0.0.0"/&gt;
+        &lt;video&gt;
+            &lt;model type="cirrus" vram="9216" heads="1"/&gt;
+            &lt;address type="pci" bus="0x00" slot="0x02" function="0x0" domain="0x0000"/&gt;
+        &lt;/video&gt;
+        &lt;serial type="pty"&gt;
+            &lt;target port="0"/&gt;
+        &lt;/serial&gt;
+        &lt;console type="pty"&gt;
+            &lt;target type="serial" port="0"/&gt;
+        &lt;/console&gt;
+        &lt;channel type="unix"&gt;
+            &lt;source path="/var/lib/libvirt/qemu/centos7_001.agent" mode="bind"/&gt;
+            &lt;target type="virtio" name="org.qemu.guest_agent.0"/&gt;
+            &lt;address type="virtio-serial" bus="0" controller="0" port="1"/&gt;
+        &lt;/channel&gt;
+        &lt;memballoon model="virtio"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x0a" function="0x0" domain="0x0000"/&gt;
+        &lt;/memballoon&gt;
+    &lt;/devices&gt;
+&lt;/domain&gt;
+          </pre>
+        </div>
+      </dl>
+      
+
+      <h2><a name="example"></a>应用举例</h2>
+      <p>查询 ID为”8“的虚拟机XML信息。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/vm/xml/8
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;domain type="kvm" xmlns:ns2="http://libvirt.org/schemas/domain/qemu/1.0"&gt;
+    &lt;name&gt;centos7_001&lt;/name&gt;
+    &lt;uuid&gt;390a2331-4397-4ae9-8da0-3422c552550e&lt;/uuid&gt;
+    &lt;title&gt;Y2VudG9zN18wMDE=lt;/title&gt;
+    &lt;os&gt;
+        &lt;type arch="x86_64" machine="pc-i440fx-2.1"&gt;hvm&lt;/type&gt;
+        &lt;system&gt;linux&lt;/system&gt;
+        &lt;boot dev="hd"/&gt;
+        &lt;boot dev="cdrom"/&gt;
+    &lt;/os&gt;
+    &lt;memory&gt;4194304&lt;/memory&gt;
+    &lt;currentMemory&gt;4194304&lt;/currentMemory&gt;
+    &lt;osha&gt;0&lt;/osha&gt;
+    &lt;timesync&gt;0&lt;/timesync&gt;
+    &lt;memoryBacking&gt;
+        &lt;locked&gt;0&lt;/locked&gt;
+    &lt;/memoryBacking&gt;
+    &lt;memorySlots&gt;10&lt;/memorySlots&gt;
+    &lt;maxMemory&gt;1073741824&lt;/maxMemory&gt;
+    &lt;blkiotune&gt;
+        &lt;weight&gt;300&lt;/weight&gt;
+    &lt;/blkiotune&gt;
+    &lt;memtune&gt;
+        &lt;priority&gt;1&lt;/priority&gt;
+    &lt;/memtune&gt;
+    &lt;vcpu current="4"&gt;160&lt;/vcpu&gt;
+    &lt;cputune&gt;
+        &lt;shares&gt;512&lt;/shares&gt;
+        &lt;period&gt;1000000&lt;/period&gt;
+        &lt;quota&gt;-1&lt;/quota&gt;
+    &lt;/cputune&gt;
+    &lt;cpu&gt;
+        &lt;topology sockets="80" cores="2" threads="1"/&gt;
+        &lt;gurantee unit="MHz"&gt;0&lt;/gurantee&gt;
+        &lt;numa&gt;
+            &lt;cell cpus="0-3" memory="4194304"/&gt;
+        &lt;/numa&gt;
+    &lt;/cpu&gt;
+    &lt;on_poweroff&gt;destroy&lt;/on_poweroff&gt;
+    &lt;on_reboot&gt;restart&lt;/on_reboot&gt;
+    &lt;on_crash&gt;restart&lt;/on_crash&gt;
+    &lt;features&gt;
+        &lt;acpi/&gt;
+        &lt;apic/&gt;
+        &lt;pae/&gt;
+    &lt;/features&gt;
+    &lt;clock offset="utc"/&gt;
+    &lt;devices&gt;
+        &lt;emulator&gt;/usr/bin/kvm&lt;/emulator&gt;
+        &lt;disk type="file" device="disk"&gt;
+            &lt;source file="/vms/share2/centos7_001_clone1"/&gt;
+            &lt;target dev="vda" bus="virtio"/&gt;
+            &lt;driver name="qemu" type="qcow2" cache="directsync"/&gt;
+            &lt;address type="pci" bus="0x00" slot="0x09" function="0x0" domain="0x0000"/&gt;
+        &lt;/disk&gt;
+        &lt;disk type="file" device="cdrom"&gt;
+            &lt;target dev="hdd" bus="ide"/&gt;
+            &lt;driver name="qemu" type="raw"/&gt;
+            &lt;address type="drive" bus="1" controller="0" unit="1" target="0"/&gt;
+            &lt;readonly/&gt;
+        &lt;/disk&gt;
+        &lt;controller type="usb" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x01" function="0x2" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="usb" index="1" model="ehci"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x04" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="usb" index="2" model="nec-xhci"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x05" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="scsi" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x06" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="scsi" index="1" model="virtio-scsi"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x07" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="ide" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x01" function="0x1" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="virtio-serial" index="0"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x08" function="0x0" domain="0x0000"/&gt;
+        &lt;/controller&gt;
+        &lt;controller type="pci" index="0" model="pci-root"/&gt;
+        &lt;interface type="direct"&gt;
+            &lt;source dev="eth1" mode="bridge"/&gt;
+            &lt;mac address="0c:da:41:1d:fa:8d"/&gt;
+            &lt;priority type="low"/&gt;
+            &lt;model type="e1000"/&gt;
+            &lt;address type="pci" bus="0x00" slot="0x03" function="0x0" domain="0x0000"/&gt;
+        &lt;/interface&gt;
+        &lt;input type="tablet" bus="usb"/&gt;
+        &lt;input type="mouse" bus="ps2"/&gt;
+        &lt;graphics type="vnc" port="-1" autoport="yes" listen="0.0.0.0"/&gt;
+        &lt;video&gt;
+            &lt;model type="cirrus" vram="9216" heads="1"/&gt;
+            &lt;address type="pci" bus="0x00" slot="0x02" function="0x0" domain="0x0000"/&gt;
+        &lt;/video&gt;
+        &lt;serial type="pty"&gt;
+            &lt;target port="0"/&gt;
+        &lt;/serial&gt;
+        &lt;console type="pty"&gt;
+            &lt;target type="serial" port="0"/&gt;
+        &lt;/console&gt;
+        &lt;channel type="unix"&gt;
+            &lt;source path="/var/lib/libvirt/qemu/centos7_001.agent" mode="bind"/&gt;
+            &lt;target type="virtio" name="org.qemu.guest_agent.0"/&gt;
+            &lt;address type="virtio-serial" bus="0" controller="0" port="1"/&gt;
+        &lt;/channel&gt;
+        &lt;memballoon model="virtio"&gt;
+            &lt;address type="pci" bus="0x00" slot="0x0a" function="0x0" domain="0x0000"/&gt;
+        &lt;/memballoon&gt;
+    &lt;/devices&gt;
+&lt;/domain&gt;
+          </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

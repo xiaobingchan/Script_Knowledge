@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>创建虚拟机还原点</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p><span dir="ltr">根据虚拟机ID</span>还原虚拟机磁盘状态到创建虚拟机<span name="resultofMatch">还原点</span>时的状态。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/{vmId}/restorePoint/restore</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">vmId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div>        </td>
+      </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK</pre>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;taskMsg&gt;<br>  &lt;msgId&gt;1499328443518&lt;/msgId&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;<br><br></pre>
+  </div>
+</dl>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.还原<span dir="ltr">虚拟机ID为50的虚拟机</span>。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://localhost:8080/cas/casrs/vm/50/restorePoint/restore
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;taskMsg&gt;<br>  &lt;msgId&gt;1499328443518&lt;/msgId&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;        </pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

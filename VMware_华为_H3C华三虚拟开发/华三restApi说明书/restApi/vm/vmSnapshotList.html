@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询指定虚拟机快照信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据虚拟机id查询指定虚拟机的快照信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/vm/snapshot/{id}</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须，无缺省值。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+</pre>
+	      </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;list&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;aaaa&lt;/name&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots/&gt;<br>  &lt;/snapshot&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;ttt&lt;/name&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots&gt;<br>      &lt;snapshot&gt;<br>        &lt;name&gt;bbbb&lt;/name&gt;<br>        &lt;isCurr&gt;true&lt;/isCurr&gt;<br>        &lt;snapMem&gt;false&lt;/snapMem&gt;<br>        &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>        &lt;snapshots&gt;<br>          &lt;snapshot&gt;<br>            &lt;name&gt;cccc&lt;/name&gt;<br>            &lt;isCurr&gt;false&lt;/isCurr&gt;<br>            &lt;snapMem&gt;false&lt;/snapMem&gt;<br>            &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>            &lt;snapshots/&gt;<br>          &lt;/snapshot&gt;<br>          &lt;snapshot&gt;<br>            &lt;name&gt;ddd&lt;/name&gt;<br>            &lt;isCurr&gt;false&lt;/isCurr&gt;<br>            &lt;snapMem&gt;false&lt;/snapMem&gt;<br>            &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>            &lt;snapshots/&gt;<br>          &lt;/snapshot&gt;<br>        &lt;/snapshots&gt;<br>      &lt;/snapshot&gt;<br>    &lt;/snapshots&gt;<br>  &lt;/snapshot&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;company1-win7测试快照&lt;/name&gt;<br>    &lt;desc&gt;company1-win7_it_virtio-10测试快照&lt;/desc&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots/&gt;<br>  &lt;/snapshot&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;fff&lt;/name&gt;<br>    &lt;desc&gt;fff&lt;/desc&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots/&gt;<br>  &lt;/snapshot&gt;<br>&lt;/list&gt;
+          </pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable">
+	      <tbody>
+	        <tr>
+	          <th colspan="2"><span class="prettyprint lang-xml">snapshot</span>各子元素</th>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">快照名称。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">desc</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">快照描述。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">isCurr</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机是否处于当前快照。 true：处于当前快照 false：不处于当前快照。</span>
+              <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+            </tr>
+			<tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">snapMem</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">快照内存：true 快照内存；false 快照不带内存。</span>
+                  <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+            </tr>
+			<tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">noStopVirtSnapMem</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">不停机快照内存：true 不停机；false 停机。</span>
+              <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">snapshots</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机子快照列表。</span>
+                  <div class="jd-descrdiv">集合（List）类型。</div></td>
+            </tr>
+        </table>
+	    <dt>&nbsp;</dt>
+      </dl>
+      
+
+      <h2><a name="example"></a>应用举例</h2>
+      <p>查询 ID为”52“的虚拟机快照信息。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/vm/snapshot/52
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+
+&lt;list&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;aaaa&lt;/name&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots/&gt;<br>  &lt;/snapshot&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;ttt&lt;/name&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots&gt;<br>      &lt;snapshot&gt;<br>        &lt;name&gt;bbbb&lt;/name&gt;<br>        &lt;isCurr&gt;true&lt;/isCurr&gt;<br>        &lt;snapMem&gt;false&lt;/snapMem&gt;<br>        &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>        &lt;snapshots&gt;<br>          &lt;snapshot&gt;<br>            &lt;name&gt;cccc&lt;/name&gt;<br>            &lt;isCurr&gt;false&lt;/isCurr&gt;<br>            &lt;snapMem&gt;false&lt;/snapMem&gt;<br>            &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>            &lt;snapshots/&gt;<br>          &lt;/snapshot&gt;<br>          &lt;snapshot&gt;<br>            &lt;name&gt;ddd&lt;/name&gt;<br>            &lt;isCurr&gt;false&lt;/isCurr&gt;<br>            &lt;snapMem&gt;false&lt;/snapMem&gt;<br>            &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>            &lt;snapshots/&gt;<br>          &lt;/snapshot&gt;<br>        &lt;/snapshots&gt;<br>      &lt;/snapshot&gt;<br>    &lt;/snapshots&gt;<br>  &lt;/snapshot&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;company1-win7测试快照&lt;/name&gt;<br>    &lt;desc&gt;company1-win7_it_virtio-10测试快照&lt;/desc&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots/&gt;<br>  &lt;/snapshot&gt;<br>  &lt;snapshot&gt;<br>    &lt;name&gt;fff&lt;/name&gt;<br>    &lt;desc&gt;fff&lt;/desc&gt;<br>    &lt;isCurr&gt;false&lt;/isCurr&gt;<br>    &lt;snapMem&gt;false&lt;/snapMem&gt;<br>    &lt;noStopVirtSnapMem&gt;false&lt;/noStopVirtSnapMem&gt;<br>    &lt;snapshots/&gt;<br>  &lt;/snapshot&gt;<br>&lt;/list&gt;
+          </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

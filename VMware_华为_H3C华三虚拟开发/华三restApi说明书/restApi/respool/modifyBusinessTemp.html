@@ -1,0 +1,109 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>修改业务模板</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>修改业务模板。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/resPool/temp/modify</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;businessTem&gt;<br>    &lt;id&gt;1&lt;/id&gt;<br>    &lt;description&gt;test&lt;/description&gt;<br>    &lt;priority&gt;2&lt;/priority&gt;<br>    &lt;proportion&gt;1&lt;/proportion&gt;<br>&lt;/businessTem&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tr>
+    <th colspan="2">businessTem各子元素</th>
+  <tr class="alt-color">
+    <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+    <td width="100%" class="jd-linkcol"><span class="sympad">业务模板ID。</span>
+        <div class="jd-descrdiv">
+          <p>长整形（Long）类型，必须。</p>
+          </div></td>
+  </tr>
+  <tr>
+    <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+    <td class="jd-linkcol"><span class="sympad">描述信息。</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td>
+  </tr>
+  <tr class="alt-color">
+    <td class="jd-typecol"><span class="prettyprint lang-xml">priority</span></td>
+    <td class="jd-linkcol"><span class="sympad">优先级：0表示高，2表示低。</span>
+        <div class="jd-descrdiv">整数（int）类型，必须。</div></td>
+  </tr>
+  <tr>
+    <td class="jd-typecol">proportion</td>
+    <td class="jd-linkcol"><span class="sympad">资源分配比例。</span>
+        <div class="jd-descrdiv">整数（int）类型，必须。</div></td>
+  </tr>
+  <tr class="alt-color">
+    <td class="jd-typecol"><span class="prettyprint lang-xml">command</span></td>
+    <td class="jd-linkcol"><span class="sympad">停止业务命令</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td>
+  </tr>
+  <tr>
+    <td class="jd-typecol"><span class="prettyprint lang-xml">commandResult</span></td>
+    <td class="jd-linkcol"><span class="sympad">停止业务命令返回果</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td>
+  </tr>
+  <tr class="alt-color">
+    <td class="jd-typecol"><span class="prettyprint lang-xml">handleMode</span></td>
+    <td class="jd-linkcol"><span class="sympad">停止业务失败，处理方式 0：关闭虚拟机；1：查找下一个低优先级虚拟机。</span>
+        <div class="jd-descrdiv">整数（int）类型。</div></td>
+  </tr>
+  <tbody>
+</table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 (No Content)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 204 No Content
+</pre>
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.修改业务模板。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://localhost:8080/cas/casrs/resPool/temp/modify
+&lt;businessTem&gt;<br>    &lt;id&gt;1&lt;/id&gt;<br>    &lt;description&gt;test&lt;/description&gt;<br>    &lt;priority&gt;2/priority&gt;<br>    &lt;proportion&gt;1&lt;/proportion&gt;<br>&lt;/businessTem&gt;</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">
+HTTP/1.1 204 No Content
+Content-Type: application/xml
+...<br>无消息体<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

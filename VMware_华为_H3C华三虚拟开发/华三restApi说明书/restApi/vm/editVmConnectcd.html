@@ -1,0 +1,143 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>虚拟机光驱连接设备或文件</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>虚拟机光驱连接设备或文件。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/modify</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;domain&gt;<br>    &lt;id&gt;6&lt;/id&gt;<br>    &lt;name&gt;test&lt;/name&gt;<br>    &lt;cdrom&gt;<br>        &lt;device&gt;hdc&lt;/device&gt;<br>        &lt;operation&gt;connect&lt;/operation&gt;<br>        &lt;path&gt;/vms/image/vol_test&lt;/path&gt;<br>        &lt;type&gt;file&lt;/type&gt;<br>    &lt;/cdrom&gt;<br>&lt;/domain&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机id。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cdrom</span></td>
+        <td class="jd-linkcol"><span class="sympad">光驱配置。</span>
+          <div class="jd-descrdiv">自定义类型，必须。</div></td>
+      </tr>
+    </table>
+	<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">cdrom</span>各子元素</th>
+      </tr>
+      
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">device</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">光驱设备名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">operation</span></td>
+        <td class="jd-linkcol"><span class="sympad">光驱操作，必须为：connect。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	   <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">path</span></td>
+        <td class="jd-linkcol"><span class="sympad">光驱连接文件的路径，如果连接镜像文件，该项不能为空。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	   <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+        <td class="jd-linkcol"><span class="sympad">光驱连接的设备或文件类型，枚举值</span>：file：连接镜像文件，tool：安装CAS Tools，block：连接CD/DVD驱动。
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	   
+  </table> 
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204(No Content)：成功。</li>
+    <li>409(Conflict)：失败。 </li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Date: Mon, 25 Nov 2013 12:52:27 GMT
+  </pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">    	
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;taskMsg&gt;
+  &lt;msgId&gt;-1&lt;/msgId&gt;
+  &lt;name&gt;连接虚拟机“test”光驱成功。 &lt;/name&gt;
+  &lt;detail&gt;连接虚拟机“test”光驱。 &lt;/detail&gt;
+  &lt;completed&gt;false&lt;/completed&gt;
+  &lt;progress&gt;0&lt;/progress&gt;
+  &lt;eventType&gt;0&lt;/eventType&gt;
+&lt;/taskMsg&gt;
+    	</pre>
+  </div>
+</dl>
+<dt>
+    <h2><a name="example"></a>应用举例</h2>
+    <p>虚拟机test光驱hdc连接镜像文件vol_test。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.4:8080/cas/casrs/vm/modify
+accept: application/xml
+
+
+&lt;domain&gt;<br>    &lt;id&gt;6&lt;/id&gt;<br>    &lt;name&gt;test&lt;/name&gt;<br>    &lt;cdrom&gt;<br>        &lt;device&gt;hdc&lt;/device&gt;<br>        &lt;operation&gt;connect&lt;/operation&gt;<br>        &lt;path&gt;/vms/image/vol_test&lt;/path&gt;<br>        &lt;type&gt;file&lt;/type&gt;<br>    &lt;/cdrom&gt;<br>&lt;/domain&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">    	
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;taskMsg&gt;
+  &lt;msgId&gt;-1&lt;/msgId&gt;
+  &lt;name&gt;连接虚拟机“test”光驱成功。 &lt;/name&gt;
+  &lt;detail&gt;连接虚拟机“test”光驱。 &lt;/detail&gt;
+  &lt;completed&gt;false&lt;/completed&gt;
+  &lt;progress&gt;0&lt;/progress&gt;
+  &lt;eventType&gt;0&lt;/eventType&gt;
+&lt;/taskMsg&gt;
+    	</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

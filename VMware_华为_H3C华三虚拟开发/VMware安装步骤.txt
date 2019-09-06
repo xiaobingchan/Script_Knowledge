@@ -1,0 +1,35 @@
+1，下载Vmware ESXI 6.7（VMware-VMvisor-Installer-6.7.0.update01-10302608.x86_64.iso）和Vmware vCentre（VMware-VCSA-all-6.7.0-11726888.iso）
+
+2，制作安装U盘：https://thebackroomtech.com/2017/09/25/create-bootable-usb-drive-vmware-esxi-installer/
+
+3，安装ESXI 6.7：http://idc.wanyunshuju.com/li/580.html
+
+4，安装Vcentre：https://www.kieri.com/how-to-install-vcenter-6-7-and-6-0-and-6-5-with-no-dns-only-ip-address/
+
+注意事项：不能打开vcentre安装程序：Go to %appdata%/roaming  < and then delete the following folder: "Installer"
+一定全程要用windows iso镜像安装，不能断开
+最后一步要配置vhosts：192.168.244.39  zdhyw.vcenter.com vcenter.local vcenter
+
+无DNS安装法：https://www.kieri.com/how-to-install-vcenter-6-7-and-6-0-and-6-5-with-no-dns-only-ip-address/
+有域名安装：https://www.miensi.com/352.html
+带些DNS方案：
+
+ESXI：
+服务器IP：192.168.244.37 端口：22
+用户名：root
+密码：Dx24680
+
+管理网址：https://192.168.244.37 
+用户名：root
+密码：Dx24680
+
+Vcenter:
+服务器IP：192.168.244.39 端口：22
+信息网址：https://192.168.244.39:5480
+用户名：root
+密码：Dx24680
+
+管理网址：https://192.168.244.39
+用户名：administrator@vsphere.local
+密码：Dx24680
+

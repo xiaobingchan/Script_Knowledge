@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>检查虚拟机名称是否已经存在</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据提供的虚拟机名称，检查虚拟机名称是否已经存在。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/isExist?name={domainName}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">domainName</td>
+        <td class="jd-linkcol" width="100%">虚拟机名称。
+          <div class="jd-descrdiv">字符串（String）类型，必须，无缺省值。</div>        </td>
+      </tr>     
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204(No Content)：成功。</li>
+    <li>409(Conflict)：失败。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK
+result: false
+Content-Type: application/xml
+Transfer-Encoding: chunked</pre></div>
+
+</dl>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.检查虚拟机名称testdomain是否已经存在。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://192.168.0.243:8888//cas/casrs/vm/isExist?name=domainName
+accept: application/xml
+...  </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK
+result: false
+Content-Type: application/xml
+Transfer-Encoding: chunked
+        </pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

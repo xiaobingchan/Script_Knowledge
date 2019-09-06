@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>检查虚拟交换机是否被组织使用</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>检查指定虚拟交换机是否被组织使用。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vswitch/isUsed</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query  Parameter）</th>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机id 。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。必须，无缺省值。</div></td>
+      </tr>
+	    <tr class="alt-color">
+        <td class="jd-typecol">vsName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机名称 。</span>
+            <div class="jd-descrdiv">字符串（String）类型。必须，无缺省值。</div></td>
+      </tr>
+    </table>
+  <dt>&nbsp;</dt>
+  <dt>&nbsp;</dt>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>result: false<br>Content-Type: application/xml<br>Transfer-Encoding: chunked<br>Date: Wed, 17 Sep 2014 01:17:17 GMT
+  </pre>
+</dl>
+
+<p><b>消息体</b></p>
+<dl>
+  <div class="source">
+    <pre class="prettyprint lang-xml">fasle</pre>
+  </div>
+</dl>
+<p><a name="detail"></a><b>元素含义</b></p>
+<table id="pubmethods" class="jd-sumtable">
+  <tbody>
+    <tr>
+      <th colspan="2">返回虚拟交换机是否被组织使用</th>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.检查主机id为55上的名称为vswitch0的虚拟交换机是否被组织使用</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://localhost:8080/cas/casrs/vswitch/isUsed?id=55&amp;&amp;vsName=vswitch0
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>result: false<br>Content-Type: application/xml<br>Transfer-Encoding: chunked<br>Date: Wed, 17 Sep 2014 01:17:17 GMT
+...<br>fasle<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+  <div class="g-unit" id="doc-content">
+    <div id="api-info-block">
+      <div class="api-level">H3C CAS云管理平台</div>
+    </div>
+    <div id="jd-header">
+      <h1>组织下批量部署虚拟机</h1>
+    </div>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>组织下批量部署虚拟机</p>
+      <h2>
+        <a name="uri"></a>接口 URI
+      </h2>
+      <p>/cas/casrs/organize/batchDeploy</p>
+      <h2>
+        <a name="access"></a>访问方法
+      </h2>
+      <dl>
+        <dt>
+          <b>HTTP 方法</b>
+        </dt>
+        <dd>POST</dd>
+        <dt>
+          <b>消息体</b>
+        </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+&lt;list&gt;
+  &lt;vmConfig&gt;
+  &lt;id&gt;2&lt;/id&gt;
+  &lt;orgId&gt;1&lt;/orgId&gt;
+  &lt;clusterId&gt;1&lt;/clusterId&gt;
+  &lt;domainName&gt;wfg-deply-a1&lt;/domainName&gt;
+  &lt;desc&gt;desc&lt;/desc&gt;
+  &lt;deployMode&gt;1&lt;/deployMode&gt;
+  &lt;osInfo&gt;
+    &lt;sysName&gt;hostName&lt;/sysName&gt;
+    &lt;regOrGroupType&gt;2&lt;/regOrGroupType&gt;
+    &lt;regOrGroup&gt;WORKGROUP&lt;/regOrGroup&gt;
+    &lt;loginAccount&gt;Administrator&lt;/loginAccount&gt;
+    &lt;loginPassword&gt;admin&lt;/loginPassword&gt;
+    &lt;localgroup&gt;Administrators&lt;/localgroup&gt;
+    &lt;sysIp&gt;192.168.11.111&lt;/sysIp&gt;
+    &lt;sysMask&gt;255.255.255.0&lt;/sysMask&gt;
+    &lt;sysGateway&gt;192.168.11.1&lt;/sysGateway&gt;
+    &lt;sysdns&gt;192.168.11.11&lt;/sysdns&gt;
+    &lt;secondaryDns&gt;192.168.11.10&lt;/secondaryDns&gt;
+    &lt;isBindIp&gt;true&lt;/isBindIp&gt;
+  &lt;/osInfo&gt;
+  &lt;/vmConfig&gt;
+&lt;/list&gt;
+  </pre>
+        </div>
+      </dl>
+      <dt>
+        <a name="detail"></a><b>元素含义</b>
+      </dt>
+      <table id="pubmethods" class="jd-sumtable">
+        <tbody>
+          <tr>
+            <th colspan="2"><span class="prettyprint lang-xml">vmConfig</span>各子元素</th>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">id</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad"></span>模板ID
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">orgId</span>
+            </td>
+            <td class="jd-linkcol">组织Id
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">clusterId</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad"></span>集群ID
+              <div class="jd-descrdiv">长整数（long）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">domainName</span>
+            </td>
+            <td class="jd-linkcol">部署虚拟机名字。
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">desc</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad"></span>描述
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">deployMode</span>
+            </td>
+            <td class="jd-linkcol">部署虚拟机方式（0表示正常部署，1表示快速部署）。
+              <div class="jd-descrdiv">整数（int）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">osInfo</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad"></span>部署虚拟机系统配置信息
+              <div class="jd-descrdiv">模板要求安装好操作系统及CAS Tools 并设置好sysprep，才能设置该配置信息。</div></td>
+          </tr>
+      </table>
+      <table id="pubmethods" class="jd-sumtable">
+        <tbody>
+          <tr>
+            <th colspan="2"><span class="prettyprint lang-xml">osInfo</span>各子元素</th>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">sysName</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad">计算机名称</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">regOrGroupType</span>
+            </td>
+            <td class="jd-linkcol"><span class="sympad">隶属于（1输入域，2属于工作组。）。</span>
+              <div class="jd-descrdiv">整数（int）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">regOrGroup</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad">域/工作组名</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">loginAccount</span>
+            </td>
+            <td class="jd-linkcol"><span class="sympad">登录帐号。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">loginPassword</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad">登录密码。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">localgroup</span>
+            </td>
+            <td class="jd-linkcol"><span class="sympad">本地组（包括：Administrators,Power Users,Users）。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">sysIp</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad">IP地址。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">sysMask</span>
+            </td>
+            <td class="jd-linkcol"><span class="sympad">子网掩码。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">sysGateway</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad">默认网关。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">sysdns</span>
+            </td>
+            <td class="jd-linkcol"><span class="sympad">主DNS服务器。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr>
+            <td class="jd-typecol"><span class="prettyprint lang-xml">secondaryDns</span>
+            </td>
+            <td width="100%" class="jd-linkcol"><span class="sympad">备DNS服务器。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div></td>
+          </tr>
+          <tr class="alt-color">
+            <td class="jd-typecol"><span class="prettyprint lang-xml">isBindIp</span>
+            </td>
+            <td class="jd-linkcol"><span class="sympad">是否绑定IP。</span>
+              <div class="jd-descrdiv">布尔（boolean）类型。</div></td>
+          </tr>
+      </table>
+      
+      <h2>
+        <a name="result"></a>返回结果
+      </h2>
+      <dl>
+        <dt>
+          <b>状态码</b>
+        </dt>
+        <dd>
+          <ul>
+            <li>HTTP/1.1 200 OK：成功。</li>
+          </ul>
+        </dd>
+      </dl>
+
+      <h2>
+        <a name="example"></a>应用举例
+      </h2>
+      <p>组织下批量部署两个虚拟机</p>
+      <dl>
+        <dt>
+          <b>请求</b>
+        </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+POST http://192.168.0.4:8080/cas/casrs/organize/batchDeploy  accept: application/xml<br>&lt;list&gt;
+  &lt;vmConfig&gt;
+    &lt;id&gt;2&lt;/id&gt;
+    &lt;orgId&gt;1&lt;/orgId&gt;
+    &lt;clusterId&gt;1&lt;/clusterId&gt;
+    &lt;domainName&gt;org-deply-01&lt;/domainName&gt;
+    &lt;desc&gt;desc&lt;/desc&gt;
+    &lt;deployMode&gt;1&lt;/deployMode&gt;
+  &lt;/vmConfig&gt;
+  &lt;vmConfig&gt;
+    &lt;id&gt;2&lt;/id&gt;
+    &lt;orgId&gt;1&lt;/orgId&gt;
+    &lt;clusterId&gt;1&lt;/clusterId&gt;
+    &lt;domainName&gt;org-deply-02&lt;/domainName&gt;
+    &lt;desc&gt;desc&lt;/desc&gt;
+    &lt;deployMode&gt;1&lt;/deployMode&gt;
+  &lt;/vmConfig&gt;
+&lt;/list&gt;
+          </pre>
+        </div>
+        <dt>
+          <b>回应</b>
+        </dt>
+        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Expires: Thu, 01 Jan 1970 00:00:00 GMT<br>Set-Cookie: JSESSIONID=1aw0joul8i38n;Path=/<br>Content-Type: application/xml<br>Content-Length: 444<br>Server: Jetty(6.1.x)
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;rsKeyValues&gt;
+  &lt;keyValue&gt;
+    &lt;key&gt;org-deply-01&lt;/key&gt;
+    &lt;value&gt;1385084708217&lt;/value&gt;
+  &lt;/keyValue&gt;
+  &lt;keyValue&gt;
+    &lt;key&gt;org-deply-02&lt;/key&gt;
+    &lt;value&gt;1385084708218&lt;/value&gt;
+  &lt;/keyValue&gt;
+&lt;/rsKeyValues&gt;</pre>
+      </dl>
+    </div>
+  </div>
+</body>
+</html>

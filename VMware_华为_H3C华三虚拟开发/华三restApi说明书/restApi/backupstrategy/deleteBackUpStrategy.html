@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>删除备份策略</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>删除指定的备份策略。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/backupStrategy/delBackupStrategy?id={id}&amp;name={name}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>DELETE</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">无</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">id</td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">备份策略 ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol">name</td>
+        <td class="jd-linkcol"><span class="sympad">备份策略名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，可选。</div></td>
+      </tr>
+  </table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 No Content：成功。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>删除ID为”2“的备份策略。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">DELETE http://192.168.0.4:8080/cas/casrs/backupStrategy/delBackupStrategy?id=2
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Date: Wed, 17 Sep 2014 02:45:06 GMT<br>Server: H3C-CVM<br>
+无消息体
+</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

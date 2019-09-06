@@ -1,0 +1,2 @@
+APIÎÄµµ£ºhttps://code.vmware.com/apis/366/vsphere-automation
+Python ÊµÀý£ºhttps://github.com/vmware/vsphere-automation-sdk-python

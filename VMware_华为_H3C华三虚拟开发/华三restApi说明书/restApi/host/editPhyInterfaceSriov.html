@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>修改主机下指定物理网卡SR-IOV</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>修改主机下指定物理网卡SR-IOV。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/host/{id}/interface/{name}/sriov</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">主机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">物理网卡名称。</span>
+              <div class="jd-descrdiv">字符串（String）类型。必须。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">
+&lt;sriovInfo>
+   &lt;vfCount>2&lt;/vfCount>
+&lt;/sriovInfo></pre>
+  </div>
+</dl>
+<dl>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+<table id="pubmethods" class="jd-sumtable">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">sriovInfo</span>各子元素</th>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vfCount</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">设置的虚拟网卡数。0表示禁用SR-IOV</span>
+        <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+</table>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b><br>
+  </dt>
+  <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;rsResult>
+    &lt;state>0&lt;/state>
+    &lt;errorCode>0&lt;/errorCode>
+    &lt;message>启用主机“host1”上物理网卡“eth1”的SR-IOV成功。&lt;/message>
+  &lt;/rsResult> </pre>
+</dl>
+
+<dl>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+</dl>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">rsResult</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">state</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">执行状态。</span> 0： 成功，1：失败
+        <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">errorCode</span></td>
+      <td class="jd-linkcol"><span class="sympad">错误码。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">message</span></td>
+      <td class="jd-linkcol"><span class="sympad">结果信息。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.修改ID为“<span class="prettyprint lang-xml">1</span>”的主机上名称为“<span class="prettyprint lang-xml">eth1</span>”的物理网卡的SR-IOV。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://localhost:8080/cas/casrs/host/1/interface/eth1/sriov
+accept: application/xml
+
+&lt;sriovInfo>
+   &lt;vfCount>2&lt;/vfCount>
+&lt;/sriovInfo>
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 181<br>Date: Wed, 17 Sep 2014 09:46:58 GMT<br>Server: H3C-CVM<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+  &lt;rsResult>
+    &lt;state>0&lt;/state>
+    &lt;errorCode>0&lt;/errorCode>
+    &lt;message>启用主机“host1”上物理网卡“eth1”的SR-IOV成功。&lt;/message>
+  &lt;/rsResult></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

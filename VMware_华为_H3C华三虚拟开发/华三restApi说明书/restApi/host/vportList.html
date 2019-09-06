@@ -1,0 +1,144 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询指定虚拟交换机虚拟口信息</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据提供的特定条件，查询查询指定虚拟交换机虚拟口信息列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vswitch/vport</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">hostId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td></tr>
+      <tr class="alt-color">
+        <td class="jd-typecol">vsName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div>        </td>
+      </tr>
+      <tr>
+        <td class="jd-typecol">phyNic</td>
+        <td class="jd-linkcol">物理网卡名称。
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Total: 7</pre>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;list&gt;<br>  &lt;trafficInfo&gt;<br>    &lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>    &lt;vPortName&gt;vnet0&lt;/vPortName&gt;<br>    &lt;vmName&gt;vm-xp&lt;/vmName&gt;<br>    &lt;vmMac&gt;0c:da:41:1d:8c:f4&lt;/vmMac&gt;<br>    &lt;rxPkts&gt;0&lt;/rxPkts&gt;<br>    &lt;rxBytes&gt;0&lt;/rxBytes&gt;<br>    &lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>    &lt;txPkts&gt;0&lt;/txPkts&gt;<br>    &lt;txBytes&gt;0&lt;/txBytes&gt;<br>    &lt;txErrs&gt;0&lt;/txErrs&gt;<br>  &lt;/trafficInfo&gt;<br><br>	...
+<br>&lt;/list&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">trafficInfo</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsName</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟交换机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vPortName</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟端口名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vmNam</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+        <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vmMac</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机MAC地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rxPkts</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">接收报文数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rxBytes</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">接收字节数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">rxErrs</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad"></span>接收错包数 <span class="sympad">。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">txPkts</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">发送报文数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">txBytes</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">发送字节数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">txErrs</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">发送错包数。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询主机id为21，虚拟交换机名称为vswitch0，物理网卡为eth0的虚拟口信息列表。。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/vswitch/vport?hostId=21&amp;vsName=vswitch0&amp;phyNic=eth0
+accept: application/xml
+...
+        </pre>
+      </div>
+      
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...<br><br>&lt;list&gt;<br>  &lt;trafficInfo&gt;<br>    &lt;vsName&gt;vswitch0&lt;/vsName&gt;<br>    &lt;vPortName&gt;vnet0&lt;/vPortName&gt;<br>    &lt;vmName&gt;vm-xp&lt;/vmName&gt;<br>    &lt;vmMac&gt;0c:da:41:1d:8c:f4&lt;/vmMac&gt;<br>    &lt;rxPkts&gt;0&lt;/rxPkts&gt;<br>    &lt;rxBytes&gt;0&lt;/rxBytes&gt;<br>    &lt;rxErrs&gt;0&lt;/rxErrs&gt;<br>    &lt;txPkts&gt;0&lt;/txPkts&gt;<br>    &lt;txBytes&gt;0&lt;/txBytes&gt;<br>    &lt;txErrs&gt;0&lt;/txErrs&gt;<br>  &lt;/trafficInfo&gt;<br>&lt;/list&gt;<br><br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>为指定虚拟机添加虚拟网卡</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>为指定虚拟机添加虚拟网卡。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/addDevice</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  <span>&nbsp;&nbsp;非SR-IOV网卡</span>
+  	<pre class="prettyprint lang-xml">&lt;domain&gt;
+	&lt;id&gt;72&lt;/id&gt;
+	&lt;name&gt;rest&lt;/name&gt;
+	&lt;title&gt;rest&lt;/title&gt;
+	&lt;network&gt;
+		&lt;mac&gt;0c:da:41:1d:e6:32&lt;/mac&gt;
+		&lt;ipAddr&gt;2.2.2.3&lt;/ipAddr&gt;
+		&lt;vsId&gt;1&lt;/vsId&gt;
+		&lt;vsName&gt;vswitch0&lt;/vsName&gt;
+		&lt;deviceModel&gt;virtio&lt;/deviceModel&gt;
+		&lt;isKernelAccelerated&gt;1&lt;/isKernelAccelerated&gt;		
+		&lt;mode&gt;veb&lt;/mode&gt;
+		&lt;profileId&gt;1&lt;/profileId&gt;
+		&lt;profileName&gt;Default&lt;/profileName&gt;
+		&lt;hotPluggable&gt;true&lt;/hotPluggable&gt;
+	&lt;/network&gt;
+&lt;/domain&gt;</pre>
+  </div>
+  <div class="source">
+  <span>&nbsp;&nbsp;SR-IOV网卡</span>
+  	<pre class="prettyprint lang-xml">&lt;domain&gt;
+	&lt;id&gt;72&lt;/id&gt;
+	&lt;name&gt;rest&lt;/name&gt;
+	&lt;title&gt;rest&lt;/title&gt;
+    &lt;network>
+       &lt;mac>0c:da:41:1d:75:9b&lt;/mac>
+        &lt;driverType>VFIO&lt;/driverType>
+        &lt;ethName>eth3&lt;/ethName>
+        &lt;address>0000:07:09.0&lt;/address>
+        &lt;deviceModel>SR_IOV&lt;/deviceModel>
+        &lt;vlan>1&lt;/vlan>
+    &lt;/network>
+&lt;/domain&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">network </span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机网络配置。</span>
+          <div class="jd-descrdiv">自定义类型，必须。</div></td>
+      </tr>
+    </table>
+	<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">network</span>各子元素(非SR-IOV网卡)</th>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">vsId</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟交换机Id。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+	   <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">vsName</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟交换机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">mac</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">网卡MAC地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">ipAddr</span></td>
+        <td class="jd-linkcol"><span class="sympad">网卡IP地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">deviceModel</span></td>
+        <td class="jd-linkcol"><span class="sympad"> 网卡类型，枚举值：rtl8139，virtio，e1000。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	   <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">isKernelAccelerated</span></td>
+        <td class="jd-linkcol"><span class="sympad">内核加速，用于virtio网卡。1：加速，0：不加速。默认为1。</span>
+          <div class="jd-descrdiv">整型（Intager）类型，可选。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">mode</span></td>
+        <td class="jd-linkcol"><span class="sympad">转发模式，取值为veb,vepa</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">profileId</span></td>
+        <td class="jd-linkcol"><span class="sympad">网络策略模板ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">profileName</span></td>
+        <td class="jd-linkcol"><span class="sympad">网络策略模板名称</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hotPluggable</span></td>
+        <td class="jd-linkcol"><span class="sympad">热拔。（true：允许，false：不允许）</span>
+          <div class="jd-descrdiv">布尔（Boolean）类型，可选。</div></td>
+      </tr>
+  </table>
+	<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">network</span>各子元素(SR-IOV网卡)</th>
+      </tr>
+       <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">deviceModel</span></td>
+        <td class="jd-linkcol"><span class="sympad"> 网卡类型，SR-IOV</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">driverType</span></td>
+        <td class="jd-linkcol"><span class="sympad">驱动类型，枚举值：VFIO：VFIO设备分配处理，KVM：KVM内核处理</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">address</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟网卡地址。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">ethName</span></td>
+        <td class="jd-linkcol"><span class="sympad">SR-IOV直通网卡名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">vlan</span></td>
+        <td class="jd-linkcol"><span class="sympad">VLAN</span>
+          <div class="jd-descrdiv">整数（Integer）类型，可选项。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">mac</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟网卡MAC地址。可选</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+  </table>
+  <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 (No Content)：成功。</li>
+	<li>409 (Conflict)：失败。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为72的虚拟机增加一块virtio虚拟网卡，转发模式为<span class="prettyprint lang-xml">veb</span>。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.4:8080/cas/casrs/vm/addDevice
+accept: application/xml
+&lt;domain&gt;
+	&lt;id&gt;72&lt;/id&gt;
+	&lt;name&gt;rest&lt;/name&gt;
+	&lt;title&gt;rest&lt;/title&gt;
+	&lt;network&gt;
+		&lt;mac&gt;0c:da:41:1d:e6:32&lt;/mac&gt;
+		&lt;ipAddr&gt;2.2.2.3&lt;/ipAddr&gt;
+		&lt;vsId&gt;1&lt;/vsId&gt;
+		&lt;vsName&gt;vswitch0&lt;/vsName&gt;
+		&lt;deviceModel&gt;virtio&lt;/deviceModel&gt;
+		&lt;isKernelAccelerated&gt;1&lt;/isKernelAccelerated&gt;		
+		&lt;mode&gt;veb&lt;/mode&gt;
+		&lt;profileId&gt;1&lt;/profileId&gt;
+		&lt;profileName&gt;Default&lt;/profileName&gt;
+		&lt;hotPluggable&gt;true&lt;/hotPluggable&gt;
+	&lt;/network&gt;
+&lt;/domain&gt;;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">    	
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;taskMsg&gt;
+	&lt;state&gt;0&lt;/state&gt;
+	&lt;errorCode&gt;0&lt;/errorCode&gt;
+	&lt;data&gt;为虚拟机“rest”增加网络“0c:da:41:1d:e6:32”。&lt;/data&gt;
+	&lt;message&gt;为虚拟机“rest”增加网络“0c:da:41:1d:e6:32”成功。 &lt;/message&gt;
+&lt;/taskMsg&gt;
+    	</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

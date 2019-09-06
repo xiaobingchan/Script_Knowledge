@@ -1,0 +1,100 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询CAS系统虚拟机Spice配置信息</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询CAS系统中虚拟机Spice配置信息。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/spice/info/{vmid}</p>
+<h2><a name="access"></a>访问方法</h2>
+  <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol">vmid</td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">虚拟机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+        </table>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=CC6193BACB2F99D2D4CEC754B2676600; Path=/cas<br>Content-Type: application/xml<br>Content-Length: 141<br>Date: Fri, 13 Dec 2013 06:34:20 GMT
+  </pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;spice&gt;<br>  &lt;id&gt;417&lt;/id&gt;<br>  &lt;hostIp&gt;192.168.0.27&lt;/hostIp&gt;<br>  &lt;port&gt;5905&lt;/port&gt;<br>&lt;/spice&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">vnc</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">主机 IP。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">port</span></td>
+      <td class="jd-linkcol"><span class="sympad">端口。</span>
+          <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostIp</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机所在的宿主主机IP地址</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div>
+     </td>
+    </tr>
+  
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询 CAS系统中指定虚拟机的Spice配置信息。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/spice/info/417
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">
+            HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=CC6193BACB2F99D2D4CEC754B2676600; Path=/cas<br>Content-Type: application/xml<br>Content-Length: 141<br>Date: Fri, 02 Nov 2012 08:40:47 GMT
+<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;spice&gt;<br>  &lt;id&gt;417&lt;/id&gt;<br>  &lt;hostIp&gt;192.168.0.27&lt;/hostIp&gt;<br>  &lt;port&gt;5905&lt;/port&gt;<br>&lt;/spice&gt;</pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

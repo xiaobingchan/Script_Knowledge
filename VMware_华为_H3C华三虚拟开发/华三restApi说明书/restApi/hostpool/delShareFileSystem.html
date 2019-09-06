@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>删除主机池下的共享文件系统</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>删除主机池下的共享文件系统。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/hostpool/delete/{id}?hpId={hpId}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>DELETE</dd>
+ <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">共享文件系统id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+  </table>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Query Parameter）</th>
+      </tr>
+
+      <tr>
+        <td class="jd-typecol">hpId</td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">主机池id 。</span>
+            <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+      </tr>
+    </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>成功：<br>
+      204(No Content)</li>
+    <li>失败：<br>
+      409(Conflict)</li>
+    </ul>
+  </dd>
+  <dt><b>消息头</b><br>
+  </dt>
+  <pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Date: Wed, 17 Sep 2014 02:31:35 GMT<br>
+
+HTTP/1.1 409 Conflict<br>Set-Cookie: JSESSIONID=FA40E58B986F00EB67BE6B72AAB1B189; Path=/cas<br>Error-Code: 1202<br>Error-Message: 共享文件系统“lun-03”正在被使用，不允许删除该共享文件系统。<br>Charset: GBK<br>Content-Type: text/html;charset=utf-8<br>Content-Length: 1017<br>Date: Wed, 17 Sep 2014 02:31:20 GMT<br>Server: H3C-CVM  </pre>
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.删除id为“1”的主机池中id为“2”的共享文件系统。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">DELETE http://localhost:8080/cas/casrs/hostpool/shareFile/delete/2?hpId=1
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 409 Conflict<br>Error-Code: 1202<br>Error-Message: 共享文件系统“lun-03”正在被使用，不允许删除该共享文件系统。<br>Charset: GBK<br>Content-Type: text/html;charset=utf-8<br>Content-Length: 1017<br>Date: Wed, 17 Sep 2014 02:33:48 GMT<br>Server: H3C-CVM<br><br><br>&lt;html&gt;&lt;head&gt;&lt;title&gt;Apache Tomcat/6.0.39 - Error report&lt;/title&gt;...&lt;/html&gt;</pre>
+      </div>
+    </dl>
+	<p>2.删除id为“1”的主机池中id为“1”的共享文件系统</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">DELETE http://localhost:8080/cas/casrs/hostpool/shareFile/delete/1?hpId=1
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Date: Wed, 17 Sep 2014 02:31:35 GMT<br><br>无消息体</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

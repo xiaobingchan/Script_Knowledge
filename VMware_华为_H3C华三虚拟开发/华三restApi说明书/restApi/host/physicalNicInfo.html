@@ -1,0 +1,133 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询指定物理主机所有物理网卡信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据主机id查询指定物理主机的所有物理网卡信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/host/allPhy</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">主机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 1067<br>Date: Wed, 17 Sep 2014 06:32:32 GMT<br>Server: H3C-CVM</pre>
+        </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;list&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth0&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;1&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:f8&lt;/macAddr&gt;<br>    &lt;speed&gt;1000 Mbps&lt;/speed&gt;<br>    &lt;duplex&gt;full&lt;/duplex&gt;<br>    &lt;carrier&gt;on&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth1&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:f9&lt;/macAddr&gt;<br>    &lt;speed&gt;--&lt;/speed&gt;<br>    &lt;duplex&gt;unknown&lt;/duplex&gt;<br>    &lt;carrier&gt;off&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth2&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:fa&lt;/macAddr&gt;<br>    &lt;speed&gt;--&lt;/speed&gt;<br>    &lt;duplex&gt;unknown&lt;/duplex&gt;<br>    &lt;carrier&gt;off&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth3&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:fb&lt;/macAddr&gt;<br>    &lt;speed&gt;--&lt;/speed&gt;<br>    &lt;duplex&gt;unknown&lt;/duplex&gt;<br>    &lt;carrier&gt;off&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>&lt;/list&gt;          </pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2"><span class="prettyprint lang-xml">pNIC</span>各子元素</th>
+		
+        <tr>
+          <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+          <td class="jd-linkcol"><span class="sympad"></span>网卡名称。
+            <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>
+        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+	          <td class="jd-linkcol" width="100%"><span class="sympad">描述。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div>	          </td></tr>
+	        <tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">状态。取值：  1-活动；0-不活动 -1未知。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">macAddr</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">MAC地址。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">speed</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad"></span>速率。
+              <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">duplex</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">双工。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">carrier</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">载波。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+			 <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">Mtu</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad"><span class="prettyprint lang-xml">Mtu</span>。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>	          
+        </table>
+	    <dt>&nbsp;</dt>
+      </dl>
+      
+
+      <h2><a name="example"></a>应用举例</h2>
+      <p>查询 ID为”21“的主机详细信息。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+GET http://localhost:8080/cas/casrs/host/id/21
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;list&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth0&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;1&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:f8&lt;/macAddr&gt;<br>    &lt;speed&gt;1000 Mbps&lt;/speed&gt;<br>    &lt;duplex&gt;full&lt;/duplex&gt;<br>    &lt;carrier&gt;on&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth1&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:f9&lt;/macAddr&gt;<br>    &lt;speed&gt;--&lt;/speed&gt;<br>    &lt;duplex&gt;unknown&lt;/duplex&gt;<br>    &lt;carrier&gt;off&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth2&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:fa&lt;/macAddr&gt;<br>    &lt;speed&gt;--&lt;/speed&gt;<br>    &lt;duplex&gt;unknown&lt;/duplex&gt;<br>    &lt;carrier&gt;off&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth3&lt;/name&gt;<br>    &lt;description&gt;Broadcom Corporation NetXtreme BCM5719 Gigabit Ethernet PCIe&lt;/description&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;macAddr&gt;d8:9d:67:2c:29:fb&lt;/macAddr&gt;<br>    &lt;speed&gt;--&lt;/speed&gt;<br>    &lt;duplex&gt;unknown&lt;/duplex&gt;<br>    &lt;carrier&gt;off&lt;/carrier&gt;<br>    &lt;Mtu&gt;1500&lt;/Mtu&gt;<br>  &lt;/pNIC&gt;<br>&lt;/list&gt;          </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

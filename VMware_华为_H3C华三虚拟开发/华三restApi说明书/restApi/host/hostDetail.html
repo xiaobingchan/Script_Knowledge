@@ -1,0 +1,195 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>查询指定物理主机详细信息</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据主机id查询指定物理主机的详细信息。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/host/id/{id}</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">主机id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+</pre>
+	      </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;host type=&quot;kvm&quot;&gt;<br>  &lt;id&gt;21&lt;/id&gt;<br>  &lt;name&gt;vmc-8&lt;/name&gt;<br>  &lt;ip&gt;192.168.0.8&lt;/ip&gt;<br>  &lt;model&gt;HP Compaq 8280 Elite CMT PC&lt;/model&gt;<br>  &lt;vendor&gt;Hewlett-Packard&lt;/vendor&gt;<br>  &lt;cpuCount&gt;4&lt;/cpuCount&gt;<br>  &lt;cpuModel&gt;Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz&lt;/cpuModel&gt;<br>  &lt;cpuFrequence&gt;1600&lt;/cpuFrequence&gt;<br>  &lt;diskSize&gt;439882&lt;/diskSize&gt;<br>  &lt;memorySize&gt;7875&lt;/memorySize&gt;<br>  &lt;cpuSockets&gt;2&lt;/cpuSockets&gt;<br>  &lt;cpuCores&gt;2&lt;/cpuCores&gt;<br> &lt;pNIC&gt;<br>    &lt;name&gt;eth0&lt;/name&gt;<br>    &lt;description&gt;Intel Corporation 82579LM Gigabit Network Connection&lt;/description&gt;<br>    &lt;status&gt;1&lt;/status&gt;<br>    &lt;macAddr&gt;80:c1:6e:e2:1b:d8&lt;/macAddr&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth1&lt;/name&gt;<br>    &lt;description&gt;Intel Corporation 82574L Gigabit Network Connection&lt;/description&gt;<br>    &lt;status&gt;1&lt;/status&gt;<br>    &lt;macAddr&gt;68:05:ca:00:8a:b6&lt;/macAddr&gt;<br>  &lt;/pNIC&gt;
+  &lt;serialNumber&gt;6CU429FWKW&lt;/serialNumber&gt;<br>&lt;/host&gt;</pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2"><span class="prettyprint lang-xml">host</span>各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">主机 ID。</span>
+	            <div class="jd-descrdiv">长整数（long）类型。</div>	          </td>
+	        </tr>
+			
+        <tr class="alt-color">
+          <td class="jd-typecol">type</td>
+          <td class="jd-linkcol"><span class="sympad">服务器支持的Hypervisor类型。</span>如
+            “kvm”、“xen”、“esx”
+  <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>
+        <tr>
+          <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+          <td class="jd-linkcol"><span class="sympad">主机名称。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>
+        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">ip</span></td>
+	          <td class="jd-linkcol" width="100%"><span class="sympad">服务器管理IP地址。</span>
+              <div class="jd-descrdiv">字符串（String）类型。</div>	          </td></tr>
+	        <tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">model</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">服务器型号。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">vendor</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">服务器制造商。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">cpuCount</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad"></span>CPU个数
+                <span class="sympad">。</span>
+              <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">cpuFrequence</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">CPU频率，单位为MHz。</span>
+                <div class="jd-descrdiv">整数（int）类型。</div>	          </td>
+	        </tr>
+	        <tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">cpuModel</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">CPU型号。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+			 <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">diskSize</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">磁盘大小，单位为MB。</span>
+                <div class="jd-descrdiv">长整数（long）类型。</div>	          </td>
+	        </tr>
+			 <tr >
+               <td class="jd-typecol"><span class="prettyprint lang-xml">memorySize</span></td>
+			   <td class="jd-linkcol"><span class="sympad">内存大小，单位为MB。</span>
+                   <div class="jd-descrdiv">长整数（long）类型。</div></td>
+		    </tr>
+			 <tr class="alt-color">
+               <td class="jd-typecol"><span class="prettyprint lang-xml">cpuSockets</span></td>
+			   <td class="jd-linkcol"><span class="sympad">cpu 个数。</span>
+                   <div class="jd-descrdiv">整数（int）类型。</div></td>
+		    </tr>
+	         <tr >
+               <td class="jd-typecol"><span class="prettyprint lang-xml">cpuCores</span></td>
+	           <td class="jd-linkcol"><span class="sympad">cpu 核数。</span>
+                   <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>	   
+		   <tr class="alt-color">
+               <td class="jd-typecol"><span class="prettyprint lang-xml">serialNumber</span></td>
+			   <td class="jd-linkcol"><span class="sympad">服务器序列号，Host唯一标识。</span>
+                   <div class="jd-descrdiv">字符串（String）类型。</div></td>
+		   </tr>       
+        </table>
+	    <table id="pubmethods" class="jd-sumtable">
+	      <tbody>
+	        <tr>
+	          <th colspan="2"><span class="prettyprint lang-xml">pNIC</span>各子元素</th>
+            <tr>
+              <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">物理网卡名称，和ifconfig命令看到的结果相同。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">物理网卡详细信息。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">macAddr</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad"></span>物理网卡的MAC地址<span class="sympad">。</span>
+                  <div class="jd-descrdiv">字符串（String）类型。</div></td>
+            </tr>
+            <tr class="alt-color">
+              <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+              <td class="jd-linkcol" width="100%"><span class="sympad">物理网卡状态，1-活动；0-不活动。</span>
+                  <div class="jd-descrdiv">整数（int）类型。</div></td>
+            </tr>
+        </table>
+	    <dt>&nbsp;</dt>
+      </dl>
+      
+
+      <h2><a name="example"></a>应用举例</h2>
+      <p>查询 ID为”21“的主机详细信息。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+GET http://localhost:8080/cas/casrs/host/id/21
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;host type=&quot;kvm&quot;&gt;<br>  &lt;id&gt;21&lt;/id&gt;<br>  &lt;name&gt;vmc-8&lt;/name&gt;<br>  &lt;ip&gt;192.168.0.8&lt;/ip&gt;<br>  &lt;model&gt;HP Compaq 8280 Elite CMT PC&lt;/model&gt;<br>  &lt;vendor&gt;Hewlett-Packard&lt;/vendor&gt;<br>  &lt;cpuCount&gt;4&lt;/cpuCount&gt;<br>  &lt;cpuModel&gt;Intel(R) Core(TM) i5-2400 CPU @ 3.10GHz&lt;/cpuModel&gt;<br>  &lt;cpuFrequence&gt;1600&lt;/cpuFrequence&gt;<br>  &lt;diskSize&gt;439882&lt;/diskSize&gt;<br>  &lt;memorySize&gt;7875&lt;/memorySize&gt;<br>  &lt;cpuSockets&gt;2&lt;/cpuSockets&gt;<br>  &lt;cpuCores&gt;2&lt;/cpuCores&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth0&lt;/name&gt;<br>    &lt;description&gt;Intel Corporation 82579LM Gigabit Network Connection&lt;/description&gt;<br>    &lt;status&gt;1&lt;/status&gt;<br>    &lt;macAddr&gt;80:c1:6e:e2:1b:d8&lt;/macAddr&gt;<br>  &lt;/pNIC&gt;<br>  &lt;pNIC&gt;<br>    &lt;name&gt;eth1&lt;/name&gt;<br>    &lt;description&gt;Intel Corporation 82574L Gigabit Network Connection&lt;/description&gt;<br>    &lt;status&gt;1&lt;/status&gt;<br>    &lt;macAddr&gt;68:05:ca:00:8a:b6&lt;/macAddr&gt;<br>  &lt;/pNIC&gt;
+  &lt;serialNumber&gt;6CU429FWKW&lt;/serialNumber&gt;<br>&lt;/host&gt;
+          </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

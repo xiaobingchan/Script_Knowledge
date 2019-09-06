@@ -1,0 +1,122 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>虚拟机备份时间信息列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>查询虚拟机备份时间信息列表。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>查询cp方式备份的虚拟机</p>
+<p>/cas/casrs/vm/vmRestoreInfo?vmName=WFG_DRX01-_001&amp;type=cp&amp;directory=/vms&amp;hostId=3</p>
+<p>查询scp方式备份的虚拟机</p>
+<p>/cas/casrs/vm/vmRestoreInfo?hostId=3&amp;type=scp&amp;directory=/vms&amp;targetAddr=192.168.0.28&amp;userName=root&amp;password=1q2w3e&amp;vmName=WFG_DRX01-_001</p>
+<p>查询ftp方式备份的虚拟机</p>
+<p>/cas/casrs/vm/vmRestoreInfo?hostId=3&amp;type=ftp&amp;directory=/&amp;targetAddr=192.168.1.80&amp;userName=root&amp;password=1q2w3e&amp;vmName=WFG_DRX01-_001</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt> 
+  <dt><br>
+  </dt>
+    <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">type</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟备份类型。</span>
+          枚举值cp,ftp,scp
+            <div class="jd-descrdiv">字符串（String）。必须。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">directory</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机备份路径 。</span>
+          <div class="jd-descrdiv">字符串（String）。必须。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">hostId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机id 。</span>
+          <div class="jd-descrdiv">长整形（Long）。必须。</div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">targetAddr</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">IP地址 。</span>
+          <div class="jd-descrdiv">字符串（String）。<span class="sympad">type值为ftp、scp时必须。</span></div>        </td>
+      </tr>
+	   <tr>
+        <td class="jd-typecol">userName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">用户名。</span>
+          <div class="jd-descrdiv">字符串（String）。<span class="sympad">type值为ftp、scp时必须。</span></div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">password</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">密码 。</span><div class="jd-descrdiv">字符串（String）。<span class="sympad">type值为ftp、scp时必须。</span></div>        </td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol">vmName</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机名称 。</span>
+          <div class="jd-descrdiv">字符串（String）。必须。</div>        </td>
+      </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Set-Cookie: JSESSIONID=C09B3DE2AEBBA834BC08C476081809D3; Path=/cas<br>Content-Type: application/xml<br>Content-Length: 132<br>Date: Thu, 18 Dec 2014 03:24:38 GMT</pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml"><br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;list&gt;<br>  &lt;time&gt;2014-12-17 17:44:12&lt;/time&gt;<br>  &lt;time&gt;2014-12-17 17:44:24&lt;/time&gt;<br>&lt;/list&gt;<br>
+  </pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+   
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">time</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机备份时间。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    </table>
+<p><a name="example"></a>应用举例</p>
+<p>查询虚拟机备份虚拟机信息列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/vm/vmRestoreInfo?vmName=WFG_DRX01-_001&amp;type=cp&amp;directory=/vms&amp;hostId=3
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+       <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 191<br>Date: Thu, 18 Dec 2014 06:24:02 GMT<br>Server: H3C-CVM
+<br>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;list&gt;<br>  &lt;time&gt;2014-12-17 17:44:12&lt;/time&gt;<br>  &lt;time&gt;2014-12-17 17:44:24&lt;/time&gt;<br>&lt;/list&gt;</pre>
+        </pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

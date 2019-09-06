@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>为指定虚拟机添加Spice控制台</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>为指定虚拟机添加Spice控制台。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/addDevice</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;domain&gt;<br>	&lt;id&gt;72&lt;/id&gt;<br>	&lt;name&gt;test&lt;/name&gt;<br>	&lt;title&gt;test&lt;/title&gt;<br>	&lt;vnc&gt;<br>		&lt;type&gt;spice&lt;/type&gt;<br>		&lt;password&gt;123456&lt;/password&gt;<br>		&lt;port&gt;5903&lt;/port&gt;<br>		&lt;enableSpiceCompress&gt;1&lt;/enableSpiceCompress&gt;		<br>	&lt;/vnc&gt;<br>&lt;/domain&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">title </span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机显示名称。</span>
+            <div class="jd-descrdiv">字符串（String）类型，必须</div>
+          <div class="jd-descrdiv"></div></td></tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">vnc </span></td>
+        <td class="jd-linkcol"><span class="sympad">控制台配置。</span>
+          <div class="jd-descrdiv">自定义类型，必须。</div></td>
+      </tr>
+    </table>
+	<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">vnc</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad"> 控制台类型，枚举值：spice，vnc。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+      </tr>
+	   <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">password</span></td>
+        <td class="jd-linkcol"><span class="sympad">控制台密码。</span>
+          <div class="jd-descrdiv">字符串（String）类型。可选。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">port</span></td>
+        <td class="jd-linkcol"><span class="sympad">控制台端口。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，可选。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">enableSpiceCompress</span></td>
+        <td class="jd-linkcol"><span class="sympad">是否启用图像压缩。</span>
+          <div class="jd-descrdiv">整型（Integer）类型，必须。1是启用，0不启用。</div></td>
+      </tr>
+  </table>
+
+  <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 (No Content)：成功。</li>
+	<li>409 (Conflict)：失败。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为72的虚拟机增加Spice控制台。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.4:8080/cas/casrs/vm/addDevice
+accept: application/xml
+&lt;domain&gt;<br>	&lt;id&gt;72&lt;/id&gt;<br>	&lt;name&gt;rest&lt;/name&gt;<br>	&lt;title&gt;rest&lt;/title&gt;<br>	&lt;vnc&gt;<br>		&lt;type&gt;spice&lt;/type&gt;<br>		&lt;password&gt;123456&lt;/password&gt;<br>		&lt;port&gt;5903&lt;/port&gt;<br>		&lt;enableSpiceCompress&gt;1&lt;/enableSpiceCompress&gt;		<br>	&lt;/vnc&gt;<br>&lt;/domain&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">    	
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;taskMsg&gt;
+	&lt;state&gt;0&lt;/state&gt;
+	&lt;errorCode&gt;0&lt;/errorCode&gt;
+	&lt;data&gt;为虚拟机“rest”增加 SPICE控制台。&lt;/data&gt;
+	&lt;message&gt;为虚拟机“rest”增加 SPICE控制台成功。 &lt;/message&gt;
+&lt;/taskMsg&gt;
+    	</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

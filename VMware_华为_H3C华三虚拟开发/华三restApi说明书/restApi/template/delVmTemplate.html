@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>删除虚拟机模板</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>删除虚拟机模板。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vmTemplate/deleteVmTemplate?id={id}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>DELETE</dd>
+ <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2">查询参数（Query Parameter）</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机模板id 。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div>        </td>
+      </tr>
+  </table>
+</dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>成功：<br>
+      204(No Content)</li>
+    <li>未绑定（已删除）：<br>
+      410(Gone)</li>
+    </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Date: Thu, 28 Nov 2013 09:50:39 GMT</pre>
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>删除id为280的虚拟机模板信息。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">DELETE http://localhost:8080/cas/casrs/vmTemplate/deleteVmTemplate?id=280
+accept: application/xml
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Date: Thu, 28 Nov 2013 09:50:39 GMT</pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

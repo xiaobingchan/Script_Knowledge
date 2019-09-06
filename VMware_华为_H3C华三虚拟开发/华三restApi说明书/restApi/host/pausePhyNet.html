@@ -1,0 +1,107 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="../css/docs.css" type="text/css" rel="stylesheet"/>
+<link href="../css/prettify.css" type="text/css" rel="stylesheet"/>
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+  <div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>暂停主机物理网卡</h1>
+  </div>
+  <div id="jd-content">
+    <div class="jd-descr">
+      <p>根据主机id暂停指定物理主机的物理网卡。</p>
+
+      <h2><a name="uri"></a>接口 URI</h2>
+      <p>/cas/casrs/host/pnic/pause?id={id}&interName={interName}</p>
+
+      <h2><a name="access"></a>访问方法</h2>
+      <dl>
+        <dt><b>HTTP 方法</b></dt>
+        <dd>GET</dd>
+        <dt><b>参数</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+            <tr >
+              <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+              <td class="jd-linkcol"><span class="sympad">主机id 。</span>
+                  <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+            </tr>
+	        
+	        <tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">interName</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">物理网卡名称。</span>
+                <div class="jd-descrdiv">字符串（String）类型。</div>	          </td>
+	        </tr>
+        </table>
+      </dl>
+
+      <h2><a name="result"></a>返回结果</h2>
+      <dl>
+      	<dt><b>状态码</b></dt>
+    		<dd><ul>
+    			<li>200(OK)：成功。</li>
+    		</ul></dd>
+
+	      <dt><b>消息头</b></dt>	      
+	      <div class="source">
+	        <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Content-Type: application/xml<br>Content-Length: 193<br>Date: Wed, 17 Sep 2014 09:41:54 GMT<br>Server: H3C-CVM	        </pre>
+        </div>
+
+        <dt><b>消息体</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;rsResult&gt;<br>  &lt;state&gt;0&lt;/state&gt;<br>  &lt;errorCode&gt;0&lt;/errorCode&gt;<br>  &lt;message&gt;暂停主机“cvk011”上物理网卡“eth1”成功。&lt;/message&gt;<br>&lt;/rsResult&gt;          </pre>
+        </div>
+      <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2"><span class="prettyprint lang-xml">rsResult</span>各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">state</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">状态。</span>
+	            <div class="jd-descrdiv">整型（Int）类型。</div>	          </td>
+	        </tr>
+			
+        <tr class="alt-color">
+          <td class="jd-typecol"><span class="prettyprint lang-xml">errorCode</span></td>
+          <td class="jd-linkcol"><span class="sympad">错误代码。</span>
+            <div class="jd-descrdiv">整型（Int）类型。</div></td></tr>
+        <tr>
+          <td class="jd-typecol"><span class="prettyprint lang-xml">message</span></td>
+          <td class="jd-linkcol"><span class="sympad">消息</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>	          
+        </table>
+	    <dt><a name="example"></a>应用举例</dt>
+      </dl>
+      
+
+      <p>暂停主机id为7，名称为eth1的物理网卡。</p>
+      <dl>
+      	<dt><b>请求</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+GET http://localhost:8080/cas/casrs/host/pnic/pause?id=7&interName=eth1
+accept: application/xml
+...        </pre>
+        </div>
+      	<dt><b>回应</b></dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+HTTP/1.1 200 OK
+Content-Type: application/xml
+...
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;rsResult&gt;<br>  &lt;state&gt;0&lt;/state&gt;<br>  &lt;errorCode&gt;0&lt;/errorCode&gt;<br>  &lt;message&gt;暂停主机“cvk011”上物理网卡“eth1”成功。&lt;/message&gt;<br>&lt;/rsResult&gt;          </pre>
+        </div>
+      </dl>
+  </div>
+  </div>
+</div>
+</body>
+</html>

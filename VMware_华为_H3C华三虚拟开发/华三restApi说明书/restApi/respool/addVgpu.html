@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script></head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>对物理GPU进行切分操作，创建vGPU</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据主机ID和槽位号对物理GPU进行切分操作，创建vGPU。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/resPool/addVgpu?hostId={hostId}&bus={bus}&amp;type={type}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>参数</b></dt><br>
+  <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">查询参数（Query Parameter）</th>
+        </tr>
+	        <tr >
+	          <td class="jd-typecol">hostId</td>
+	          <td class="jd-linkcol"><p>主机id。</p>
+                <div class="jd-descrdiv">长整数（Long）类型。必须。</div></td>
+            </tr>
+	        <tr class="alt-color">
+	          <td class="jd-typecol">bus</td>
+	          <td class="jd-linkcol" width="100%">物理GPU槽位号 <span class="sympad"> 。</span>
+                <div class="jd-descrdiv">字符串（String）类型。必须。</div>	          </td>
+	        </tr>
+	        <tr >
+	          <td class="jd-typecol">type</td>
+	          <td class="jd-linkcol">切分类型<span class="sympad"> 。</span>
+                <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+            </tr>
+        </table>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl><dd><ul>
+    </ul>
+  </dd>
+  <dt><strong>状态码</strong></dt>
+  <dd>
+    <ul>
+      <li>200 ：成功。</li>
+      </ul>
+  </dd>
+  <dd>&nbsp;</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br>&lt;taskMsg&gt;<br>  &lt;msgId&gt;1410943942346&lt;/msgId&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+    </div>
+  <div class="source"><b>元素含义</b></div>
+</dl>
+<dt>&nbsp;</dt>
+<table id="pubmethods">
+  <tbody>
+    <tr>
+      <th width="1158" colspan="2">返回切分GPU任务id，可根据任务id查询任务进度。</th>
+    </tr>
+  </tbody>
+</table>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.在ID为1的主机上，切分槽位号为0000:05:00.0（需做URL Encode）的物理GPU，切分类型为nvidia-11。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://localhost:8080/cas/casrs/resPool/addVgpu?hostId=1&bus=0000%3a05%3a00.0&amp;type=nvidia-11
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+        <pre>HTTP/1.1 200 OK<br>Set-Cookie: JSESSIONID=06A0274E8DF6F83891933D8648B28952; Path=/cas<br>Content-Type: application/xml<br>Content-Length: 176<br><span class="prettyprint lang-xml">Date: Sat, 03 Feb 2018 08:33:01 GMT</span><br><br>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;taskMsg&gt;<br>  &lt;msgId&gt;1410943942346&lt;/msgId&gt;<br>  &lt;completed&gt;false&lt;/completed&gt;<br>  &lt;progress&gt;0&lt;/progress&gt;<br>  &lt;eventType&gt;0&lt;/eventType&gt;<br>&lt;/taskMsg&gt;</pre>
+        </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

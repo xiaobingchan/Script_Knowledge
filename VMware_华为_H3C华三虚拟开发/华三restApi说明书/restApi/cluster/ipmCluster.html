@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>电源智能管理</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>电源智能管理。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/cluster/editIpm</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt>
+          <b>消息体</b>
+        </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+&lt;cluster&gt;
+    &lt;id&gt;1&lt;/id&gt;
+    &lt;enableIpm&gt;1&lt;/enableIpm&gt;
+    &lt;persistTimeIpm&gt;5&lt;/persistTimeIpm&gt;
+    &lt;checkIntervalIpm&gt;10&lt;/checkIntervalIpm&gt;
+    &lt;ipmLowerMonitorId&gt;4&lt;/ipmLowerMonitorId&gt;
+    &lt;ipmUpperMonitorId&gt;4&lt;/ipmUpperMonitorId&gt;
+&lt;/cluster&gt;
+  </pre>
+        </div>
+        
+  <dt><b>参数</b></dt>
+  <table class="jd-sumtable" id="pubmethods">
+    <tbody>
+      <tr>
+        <th colspan="2">路径参数（Path Parameter）</th>
+      </tr>
+
+      <tr>
+        <td class="jd-typecol">id</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">集群ID 。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。必须。</div></td>
+      </tr>
+    
+      <tr>
+        <td class="jd-typecol">enableIpm</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">是否启用电源智能管理 0:不启用电源智能管理 1:启用电源智能管理。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">persistTimeIpm</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">持续时间。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">checkIntervalIpm</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">检查间隔。</span>
+            <div class="jd-descrdiv">整数（Integer）类型。</div></td>
+      </tr>
+       <tr>
+        <td class="jd-typecol">ipmLowerMonitorId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机回收监控策略ID。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。</div></td>
+      </tr>
+      
+      <tr>
+        <td class="jd-typecol">ipmUpperMonitorId</td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">主机扩展监控策略ID。</span>
+            <div class="jd-descrdiv">长整数（Long）类型。</div></td>
+      </tr>
+      
+    </table>
+  <dt>&nbsp;</dt>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204(No Content)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b><br>
+  </dt>
+  <pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Content-Type: application/xml<br>Date: Wed, 17 Sep 2014 00:48:42 GMT<br>Server: H3C-CVM</pre>
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.创建名称为“aa”的集群</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://localhost:8080/cas/casrs/cluster/editIpm
+accept: application/xml
+</pre>
+      </div>
+      
+      <dt>
+          <b>消息体</b>
+        </dt>
+        <div class="source">
+          <pre class="prettyprint lang-xml">
+&lt;cluster&gt;
+    &lt;id&gt;1&lt;/id&gt;
+    &lt;enableIpm&gt;1&lt;/enableIpm&gt;
+    &lt;persistTimeIpm&gt;5&lt;/persistTimeIpm&gt;
+    &lt;checkIntervalIpm&gt;10&lt;/checkIntervalIpm&gt;
+    &lt;ipmLowerMonitorId&gt;4&lt;/ipmLowerMonitorId&gt;
+    &lt;ipmUpperMonitorId&gt;4&lt;/ipmUpperMonitorId&gt;
+&lt;/cluster&gt;
+  </pre>
+        </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Date: Wed, 17 Sep 2014 00:48:42 GMT<br>Server: H3C-CVM
+<br>无消息体<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

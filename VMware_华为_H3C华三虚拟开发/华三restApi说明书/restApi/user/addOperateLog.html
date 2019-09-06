@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>增加用户操作日志</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>为指定ID的用户增加操作日志。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/operatorLog/</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;operateLog&gt;<br>    &lt;userId&gt;1&lt;/userId&gt;<br>    &lt;orgId&gt;1&lt;/orgId&gt;<br>    &lt;loginName&gt;zxk&lt;/loginName&gt;<br>    &lt;userName&gt;zxk&lt;/userName&gt;<br>    &lt;address&gt;192.168.0.105&lt;/address&gt;<br>    &lt;category&gt;1&lt;/category&gt;<br>    &lt;description&gt;用户登录&lt;/description&gt;<br>    &lt;result&gt;0&lt;/result&gt;<br>&lt;/operateLog&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table class="jd-sumtable" id="pubmethods">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">operateLog</span>各子元素</th>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">userId</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">用户ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">loginName</span></td>
+        <td class="jd-linkcol"><span class="sympad">租户登录名。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">userName</span></td>
+        <td class="jd-linkcol"><span class="sympad">租户姓名。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">orgId</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">所属的组织ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">address</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">登录客户端IP地址。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">category</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">操作类别。</span>
+ 1：登录/注销操作  10：虚拟机动作          
+ <div class="jd-descrdiv">整数（int）类型。</div></td>
+      </tr>
+      <tr >
+        <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">操作描述</span><span class="sympad">。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">result</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">操作结果。</span> <span class="sympad">0：成功 1：失败。</span>
+            <div class="jd-descrdiv">整数（int）类型。</div></td>
+      </tr>
+    </table>
+  <p>&nbsp;</p>
+  <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>201 (Created)：成功。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为”5“的租户增加登录操作日志。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.4:8080/cas/casrs/operatorLog/
+accept: application/xml
+
+
+&lt;operateLog&gt;<br>    &lt;userId&gt;5&lt;/userId&gt;<br>    &lt;orgId&gt;1&lt;/orgId&gt;<br>    &lt;loginName&gt;zxk&lt;/loginName&gt;<br>    &lt;userName&gt;zxk&lt;/userName&gt;<br>    &lt;address&gt;192.168.0.105&lt;/address&gt;<br>    &lt;category&gt;1&lt;/category&gt;<br>    &lt;description&gt;用户登录&lt;/description&gt;<br>    &lt;result&gt;0&lt;/result&gt;<br>&lt;/operateLog&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=A74EBA14A1C0E12AD2EF9B3F7A876C28; Path=/cas<br>Date: Mon, 21 May 2012 11:12:54 GMT<br>
+无消息体
+</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

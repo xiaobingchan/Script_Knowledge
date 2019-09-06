@@ -1,0 +1,218 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>查询CAS系统中集群下所有虚拟机列表</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>根据集群ID查询CAS系统中集群下所有虚拟机列表</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/vmList?clusterId={clusterId}&offset={offset}&limit={limit}&sortField={sortField}&sortDir={sortDir}</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>GET</dd>
+  <dt><b>参数</b></dt>
+  <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2">路径参数（Path Parameter）</th>
+        </tr>
+	        <tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">clusterId</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">集群id 。</span>
+              <div class="jd-descrdiv">长整数（long）类型。必须。</div>	          </td>
+	        </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">offset</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">返回的第一条记录在总结果集中的位置。</span>
+              <div class="jd-descrdiv">整数（int）类型，非必须。</div>	</td>
+	        </tr>
+			<tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">limit</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">返回记录总数。</span>
+              <div class="jd-descrdiv">整数（int）类型，非必须。</div>	          </td>
+	        </tr>
+			<tr class="alt-color">
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">sortField</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">排序字段 。</span>
+              <div class="jd-descrdiv">字符串（String）类型，非必须。id: 虚拟机ID，title：虚拟机显示名称，status: 虚拟机状态，cpu: 虚拟机CPU个数，memory: 虚拟机内存大小；若传入其他字段，将以"id"进行排序。</div>	          </td>
+	        </tr>
+			<tr >
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">sortDir</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">排序类型 。</span>
+              <div class="jd-descrdiv">字符串（String）类型，非必须。Asc：升序，Desc：降序</div>	          </td>
+	        </tr>
+        </table>
+  </dl>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: H3C-CVM<br>Content-Type: application/xml<br>Content-Length: 667<br>Date: Tue, 16 Sep 2014 07:04:33 GMT
+  </pre>
+  </div>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;list&gt;<br>  &lt;domain&gt;<br>    &lt;id&gt;245&lt;/id&gt;<br>    &lt;hostId&gt;22&lt;/hostId&gt;<br>    &lt;clusterId&gt;2&lt;/clusterId&gt;<br>    &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;<br>    &lt;name&gt;asd_003&lt;/name&gt;<br>    &lt;title&gt;asd_003&lt;/title&gt;<br>    &lt;hostName&gt;cvk021&lt;/hostName&gt;<br>    &lt;memory&gt;128&lt;/memory&gt;<br>    &lt;cpuRate&gt;0.0&lt;/cpuRate&gt;<br>    &lt;memRate&gt;0.0&lt;/memRate&gt;<br>    &lt;cpu&gt;1&lt;/cpu&gt;<br>    &lt;vmStatus&gt;shutOff&lt;/vmStatus&gt;<br>    &lt;uuid&gt;fba12367-b379-4c08-ab4f-63799f75bc42&lt;/uuid&gt;<br>    &lt;system&gt;1&lt;/system&gt;<br>    &lt;osDesc&gt;Other Linux(32-bit)&lt;/osDesc&gt;<br>    &lt;flag&gt;1&lt;/flag&gt;<br>    &lt;type&gt;0&lt;/type&gt;<br>    &lt;deployed&gt;false&lt;/deployed&gt;<br>    &lt;existRaw&gt;false&lt;/existRaw&gt;<br>    &lt;haStatus&gt;0&lt;/haStatus&gt;<br>    &lt;haManage&gt;1&lt;/haManage&gt;<br>  &lt;/domain&gt;<br>  &lt;domain&gt;<br>    &lt;id&gt;246&lt;/id&gt;<br>    &lt;hostId&gt;22&lt;/hostId&gt;<br>    &lt;clusterId&gt;2&lt;/clusterId&gt;<br>    &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;<br>    &lt;name&gt;asd_001&lt;/name&gt;<br>    &lt;title&gt;asd_001&lt;/title&gt;<br>    &lt;hostName&gt;cvk021&lt;/hostName&gt;<br>    &lt;memory&gt;256&lt;/memory&gt;<br>    &lt;cpuRate&gt;0.6666666666666666&lt;/cpuRate&gt;<br>    &lt;memRate&gt;48.104166666666536&lt;/memRate&gt;<br>    &lt;cpu&gt;1&lt;/cpu&gt;<br>    &lt;vmStatus&gt;running&lt;/vmStatus&gt;<br>    &lt;uuid&gt;7ef6f5f9-16ce-4c0a-87ad-ec7c7da8a762&lt;/uuid&gt;<br>    &lt;system&gt;1&lt;/system&gt;<br>    &lt;osDesc&gt;Other Linux(32-bit)&lt;/osDesc&gt;<br>    &lt;flag&gt;1&lt;/flag&gt;<br>    &lt;type&gt;0&lt;/type&gt;<br>    &lt;deployed&gt;false&lt;/deployed&gt;<br>    &lt;existRaw&gt;false&lt;/existRaw&gt;<br>    &lt;haStatus&gt;0&lt;/haStatus&gt;<br>    &lt;haManage&gt;1&lt;/haManage&gt;<br>  &lt;/domain&gt;<br>  ......<br>&lt;/list&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostId</span></td>
+      <td class="jd-linkcol"><span class="sympad">主机 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+	<tr">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">clusterId</span></td>
+      <td class="jd-linkcol"><span class="sympad">集群 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostPoolId</span></td>
+      <td class="jd-linkcol"><span class="sympad">主机池 ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">title</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机显示名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostName</span></td>
+      <td class="jd-linkcol"><span class="sympad">主机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机描述。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">memory</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机内存。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，单位MB。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">cpuRate</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机CPU利用率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">cpu</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机CPU利用率。</span>
+          <div class="jd-descrdiv">小数（double）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">memRate</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机虚拟CPU个数（CPU个数 * CPU核数） 。</span>
+          <div class="jd-descrdiv">整型（Integer）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vmStatus</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机状态。</span>
+          <div class="jd-descrdiv">字符串（String）类型，shutOff:关闭，shutdown:关闭，running:运行，paused:暂停，unknown:未知</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机UUID。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">system</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机安装的操作系统，枚举值：0：Windows，1：Linux。</span>
+          <div class="jd-descrdiv">整型（Integer）类型</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">osDesc</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机安装的操作系统描述。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">flag</span></td>
+      <td class="jd-linkcol"><span class="sympad">虚拟机所属标志 0:不属于用户以及用户组 1:属于用户 2:属于用户组。</span>
+          <div class="jd-descrdiv">整型（Integer）类型</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+      <td class="jd-linkcol"><span class="sympad"> 虚拟机类型 0:CAS虚拟机 1:VMware虚拟机。</span>
+          <div class="jd-descrdiv">整型（Integer）类型</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">deployed</span></td>
+      <td class="jd-linkcol"><span class="sympad">是否快速部署过。</span>
+          <div class="jd-descrdiv">布尔（Boolean）类型</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">existRaw</span></td>
+      <td class="jd-linkcol"><span class="sympad">是否存在raw格式。</span>
+          <div class="jd-descrdiv">布尔（Boolean）类型</div></td>
+    </tr>
+	<tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">haStatus</span></td>
+      <td class="jd-linkcol"><span class="sympad"> 虚拟机HA状态，枚举值，0:正常 1:未加入HA 2:已加入HA，配置文件不同步</span>
+          <div class="jd-descrdiv">整型（Integer）类型</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">haManage</span></td>
+      <td class="jd-linkcol"><span class="sympad"> 虚拟机是否被HA管理，枚举值，0：未被HA管理，1：被HA管理。</span>
+          <div class="jd-descrdiv">整型（Integer）类型</div></td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.查询CAS系统中ID为“1”的集群下虚拟机列表。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">GET http://localhost:8080/cas/casrs/vm/vmList?clusterId=1&offset=0&limit=2&sortField=id&sortDir=Asc
+accept: application/xml
+...
+        </pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source">
+       <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: H3C-CVM<br>Content-Type: application/xml<br>Content-Length: 667<br>Date: Tue, 16 Sep 2014 07:04:33 GMT
+&lt;list&gt;<br>  &lt;domain&gt;<br>    &lt;id&gt;245&lt;/id&gt;<br>    &lt;hostId&gt;22&lt;/hostId&gt;<br>    &lt;clusterId&gt;2&lt;/clusterId&gt;<br>    &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;<br>    &lt;name&gt;asd_003&lt;/name&gt;<br>    &lt;title&gt;asd_003&lt;/title&gt;<br>    &lt;hostName&gt;cvk021&lt;/hostName&gt;<br>    &lt;memory&gt;128&lt;/memory&gt;<br>    &lt;cpuRate&gt;0.0&lt;/cpuRate&gt;<br>    &lt;memRate&gt;0.0&lt;/memRate&gt;<br>    &lt;cpu&gt;1&lt;/cpu&gt;<br>    &lt;vmStatus&gt;shutOff&lt;/vmStatus&gt;<br>    &lt;uuid&gt;fba12367-b379-4c08-ab4f-63799f75bc42&lt;/uuid&gt;<br>    &lt;system&gt;1&lt;/system&gt;<br>    &lt;osDesc&gt;Other Linux(32-bit)&lt;/osDesc&gt;<br>    &lt;flag&gt;1&lt;/flag&gt;<br>    &lt;type&gt;0&lt;/type&gt;<br>    &lt;deployed&gt;false&lt;/deployed&gt;<br>    &lt;existRaw&gt;false&lt;/existRaw&gt;<br>    &lt;haStatus&gt;0&lt;/haStatus&gt;<br>    &lt;haManage&gt;1&lt;/haManage&gt;<br>  &lt;/domain&gt;<br>  &lt;domain&gt;<br>    &lt;id&gt;246&lt;/id&gt;<br>    &lt;hostId&gt;22&lt;/hostId&gt;<br>    &lt;clusterId&gt;2&lt;/clusterId&gt;<br>    &lt;hostPoolId&gt;1&lt;/hostPoolId&gt;<br>    &lt;name&gt;asd_001&lt;/name&gt;<br>    &lt;title&gt;asd_001&lt;/title&gt;<br>    &lt;hostName&gt;cvk021&lt;/hostName&gt;<br>    &lt;memory&gt;256&lt;/memory&gt;<br>    &lt;cpuRate&gt;0.6666666666666666&lt;/cpuRate&gt;<br>    &lt;memRate&gt;48.104166666666536&lt;/memRate&gt;<br>    &lt;cpu&gt;1&lt;/cpu&gt;<br>    &lt;vmStatus&gt;running&lt;/vmStatus&gt;<br>    &lt;uuid&gt;7ef6f5f9-16ce-4c0a-87ad-ec7c7da8a762&lt;/uuid&gt;<br>    &lt;system&gt;1&lt;/system&gt;<br>    &lt;osDesc&gt;Other Linux(32-bit)&lt;/osDesc&gt;<br>    &lt;flag&gt;1&lt;/flag&gt;<br>    &lt;type&gt;0&lt;/type&gt;<br>    &lt;deployed&gt;false&lt;/deployed&gt;<br>    &lt;existRaw&gt;false&lt;/existRaw&gt;<br>    &lt;haStatus&gt;0&lt;/haStatus&gt;<br>    &lt;haManage&gt;1&lt;/haManage&gt;<br>  &lt;/domain&gt;<br>&lt;/list&gt;
+</pre>
+      </div>
+    </dl>
+    </div>
+</div>
+</div>
+</body>
+</html>

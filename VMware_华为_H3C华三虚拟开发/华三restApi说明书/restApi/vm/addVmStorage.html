@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>为指定虚拟机添加虚拟硬盘</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>为指定虚拟机添加虚拟硬盘。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/addDevice</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;domain&gt;<br>	&lt;id&gt;10&lt;/id&gt;<br>	&lt;name&gt;vm01&lt;/name&gt;<br>	&lt;storage&gt;<br>		&lt;device&gt;disk&lt;/device&gt;<br>		&lt;fileType&gt;file&lt;/fileType&gt;<br>		&lt;path&gt;/vms/image/vol_test&lt;/path&gt;<br>		&lt;format&gt;qcow2&lt;/format&gt;<br>		&lt;targetBus&gt;ide&lt;/targetBus&gt;<br>		&lt;deviceName&gt;/dev/sdb&lt;/deviceName&gt;<br>		&lt;cacheType&gt;directsync&lt;/cacheType&gt;<br>		&lt;size&gt;1000&lt;/size&gt;<br>		&lt;hotPluggable&gt;true&lt;/hotPluggable&gt;
+	&lt;/storage&gt;<br>&lt;/domain&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">storage</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机存储配置。</span>
+          <div class="jd-descrdiv">自定义类型，必须。</div></td>
+      </tr>
+	  </table>
+	<table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">storage</span>各子元素</th>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">targetBus</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">存储设备类型，枚举值：ide：IDE硬盘， scsi：SCSI硬盘， usb：USB硬盘;，virtio：Virtio   硬盘，cdrom：IDE光驱，floppy：软驱。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">path</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储文件路径。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">cacheType</span></td>
+        <td class="jd-linkcol"><span class="sympad">磁盘缓存方，枚举值：directsync，writethrough，writeback，none。</span>
+          <div class="jd-descrdiv">字符串（String）类型，当存储卷为文件类型时不能为空。</div></td>
+      </tr>
+	   <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">deviceName</span></td>
+        <td class="jd-linkcol"><span class="sympad">设备名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，可选。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">device</span></td>
+        <td class="jd-linkcol"><span class="sympad">设备驱动类型，取值为disk, cdrom, floppy</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">format</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储格式，取值为raw，qcow2。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">size</span></td>
+        <td class="jd-linkcol"><span class="sympad">分配存储容量</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">fileType</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储卷类型，取值为file，block。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">readBytesSec</span></td>
+        <td class="jd-linkcol"><span class="sympad">限制I/O速率，读，单位KB/s。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">writeBytesSec</span></td>
+        <td class="jd-linkcol"><span class="sympad">限制I/O速率，写，单位KB/s。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">readIopsSec</span></td>
+        <td class="jd-linkcol"><span class="sympad">限制IOPS，读。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">writeIopsSec</span></td>
+        <td class="jd-linkcol"><span class="sympad">限制IOPS，写。</span>
+          <div class="jd-descrdiv">长整型（Long）类型。</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hotPluggable</span></td>
+        <td class="jd-linkcol"><span class="sympad">热拔。（true：允许，false：不允许）</span>
+          <div class="jd-descrdiv">布尔（Boolean）类型，可选。</div></td>
+      </tr>
+  </table>
+
+  <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 (No Content)：成功。</li>
+	<li>409 (Conflict)：失败。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为10的虚拟机增加一块IDE磁盘，磁盘缓存方式为<span class="prettyprint lang-xml">directsync</span>。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.4:8080/cas/casrs/vm/addDevice
+accept: application/xml
+
+
+&lt;domain&gt;<br>	&lt;id&gt;10&lt;/id&gt;<br>	&lt;name&gt;vm01&lt;/name&gt;<br>	&lt;storage&gt;<br>		&lt;device&gt;disk&lt;/device&gt;<br>		&lt;fileType&gt;file&lt;/fileType&gt;<br>		&lt;path&gt;/vms/image/vol_test&lt;/path&gt;<br>		&lt;format&gt;qcow2&lt;/format&gt;<br>		&lt;targetBus&gt;ide&lt;/targetBus&gt;<br>		&lt;deviceName&gt;/dev/sdb&lt;/deviceName&gt;<br>		&lt;cacheType&gt;directsync&lt;/cacheType&gt;<br>		&lt;size&gt;1000&lt;/size&gt;<br>		&lt;hotPluggable&gt;true&lt;/hotPluggable&gt;<br>	&lt;/storage&gt;<br>&lt;/domain&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">    	
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;taskMsg&gt;
+  &lt;state&gt;0&lt;/state&gt;
+  &lt;errorCode&gt;0&lt;/errorCode&gt;
+  &lt;data&gt;为虚拟机“test”增加磁盘“hde”。 &lt;/data&gt;
+  &lt;message&gt;为虚拟机“test”增加磁盘“hde”成功。 &lt;/message&gt;
+&lt;/taskMsg&gt;
+    	</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

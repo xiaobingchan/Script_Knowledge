@@ -1,0 +1,235 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>增加存储池</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>指定主机增加存储池</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/storage/add</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <p>1.增加本地文件目录</p>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;name&gt;sdasda&lt;/name&gt;<br>    &lt;targetPath&gt;/dev/sdasda&lt;/targetPath&gt;<br>    &lt;srcPath&gt;/vms/sdasda&lt;/srcPath&gt;<br>    &lt;srcName&gt;sdasda&lt;/srcName&gt;<br>    &lt;type&gt;logical&lt;/type&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt;</pre>
+  </div>
+  <p>2.增加ISCSI网络存储</p>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;srcHost&gt;192.168.10.90&lt;/srcHost&gt;<br>    &lt;name&gt;iscs&lt;/name&gt;<br>    &lt;path&gt;/dev/disk/by-path&lt;/path&gt;<br>    &lt;type&gt;iscsi&lt;/type&gt;<br>    &lt;srcPath&gt;cvm90-3&lt;/srcPath&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt;</pre>
+  </div>
+   <p>3.增加本地文件目录</p>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;name&gt;sdasda&lt;/name&gt;<br>    &lt;path&gt;/vms/sdasda&lt;/path&gt;<br>    &lt;type&gt;dir&lt;/type&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt;</pre>
+  </div>
+  <p>4.增加NFS网络文件系统</p>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;hostIp&gt;192.168.10.90&lt;/hostIp&gt<br>    &lt;remoteDir&gt;/vms/images&lt;/remoteDir&gt;<br>    &lt;name&gt;nfs&lt;/name&gt;<br>    &lt;path&gt;/vms/nfs&lt;/path&gt;<br>    &lt;type&gt;netfs&lt;/type&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt;</pre>
+  </div>
+  <p>5.增加共享文件系统</p>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;fsType&gt;iscsi&lt;/fsType&gt;<br>    &lt;fsId&gt;2&lt;/fsId&gt;<br>    &lt;hpName&gt;pool&lt;/hpName&gt;<br>    &lt;fsName&gt;share84&lt;/fsName&gt;<br>    &lt;rsFsLunInfo&gt;<br>        &lt;targetHost&gt;192.168.10.84&lt;/targetHost&gt;<br>        &lt;naa&gt;1H3Ca2e8cdc85f1111e4b596001b2171f9a6&lt;/naa&gt;<br>        &lt;lun&gt;ip-192.168.10.84:3260-iscsi-target1-lun-1&lt;/lun&gt;<br>        &lt;capacity&gt;53687091200&lt;/capacity&gt;<br>    &lt;/rsFsLunInfo&gt;<br>    ......<br>    &lt;name&gt;share84&lt;/name&gt;<br>    &lt;path&gt;/vms/share84&lt;/path&gt;<br>    &lt;type&gt;fs&lt;/type&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt;</pre>
+  </div>
+   <p>6.Windows系统共享目录</p>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;hostIp&gt;192.168.10.90&lt;/hostIp&gt;<br>    &lt;remoteDir&gt;/vmsa&lt;/remoteDir&gt;<br>    &lt;pwd&gt;amdin&lt;/pwd&gt;<br>    &lt;name&gt;windows&lt;/name&gt;<br>    &lt;path&gt;/vms/windows&lt;/path&gt;<br>    &lt;type&gt;cifs&lt;/type&gt;<br>    &lt;userName&gt;admin&lt;/userName&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt;<br>
+</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">storagePool</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hostId</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">主机ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hostName</span></td>
+        <td class="jd-linkcol"><span class="sympad">主机名称</span>
+          <div class="jd-descrdiv">字符串（String）类型</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储池名称 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	  </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+        <td class="jd-linkcol"><span class="sympad">存储类型，logical：LVM逻辑存储卷，iscsi：ISCSI网络存储，dir：本地文件目录，netfs：NFS网络文件系统，fs：共享文件系统，cifs：Windows系统共享目录</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	  </tr>
+	  <tr >
+        <td class="jd-typecol"><span class="prettyprint lang-xml">path</span></td>
+        <td class="jd-linkcol"><span class="sympad"> 存储路径</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	  </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hostIp</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>主机IP
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">autoStart</span></td>
+        <td class="jd-linkcol">是否自动启动
+          <div class="jd-descrdiv">布尔类型。</div></td>
+	  </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">srcName</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>源存储名称
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">srcHost</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>源主机IP
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">srcPath</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>源存储路径
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">remoteDir</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>源存储路径
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr class="alt-color">
+	  	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">fsType</span></td>
+        <td class="jd-linkcol"><span class="sympad">共享存储类型，iscsi：iSCSI共享文件系统，fc：FC共享文件系统</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">fsId</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">共享文件系统ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hpName</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>主机池名称
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">fsName</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>共享文件系统名称
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">userName</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>用户名
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">pwd</span></td>
+        <td class="jd-linkcol"><span class="sympad"></span>密码
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+  </table>
+    <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">rsFsLunInfo</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">targetHost</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">服务器IP地址。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">naa</span></td>
+        <td class="jd-linkcol"><span class="sympad">网络地址认证（Network Address Authority ）</span>
+          <div class="jd-descrdiv">字符串（String）类型</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">lun</span></td>
+        <td class="jd-linkcol"><span class="sympad">逻辑单元号 。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	  </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">capacity</span></td>
+        <td class="jd-linkcol"><span class="sympad">容量，单位：字节 </span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+	  </tr>
+  </table>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：提交删除任务成功。</li>
+  </ul>
+  <ul>
+    <li>409(Conflict)：失败。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <div class="source">
+    <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;rsResult&gt;<br>  &lt;state&gt;0&lt;/state&gt;<br>  &lt;errorCode&gt;0&lt;/errorCode&gt;<br>  &lt;data&gt;0&lt;/data&gt;<br>  &lt;message&gt;在主机“cvm84”上增加存储池“sdasda”成功。&lt;/message&gt;<br>&lt;/rsResult&gt;<br>
+</pre>
+  </div>
+  <dt><a name="detail"></a><b>元素含义</b></dt>
+        <table id="pubmethods" class="jd-sumtable"><tbody><tr>
+          <th colspan="2"><span class="prettyprint lang-xml">rsResult</span>各子元素</th>
+		<tr>
+	          <td class="jd-typecol"><span class="prettyprint lang-xml">state</span></td>
+	          <td class="jd-linkcol" width="100%">
+	            <span class="sympad">状态。</span>
+	            <div class="jd-descrdiv">整型（Int）类型。</div>	          </td>
+	        </tr>
+			
+        <tr class="alt-color">
+          <td class="jd-typecol"><span class="prettyprint lang-xml">errorCode</span></td>
+          <td class="jd-linkcol"><span class="sympad">错误代码。</span>
+            <div class="jd-descrdiv">整型（Int）类型。</div></td></tr>
+        <tr>
+          <td class="jd-typecol"><span class="prettyprint lang-xml">data</span></td>
+          <td class="jd-linkcol"><span class="sympad">OCFS2文件系统硬盘格式化，0表示不用格式化处理；36表示必须进行格式化操作；37，表示推荐格式化操作；</span>
+            <div class="jd-descrdiv">枚举(enum):0，36，37</div></td></tr>
+		<tr class="alt-color">
+          <td class="jd-typecol"><span class="prettyprint lang-xml">message</span></td>
+          <td class="jd-linkcol"><span class="sympad">消息</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td></tr>		          
+        </table>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为1的主机增加一个本地目录文件存储池</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.4:8080/cas/casrs/storage/add
+accept: application/xml
+&lt;storagePool&gt;<br>    &lt;hostId&gt;1&lt;/hostId&gt;<br>    &lt;hostName&gt;cvm84&lt;/hostName&gt;<br>    &lt;name&gt;sdasda&lt;/name&gt;<br>    &lt;path&gt;/vms/sdasda&lt;/path&gt;<br>    &lt;type&gt;dir&lt;/type&gt;<br>    &lt;autoStart&gt;false&lt;/autoStart&gt;<br>&lt;/storagePool&gt; 
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Server: Apache-Coyote/1.1<br>Set-Cookie: JSESSIONID=BDF7B4EDFDBA9FBF003D195F802D705F; Path=/imcrs<br>Date: Fri, 23 Dec 2011 04:44:21 GMT
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;rsResult&gt;<br>  &lt;state&gt;0&lt;/state&gt;<br>  &lt;errorCode&gt;0&lt;/errorCode&gt;<br>  &lt;data&gt;0&lt;/data&gt;<br>  &lt;message&gt;在主机“cvm84”上增加存储池“sdasda”成功。&lt;/message&gt;<br>&lt;/rsResult&gt;<br>
+</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

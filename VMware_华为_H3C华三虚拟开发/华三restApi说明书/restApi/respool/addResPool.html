@@ -1,0 +1,190 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>增加资源池</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>增加资源池。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/resPool/add</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;resPool&gt;<br>    &lt;name&gt;test&lt;/name&gt;<br>    &lt;description&gt;desc&lt;/description&gt;<br>    &lt;type&gt;2&lt;/type&gt;<br>    &lt;vgpuType&gt;nvidia-63&lt;/vgpuType&gt;<br>    &lt;clusterId&gt;1&lt;/clusterId&gt;<br>    &lt;resPoolDevice&gt;<br>        &lt;bus&gt;0000:05:00.0&lt;/bus&gt;<br>        &lt;clusterId&gt;1&lt;/clusterId&gt;<br>        &lt;hostId&gt;1&lt;/hostId&gt;<br>        &lt;hostName&gt;host&lt;/hostName&gt;<br>        &lt;type&gt;nvidia-157&lt;/type&gt;<br>        &lt;name&gt;GRID P4-2B&lt;/name&gt;<br>        &lt;maxInstance&gt;4&lt;/maxInstance&gt;<br>        &lt;framebuffer&gt;2G&lt;/framebuffer&gt;<br>        &lt;maxResolution&gt;4096x2160&lt;/maxResolution&gt;<br>        &lt;heads&gt;2&lt;/heads&gt;<br>        &lt;uuid&gt;c2177883-f1bb-47f0-914d-32a22e3a8804&lt;/uuid&gt;<br>    &lt;/resPoolDevice&gt;<br>    &lt;resPoolVm&gt;<br>        &lt;domainId&gt;1&lt;/domainId&gt;<br>        &lt;businessTempId&gt;1&lt;/businessTempId&gt;<br>        &lt;deviceDriver&gt;vfio&lt;/deviceDriver&gt;<br>    &lt;/resPoolVm&gt;<br>    &lt;resPoolVm&gt;<br>        &lt;domainId&gt;2&lt;/domainId&gt;<br>        &lt;businessTempId&gt;2&lt;/businessTempId&gt;<br>        &lt;deviceDriver&gt;vfio&lt;/deviceDriver&gt;<br>    &lt;/resPoolVm&gt;<br>&lt;/resPool&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">resPool</span>各子元素</th>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">资源池名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+      <td class="jd-linkcol"><span class="sympad">描述信息。</span>
+          <div class="jd-descrdiv">字符串（String）类型。可选。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源池类型：1：GPU，2：vGPU。</span>
+            <div class="jd-descrdiv">整数（int）类型。必须。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol">vgpuType</td>
+      <td class="jd-linkcol"><span class="sympad">vGPU类型。</span>
+        <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若type为2（vGPU）则必须；若type为1（GPU）则不需要。</span></div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">clusterId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源池所在的集群ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">resPoolDevice</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源池增加的资源</span>
+          <div class="jd-descrdiv">自定义类型。必须。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">resPoolVm</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源池增加的业务虚拟机。</span>
+          <div class="jd-descrdiv">自定义类型。可选。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">resPoolDevice</span>各子元素</th>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">bus</span></td>
+      <td class="jd-linkcol"><span class="sympad">GPU槽号。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">producers</span></td>
+      <td class="jd-linkcol"><span class="sympad">设备产商。</span>
+          <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若资源池类型是GPU则必须；</span>若<span class="sympad">资源池类型是vGPU</span><span class="sympad">则不需要</span>。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">clusterId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源所在的集群ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源所在的主机ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">hostName</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">资源所在的主机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+    </tr>
+	<tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的类型。</span>
+          <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+	<tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">maxInstance</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的最大虚拟个数。</span>
+          <div class="jd-descrdiv">整数（int）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">framebuffer</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的缓存。</span>
+          <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+	<tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">maxResolution</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的最大分辨率。</span>
+          <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">heads</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的显示器接口数。</span>
+          <div class="jd-descrdiv">整数（int）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+	<tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">uuid</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">vGPU的UUID唯一标识符。</span>
+          <div class="jd-descrdiv">字符串（String）类型。<span class="sympad">若资源池类型是vGPU则必须</span>。</div></td>
+    </tr>
+</table>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2"><span class="prettyprint lang-xml">resPoolVm</span>各子元素</th>
+    <tr >
+      <td class="jd-typecol"><span class="prettyprint lang-xml">domainId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">业务虚拟机ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">businessTempId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">业务模板ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。必须。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">deviceDriver</span></td>
+      <td class="jd-linkcol"><span class="sympad">驱动类型。</span>
+          <div class="jd-descrdiv">字符串（String）类型。必须。</div></td>
+    </tr>
+</table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>200(OK)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 163<br>Date: Sat, 03 Feb 2018 08:33:01 GMT<br>Server: CVM
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;rsResult&gt;<br>  &lt;state&gt;0&lt;/state&gt;<br>  &lt;errorCode&gt;0&lt;/errorCode&gt;<br>  &lt;data&gt;增加资源池“test”成功。&lt;/data&gt;<br>&lt;/rsResult&gt;
+</pre>
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.增加资源池。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://localhost:8080/cas/casrs/resPool/add
+&lt;resPool&gt;<br>    &lt;name&gt;test&lt;/name&gt;<br>    &lt;description&gt;desc&lt;/description&gt;<br>    &lt;type&gt;2&lt;/type&gt;<br>    &lt;vgpuType&gt;nvidia-63&lt;/vgpuType&gt;<br>    &lt;clusterId&gt;1&lt;/clusterId&gt;<br>    &lt;resPoolDevice&gt;<br>        &lt;bus&gt;0000:05:00.0&lt;/bus&gt;<br>        &lt;clusterId&gt;1&lt;/clusterId&gt;<br>        &lt;hostId&gt;1&lt;/hostId&gt;<br>        &lt;hostName&gt;host&lt;/hostName&gt;<br>        &lt;type&gt;nvidia-157&lt;/type&gt;<br>        &lt;name&gt;GRID P4-2B&lt;/name&gt;<br>        &lt;maxInstance&gt;4&lt;/maxInstance&gt;<br>        &lt;framebuffer&gt;2G&lt;/framebuffer&gt;<br>        &lt;maxResolution&gt;4096x2160&lt;/maxResolution&gt;<br>        &lt;heads&gt;2&lt;/heads&gt;<br>        &lt;uuid&gt;c2177883-f1bb-47f0-914d-32a22e3a8804&lt;/uuid&gt;<br>    &lt;/resPoolDevice&gt;<br>    &lt;resPoolVm&gt;<br>        &lt;domainId&gt;1&lt;/domainId&gt;<br>        &lt;businessTempId&gt;1&lt;/businessTempId&gt;<br>        &lt;deviceDriver&gt;vfio&lt;/deviceDriver&gt;<br>    &lt;/resPoolVm&gt;<br>    &lt;resPoolVm&gt;<br>        &lt;domainId&gt;2&lt;/domainId&gt;<br>        &lt;businessTempId&gt;2&lt;/businessTempId&gt;<br>        &lt;deviceDriver&gt;vfio&lt;/deviceDriver&gt;<br>    &lt;/resPoolVm&gt;<br>&lt;/resPool&gt;</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 200 OK<br>Cache-Control: no-cache, no-store, max-age=0, must-revalidate<br>Pragma: no-cache<br>Expires: 0<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: DENY<br>X-Content-Type-Options: nosniff<br>Content-Type: application/xml<br>Content-Length: 163<br>Date: Sat, 03 Feb 2018 08:33:01 GMT<br>Server: CVM
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br>&lt;rsResult&gt;<br>  &lt;state&gt;0&lt;/state&gt;<br>  &lt;errorCode&gt;0&lt;/errorCode&gt;<br>  &lt;data&gt;增加资源池“test”成功。&lt;/data&gt;<br>&lt;/rsResult&gt;<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

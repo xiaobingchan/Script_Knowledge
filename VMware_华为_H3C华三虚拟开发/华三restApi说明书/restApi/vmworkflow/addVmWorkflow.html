@@ -1,0 +1,104 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>增加(申请/注销)虚拟机电子流</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>为指定ID的用户增加(申请/注销)虚拟机电子流（type=1申请，type=0注销）。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vmWorkflow</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;vmWorkflow&gt;<br>    &lt;domainId&gt;1&lt;/domainId&gt;<br>    &lt;domainName&gt;jjun-test1&lt;/domainName&gt;<br>    &lt;description&gt;李四申请虚拟机测试1&lt;/description&gt;<br>    &lt;userId&gt;5&lt;/userId&gt;<br>    &lt;orgId&gt;10&lt;/orgId&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;type&gt;1&lt;/type&gt;<br>&lt;/vmWorkflow&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table class="jd-sumtable" id="pubmethods">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">operateLog</span>各子元素</th>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">domainId</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">虚拟机ID/虚拟机模板ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">domainName</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机描述。</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">userId</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">用户ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">orgId</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">所属的组织ID。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">status</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">状态。</span>
+ 0：待审批  10：审批通过  20：拒绝  30：撤销          
+ <div class="jd-descrdiv">整数（int）类型。</div></td>
+      </tr>
+	  <tr >
+        <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+        <td class="jd-linkcol" width="100%"><span class="sympad">申请类型。</span><span class="sympad">1:申请虚拟机，0:注销虚拟机</span>
+            <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+    </table>
+  <p>&nbsp;</p>
+  <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>201 (Created)：成功。</li>
+  </ul>
+  </dd>
+</dl>
+    <h2><a name="example"></a>应用举例</h2>
+    <p>为ID为”5“的租户增加(申请/注销)虚拟机电子流。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.243:8888/cas/casrs/vmWorkflow/
+accept: application/xml
+&lt;vmWorkflow&gt;<br>    &lt;domainId&gt;1&lt;/domainId&gt;<br>    &lt;domainName&gt;jjun-test1&lt;/domainName&gt;<br>    &lt;description&gt;蒋军申请虚拟机测试1&lt;/description&gt;<br>    &lt;userId&gt;5&lt;/userId&gt;<br>    &lt;orgId&gt;10&lt;/orgId&gt;<br>    &lt;status&gt;0&lt;/status&gt;<br>    &lt;type&gt;1&lt;/type&gt;<br>&lt;/vmWorkflow&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 201 Created<br>Expires: Thu, 01 Jan 1970 00:00:00 GMT<br>Set-Cookie: JSESSIONID=f9dt6kjmf7d0;Path=/<br>Content-Type: application/xml<br>Location: 1<br>Content-Length: 0<br>Server: Jetty(6.1.x)<br>
+无消息体
+</pre>
+      </div>
+    </dl>    
+</div>
+</div>
+</div>
+</body>
+</html>

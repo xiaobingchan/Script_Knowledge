@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>卸载虚拟机的GPU设备</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>卸载虚拟机的GPU设备</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/vm/delDevice</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>PUT</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;domain&gt;<br>    &lt;id&gt;35&lt;/id&gt;<br>    &lt;name&gt;zxktest&lt;/name&gt;<br>    &lt;title&gt;zxktest&lt;/title&gt;<br>    &lt;gpu/&gt;<br>&lt;/domain&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">domain</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">id</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机ID。</span>
+          <div class="jd-descrdiv">长整型（Long）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">title</span></td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">虚拟机显示名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型，必须。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">gpu</span></td>
+        <td class="jd-linkcol"><span class="sympad">虚拟机gpu设备信息。</span>
+          <div class="jd-descrdiv">自定义类型，必须。</div></td>
+      </tr>
+  </table>
+
+        <h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 (No Content)：成功。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>删除ID为35的虚拟机上的GPU设备。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">PUT http://192.168.0.28:8080/cas/casrs/vm/delDevice
+accept: application/xml
+&lt;domain&gt;<br>    &lt;id&gt;35&lt;/id&gt;<br>    &lt;name&gt;zxktest&lt;/name&gt;<br>    &lt;title&gt;zxktest&lt;/title&gt;<br>    &lt;gpu/&gt;<br>&lt;/domain&gt;
+</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Server: Apache-Coyote/1.1<br>Date: Mon, 25 Nov 2013 12:27:38 GMT
+无消息体
+</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>

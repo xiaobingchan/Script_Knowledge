@@ -1,0 +1,165 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+<div class="api-level">H3C CAS云管理平台</div>
+</div>
+<div id="jd-header">
+<h1>创建网络策略模板</h1>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>创建网络策略模板。</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/profile</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;portProfile&gt;<br>	&lt;name&gt;w&lt;/name&gt;<br>	&lt;description&gt;test&lt;/description&gt;<br>	&lt;vlanId&gt;1&lt;/vlanId&gt;<br>	&lt;inbound&gt;1&lt;/inbound&gt;<br>	&lt;inAvgBandwidth&gt;2000&lt;/inAvgBandwidth&gt;<br>	&lt;inPeakBandwidth&gt;2000&lt;/inPeakBandwidth&gt;<br>	&lt;inBurstSize&gt;1000&lt;/inBurstSize&gt;<br>	&lt;outbound&gt;1&lt;/outbound&gt;<br>	&lt;outAvgBandwidth&gt;1000&lt;/outAvgBandwidth&gt;<br>	&lt;outPeakBandWidth&gt;1000&lt;/outPeakBandWidth&gt;<br>	&lt;outBurstSize&gt;2000&lt;/outBurstSize&gt;<br>	&lt;enableVsi&gt;1&lt;/enableVsi&gt;<br>	&lt;vsiMngId&gt;2001:0db8:85a3:08d3:1319:8a2e:0370:7344&lt;/vsiMngId&gt;<br>	&lt;vsiTypeId&gt;123542&lt;/vsiTypeId&gt;<br>	&lt;vsiTypeVer&gt;112&lt;/vsiTypeVer&gt;<br>	&lt;vsiTypeVerId&gt;2&lt;/vsiTypeVerId&gt;<br>	&lt;vsiIdFormat&gt;UUID&lt;/vsiIdFormat&gt;
+	&lt;aclStrategyId&gt;1&lt;/aclStrategyId&gt;<br>	&lt;aclName&gt;example&lt;/aclName&gt;<br>	&lt;vnetPriority&gt;0&lt;/vnetPriority&gt;<br>&lt;/portProfile&gt;</pre>
+  </div>
+</dl>
+<dt><a name="detail"></a><b>元素含义</b></dt>
+<table class="jd-sumtable" id="pubmethods">
+  <tbody>
+    <tr>
+      <th colspan="2">portProfile各子元素</th>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">name</span></td>
+      <td class="jd-linkcol"><span class="sympad">网络策略模板名称。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">description</span></td>
+      <td class="jd-linkcol"><span class="sympad">描述信息。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vlanId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">VLAN ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+    <tr>
+      <td class="jd-typecol">inbound</td>
+      <td class="jd-linkcol"><span class="sympad">入方向流量限制：1表示限制，0表示不限制。</span>
+            <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+    <tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">inAvgBandwidth</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">入方向流量控制：平均带宽，单位Kbps</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">inBurstSize</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">入方向流量控制：突发缓冲，单位Kbps</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">outbound</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">出方向流量限制：1表示限制，0表示不限制。</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">outAvgBandwidth</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">出方向流量控制：平均带宽，单位Kbps</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">outBurstSize</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">出方向流量控制：突发缓冲，单位Kbps</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">enableVsi</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">是否启用vsi：1表示启用，0表示不启用</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsiMngId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">VSI管理ID，为合法的IPv6地址</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsiTypeId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">VSI类型ID</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsiTypeVer</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">VSI类型版本</span>
+          <div class="jd-descrdiv">整数（long）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsiTypeVerId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">VSI类型版本ID</span>
+          <div class="jd-descrdiv">整数（long）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vsiIdFormat</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">VSI ID格式</span>
+          <div class="jd-descrdiv">枚举类型：UUID</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">aclStrategyId</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">绑定的ACL ID</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+    </tr>
+	<tr class="alt-color">
+      <td class="jd-typecol"><span class="prettyprint lang-xml">aclName</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">绑定的ACL名称</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+    </tr>
+	<tr>
+      <td class="jd-typecol"><span class="prettyprint lang-xml">vnetPriority</span></td>
+      <td class="jd-linkcol" width="100%"><span class="sympad">网络优先级：0表示低，1表示中，2表示高。</span>
+          <div class="jd-descrdiv">整数（int）类型。</div></td>
+    </tr>
+</table>
+
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 (No Content)：成功。</li>
+  </ul>
+  </dd>
+  <dt><b>消息头</b></dt>
+  <br>
+  <pre class="prettyprint lang-xml">
+HTTP/1.1 204 No Content
+Total: 7</pre>
+ 
+</dl>
+
+<p>&nbsp;</p>
+<h2><a name="example"></a>应用举例</h2>
+    <p>1.增加网络策略模板。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://localhost:8080/cas/casrs/profile
+&lt;portProfile&gt;<br>	&lt;name&gt;w&lt;/name&gt;<br>	&lt;description&gt;test&lt;/description&gt;<br>	&lt;vlanId&gt;1&lt;/vlanId&gt;<br>	&lt;inbound&gt;1&lt;/inbound&gt;<br>	&lt;inAvgBandwidth&gt;2000&lt;/inAvgBandwidth&gt;<br>	&lt;inPeakBandwidth&gt;2000&lt;/inPeakBandwidth&gt;<br>	&lt;inBurstSize&gt;1000&lt;/inBurstSize&gt;<br>	&lt;outbound&gt;1&lt;/outbound&gt;<br>	&lt;outAvgBandwidth&gt;1000&lt;/outAvgBandwidth&gt;<br>	&lt;outPeakBandWidth&gt;1000&lt;/outPeakBandWidth&gt;<br>	&lt;outBurstSize&gt;2000&lt;/outBurstSize&gt;<br>	&lt;enableVsi&gt;1&lt;/enableVsi&gt;<br>	&lt;vsiMngId&gt;2001:0db8:85a3:08d3:1319:8a2e:0370:7344&lt;/vsiMngId&gt;<br>	&lt;vsiTypeId&gt;123542&lt;/vsiTypeId&gt;<br>	&lt;vsiTypeVer&gt;112&lt;/vsiTypeVer&gt;<br>	&lt;vsiTypeVerId&gt;2&lt;/vsiTypeVerId&gt;<br>	&lt;vsiIdFormat&gt;UUID&lt;/vsiIdFormat&gt;
+	&lt;aclStrategyId&gt;1&lt;/aclStrategyId&gt;<br>	&lt;aclName&gt;example&lt;/aclName&gt;<br>	&lt;vnetPriority&gt;0&lt;/vnetPriority&gt;<br>&lt;/portProfile&gt;</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">
+HTTP/1.1 204 No Content
+Content-Type: application/xml
+...<br>无消息体<br></pre>
+      </div>
+    </dl>
+</div>
+</div>
+</div>
+</body>
+</html>

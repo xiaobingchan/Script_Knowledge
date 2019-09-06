@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/docs.css" type="text/css" rel="stylesheet" />
+<link href="../css/prettify.css" type="text/css" rel="stylesheet" />
+<script src="../js/prettify.js" type="text/javascript"></script>
+</head>
+<body onLoad="prettyPrint()">
+<div class="g-unit" id="doc-content">
+<div id="api-info-block">
+    <div class="api-level">H3C CAS云管理平台</div>
+  </div>
+  <div id="jd-header">
+    <h1>增加共享文件系统</h1>
+  </div>
+</div>
+<div id="jd-content">
+<div class="jd-descr">
+<p>在指定主机池下增加指定共享文件系统</p>
+<h2><a name="uri"></a>接口 URI</h2>
+<p>/cas/casrs/storage/shareFile/add</p>
+<h2><a name="access"></a>访问方法</h2>
+<dl>
+  <dt><b>HTTP 方法</b></dt>
+  <dd>POST</dd>
+  <dt><b>消息体</b></dt>
+  <div class="source">
+  	<pre class="prettyprint lang-xml">&lt;rsShareFileSystem&gt;<br>  &lt;name&gt;t27&lt;/name&gt;<br>  &lt;desc&gt;jj08&lt;/desc&gt;<br>  &lt;type&gt;1&lt;/type&gt;<br>  &lt;hpId&gt;qcow2&lt;/hpId&gt;<br>  &lt;path&gt;/vms/t27&lt;/path&gt;<br>  &lt;rsFsLunInfo&gt; <br>    &lt;targetHost&gt;192.168.0.27&lt;/targetHost&gt;<br>    &lt;naa&gt;1H3C682ce2123d8011e4a715ac162d88e4c4&lt;/naa&gt;<br>    &lt;lun&gt;ip-192.168.0.27:3260-iscsi-t27-lun-1&lt;/lun&gt;<br>    &lt;capacity&gt;107374182400&lt;/capacity&gt;<br>  &lt;/rsFsLunInfo&gt;<br>&lt;/rsShareFileSystem&gt;</pre>
+  </div>
+</dl>
+
+<dt><a name="detail"></a><b>元素含义</b></dt>
+  <table id="pubmethods" class="jd-sumtable">
+    <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">rsShareFileSystem</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">name</td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">共享文件系统的名称。</span>
+            <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">type</span></td>
+        <td class="jd-linkcol"><span class="sympad">共享文件系统的类型。</span>
+          <div class="jd-descrdiv">整型（int）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">hpId</span></td>
+        <td class="jd-linkcol"><span class="sympad">主机池ID。</span>
+          <div class="jd-descrdiv">长整数（long）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">path</span></td>
+        <td class="jd-linkcol"><span class="sympad">路径。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+	  </tr>
+	  <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">readOnly</span></td>
+        <td class="jd-linkcol"><span class="sympad">是否只读。</span>
+          <div class="jd-descrdiv">布尔类型。</div></td>
+	  </tr>
+   <tbody>
+      <tr>
+        <th colspan="2"><span class="prettyprint lang-xml">rsFsLunInfo</span>各子元素</th>
+      </tr>
+      <tr>
+        <td class="jd-typecol">targetHost</td>
+        <td width="100%" class="jd-linkcol"><span class="sympad">目的主机IP。</span>
+            <div class="jd-descrdiv">字符串（String）类型</div></td>
+      </tr>
+      <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">naa</span></td>
+        <td class="jd-linkcol"><span class="sympad">naa。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+      <tr>
+        <td class="jd-typecol"><span class="prettyprint lang-xml">lun</span></td>
+        <td class="jd-linkcol"><span class="sympad">lun。</span>
+          <div class="jd-descrdiv">字符串（String）类型。</div></td>
+      </tr>
+	  <tr class="alt-color">
+        <td class="jd-typecol"><span class="prettyprint lang-xml">capacity</span></td>
+        <td class="jd-linkcol"><span class="sympad">容量。</span>
+          <div class="jd-descrdiv">长整数（Long）类型。</div></td>
+	  </tr>
+  </tbody>
+  </table>
+<h2><a name="result"></a>返回结果</h2>
+<dl>
+  <dt><b>状态码</b></dt>
+  <dd>
+  <ul>
+    <li>204 ( No Content)：成功。</li>
+  </ul>
+  </dd>
+</dl>
+
+    <h2><a name="example"></a>应用举例</h2>
+    <p>在主机池下增加共享文件系统t27。</p>
+    <dl>
+      <dt><b>请求</b></dt>
+      <div class="source">
+        <pre class="prettyprint lang-xml">POST http://192.168.0.4:8080/cas/casrs/storage/shareFile/add
+accept: application/xml
+
+
+&lt;rsShareFileSystem&gt;<br>  &lt;name&gt;t27&lt;/name&gt;<br>  &lt;desc&gt;jj08&lt;/desc&gt;<br>  &lt;type&gt;1&lt;/type&gt;<br>  &lt;hpId&gt;qcow2&lt;/hpId&gt;<br>  &lt;path&gt;/vms/t27&lt;/path&gt;<br>  &lt;rsFsLunInfo&gt; <br>    &lt;targetHost&gt;192.168.0.27&lt;/targetHost&gt;<br>    &lt;naa&gt;1H3C682ce2123d8011e4a715ac162d88e4c4&lt;/naa&gt;<br>    &lt;lun&gt;ip-192.168.0.27:3260-iscsi-t27-lun-1&lt;/lun&gt;<br>    &lt;capacity&gt;107374182400&lt;/capacity&gt;<br>  &lt;/rsFsLunInfo&gt;<br>&lt;/rsShareFileSystem&gt;</pre>
+      </div>
+      <dt><b>回应</b></dt>
+      <div class="source"><pre class="prettyprint lang-xml">HTTP/1.1 204 No Content<br>Content-Type: application/xml<br>
+无消息体
+</pre>
+      </div>
+    </dl>
+    
+</div>
+</div>
+</div>
+</body>
+</html>
