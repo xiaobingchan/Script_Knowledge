@@ -224,39 +224,41 @@ ps -aux | grep httpd | grep -v grep | cut -c 7-15 | xargs kill -9
 
 38，查看端口监听情况：netstat -lntp
 
-查看密码策略：/etc/pam.d/common_password
-21，列出当前tty登陆： #  w
-22，锁定用户密码 ： usermod -L lyj
+39，列出当前tty登陆： #  w
 
+40，锁定用户密码 ： usermod -L lyj
 
-
-
-redis:
-#/usr/local/redis-5.0.3/src/redis-cli -h 127.0.0.1 -a a12345678 info | grep -e "connected_clients" -e "used_memory_rss_human" -e "used_memory_peak_human" -e "total_connections_received" -e "instantaneous_ops_per_sec" -e "instantaneous_input_kbps" -e "instantaneous_output_kbps" -e "rejected_connections" -e "expired_keys" -e "evicted_keys" -e "keyspace_hits" -e "keyspace_misses"
 
 *******************   12，yum下载本地依赖包
-yum install --downloadonly --downloaddir=/root/python_yum/  python
-rpm卸载：rpm -e --nodeps
+yum install --downloadonly --downloaddir=/root/python_yum/  包名
+rpm卸载：rpm -e 包名 --nodeps
 rpm查询：rpm -qa
-rpm安装: rpm -ivh
+rpm安装: rpm -ivh 包名
+yum清除缓存：yum clean all
+yum安装rpm包不带公钥：yum install -y 包名 --nogpgcheck
+
+********************  13，yum制作离线源
+
+createrepo /home/cepuser/yumrepo
+
+mkdir -p /etc/yum.repos.d/bak
+mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/bak
+cat > /etc/yum.repos.d/local.repo << EOF
+[local]
+name=local
+baseurl=file:///home/cepuser/yumrepo
+gpgcheck=1
+enabled=1
+EOF
 
 
-
-笔记
-
-照峰：
 1，bind_ip 为 0.0.0.0 才能外部访问
-
-3，查看远程登陆情况：w
-
-晓书：
-1，ssh速度优化：cat /etc/ssh/sshd_config | grep -v "#"
+2，ssh速度优化：cat /etc/ssh/sshd_config | grep -v "#"
 UseDNS no
-2，连接mysql速度优化：cat /etc/my.cnf
-skip-name-resolve
-3，Linux初始化系统优化：https://blog.51cto.com/13667208/2108973
-4，mongodb更改端口后需要指定端口登陆mongo：--port 20000
-5，mongodb后台正确配置：
+GSSAPIAuthentication no
+
+5，mongodb更改端口后需要指定端口登陆mongo：--port 20000
+6，mongodb后台正确配置：
 port=27017
 dbpath=/data/soft/mongodb/db/
 logpath=/data/soft/mongodb/mongodb.log
@@ -267,11 +269,9 @@ noauth=false
 journal=true
 storageEngine=wiredTiger
 bind_ip = 0.0.0.0
-6，Nginx配置gridfs，要增加Worker线程：
+7，Nginx配置gridfs，要增加Worker线程：
 worker_processes  4;
-7，Nginx配置多个访问路径，可以新开个Server标签
-8，MySQL使用户具有远程访问数据库权限
-
-1，取消全局export用unset
-2，Linux存在openssh版本漏洞
-3，
+8，Nginx配置多个访问路径，可以新开个Server标签
+9，MySQL使用户具有%远程访问数据库权限bind_ip 0.0.0.0
+10，取消全局export用unset
+11，Linux存在openssh版本漏洞

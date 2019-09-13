@@ -6,7 +6,11 @@
 # 5，设置dog用户密码：SET PASSWORD FOR 'dog'@'%' = PASSWORD('1234564e6456456456');
 # 6，列出已安装插件：SHOW VARIABLES;
 # 7，安装密码插件：INSTALL PLUGIN validate_password SONAME 'validate_password.so';
-
+# 8，MySQL加速连接：3，vi /etc/my.cnf
+[mysqld]
+skip-name-resolve
+# 9，
+# 10，python的mysql高并发方案Tormysql+Tornado
 
 # set global validate_password_policy=LOW;
 # SHOW VARIABLES LIKE 'validate_password%';
