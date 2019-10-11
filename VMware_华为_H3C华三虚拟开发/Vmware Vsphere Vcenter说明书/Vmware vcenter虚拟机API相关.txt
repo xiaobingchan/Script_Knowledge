@@ -1,0 +1,2 @@
+API£ºhttps://code.vmware.com/apis/366/vsphere-automation
+Python API sample£ºhttps://github.com/vmware/pyvmomi-community-samples.git

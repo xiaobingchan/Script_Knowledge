@@ -1,3 +1,35 @@
+tar xzvf mongodb-linux-x86_64-rhel70-3.6.3.tgz -C /usr/local/
+cd /usr/local
+mv mongodb-linux-x86_64-rhel70-3.6.3 mongodb
+cd mongodb
+mkdir data 
+mkdir log
+mkdir etc
+chown -R 777 data log etc
+touch /usr/local/mongodb/log/mongo.log
+chown -R 777 /usr/local/mongodb/log/mongo.log
+cd etc/
+cat > /usr/local/mongodb/etc/mongodb.conf << EOF
+dbpath=/usr/local/mongodb/data
+logpath=/usr/local/mongodb/log/mongo.log
+logappend=true
+journal=true
+quiet=true
+fork=true
+port=20000
+auth=true
+bind_ip = 0.0.0.0
+EOF
+/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/etc/mongodb.conf
+/usr/local/mongodb/bin/mongo --port=20000
+use admin
+db.createUser({user:"useradmin",pwd:"123456",roles:[{role:"userAdminAnyDatabase",db:"admin"}]})
+
+0，配置后台启动：
+logappend=true
+journal=true
+quiet=true
+
 1，查询当前mongoDB版本：db.version();
 
 2，所有特定行：db.col.find({},{url:1,title:1,_id:0}): # 0代表不显示,1代表显示，默认不显示
@@ -36,48 +68,6 @@ db.col.insert({title:'MongoDB',description: 'MongoDB Nosql',url:'http://www.runo
 
 9，列出已创建用户：show users
 
-
-
-2，安装带有密码的mongoDB：
-tar xzvf mongodb-linux-x86_64-rhel70-3.6.3.tgz -C /usr/local/
-cd /usr/local
-mv mongodb-linux-x86_64-rhel70-3.6.3 mongodb
-cd mongodb
-mkdir data 
-mkdir log
-mkdir etc
-chown -R 777 data log etc
-touch /usr/local/mongodb/log/mongo.log
-chown -R 777 /usr/local/mongodb/log/mongo.log
-cd etc/
-
-cat > /usr/local/mongodb/etc/mongodb.conf << EOF
-dbpath=/usr/local/mongodb/data
-logpath=/usr/local/mongodb/log/mongo.log
-logappend=true
-journal=true
-quiet=true
-fork=true
-port=20000
-auth=true
-bind_ip = 0.0.0.0
-EOF
-
-/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/etc/mongodb.conf
-
-firewall-cmd --zone=public --add-port=20000/tcp --permanent
-firewall-cmd --reload
-
-/usr/local/mongodb/bin/mongo --port=20000
-
-use admin
-db.createUser({user:"useradmin",pwd:"123456",roles:[{role:"userAdminAnyDatabase",db:"admin"}]})
-db.auth("useradmin","123456")
-
-use my1
-db.createUser({user:"admin",pwd:"123456",roles:[{role:"dbOwner",db:"my1"}]})
-db.auth("admin","123456")
-
 use my1
 db.col.insert({title: 'MongoDB', 
     description: 'MongoDB Nosql',
@@ -86,3 +76,5 @@ db.col.insert({title: 'MongoDB',
 })
 
 db.col.find()
+
+10，别名查询：
