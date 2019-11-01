@@ -25,10 +25,26 @@ python3 manage.py createsuperuser
        return HttpResponse("hello")
 #  访问：http://127.0.0.1:8080/luyanjie/
 
+4，传值到html：
+def show_time(req):
+	t=time.ctime()
+	return render(req,"index.html",locals())
+
+html页面：{{t}}
+
 错误：
 
 1，Django admin 产生'WSGIRequest' object has no attribute 'user'的错误：
+
 C:\Users\Administrator\Desktop\mysite\mysite的settings.py的中间件改为"MIDDLEWARE_CLASSES"
 
-2，
+2，Django 找不到模版报错" django.template.exceptions.TemplateDoesNotExist: index.html"
 
+TEMPLATES = [
+    {
+        ...............
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+		............
+]
+
+3，

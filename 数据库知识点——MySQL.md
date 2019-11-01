@@ -83,5 +83,5 @@ flush privileges;
 truncate table tablename;
 delete from tablename where id=0;
 # 19，删除有外键约束的数据
-SETFOREIGN_KEY_CHECKS=0;  #  禁用外键约束
-SETFOREIGN_KEY_CHECKS=1; #  启动外键约束
+SET FOREIGN_KEY_CHECKS=0;  #  禁用外键约束
+SET FOREIGN_KEY_CHECKS=1; #  启动外键约束

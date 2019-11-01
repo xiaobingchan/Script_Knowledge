@@ -23,4 +23,10 @@ python -m pip install --upgrade pip
 2，手动输入数字：a=input('请输入：')
 3，获取整数商：b=34//3
 4，命名不要用python的内置函数，如：sum
-5，
+5，python传入json的双引号，要用\放前面
+6，python获取第一个传入参数：import sys  a = sys.argv[1]
+7，往命令行传入json：python python_test.py {\"language\":\"Chinese\"}
+8，解析json：import json  js = json.loads(a)  print js['langage']
+9，构造json：import json  python2json = {}  listData = "test python obj 1 json"  python2json["listData"] = listData  python2json["strData"] = "test python obj 2 json"  python3json=[]  python3json.append(python2json)  python3json.append(python2json)  json_str = json.dumps(python3json)  json_str = json_str.replace(" ", "")  print json_str
+10，JSON中，标准语法中，不支持单引号，属性或者属性值，都必须是双引号括起来的
+

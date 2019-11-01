@@ -2,7 +2,9 @@
 2，输出一个变量值：[Console]::WriteLine($output)
 3，获取Windows系统的全局配置：secedit /export /cfg config.cfg /quiet
 4，执行CMD命令：cmd /c (secedit /export /cfg config.cfg /quiet)
-   往文件插入文字："connect" | Out-File   -Append   -Encoding "ascii"  in.py
+   特殊符号：`$  `" `'
+   往文件直接写入一行："connect" | Out-File   -Append   -Encoding "ascii"  in.py
+   往文件追加插入文字："connect" | Out-File   -Append   -Encoding "ascii"  in.py
    交互式自动传指令：wlst in.py | ConvertFrom-Csv | Out-File a.txt
 5，判断命令是否执行成功：
 if (!$?)

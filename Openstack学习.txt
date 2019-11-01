@@ -1,0 +1,4 @@
+利用kolla快速搭建openstack-ocata单节点 : https://www.lijiawang.org/posts/kolla-openstack-ocata.html
+
+http://jqjiang.com/openstack/openstack_kolla/
+

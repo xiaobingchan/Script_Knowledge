@@ -54,3 +54,15 @@ nohup ./gitea-1.8.2-linux-amd64 web &
 firewall-cmd --permanent --zone=public --add-port=3000/tcp
 firewall-cmd --reload
 #############################################################
+
+1，jenkis新建token：进入http://Jenkins网址/user/root/configure新建TOKEN
+2，新建api触发执行bash：item->设置->触发远程构建 (例如,使用脚本)->执行bash
+3，安装插件"Maven Integration"和"Build Authorization Token Root"
+4，自动安装maven：http://Jenkins网址/configureTools/
+5，查询http构建情况：https://blog.csdn.net/boling_cavalry/article/details/85373901
+6，Java git自动构建Spring：https://blog.csdn.net/boling_cavalry/article/details/78942408
+7，Github提交代码自动构建：https://blog.csdn.net/boling_cavalry/article/details/78943061
+8，Gitlab提交代码自动构建：https://www.centos.bz/2017/08/gitlab-jenkins-build-project/
+9，Pipline流水线
+
+ssh-keygen -t rsa -C "luyanjie4@gmail.com"

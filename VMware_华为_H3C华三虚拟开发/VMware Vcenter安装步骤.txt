@@ -5,10 +5,19 @@
 3，安装ESXI 6.7：http://idc.wanyunshuju.com/li/580.html
 
 4，安装Vcentre：https://www.kieri.com/how-to-install-vcenter-6-7-and-6-0-and-6-5-with-no-dns-only-ip-address/
-第二阶段最后一步点击“完成”前，要进去vcenter终端配置/etc/hosts：192.168.244.39  zdhyw.vcenter.com vcenter.local vcenter
+第二阶段最后一步点击“完成”前，要进去vcenter终端配置/etc/hosts：192.168.244.39  zdhyw.vcenter.com vcenter.local vcenter vsphere vsphere.local
 
 注意事项：不能打开vcentre安装程序：Go to %appdata%/roaming  < and then delete the following folder: "Installer"
 一定全程要用windows iso镜像安装，不能断开
 
+vsphere镜像各硬件镜像集合：https://guanjianfeng.com/archives/1159908
 
-安装第三方网卡：https://www.cnblogs.com/zoulongbin/p/10361615.html
+安装第三方网卡：https://blog.whsir.com/post-3377.html
+
+vmware安装redhat5.4：https://wenku.baidu.com/view/14e1f0b7856a561253d36f21.html
+
+vcenter列表下载：https://yangfannie.com/439.html
+
+6.0迅雷链接：thunder://QUFtYWduZXQ6P3h0PXVybjpidGloOjBjNjE0MzkwNjEwYTBhMWIxZWJjODcyMWE2MjY1OTVmYTljOTU0ZTVaWg==
+
+

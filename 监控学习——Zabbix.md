@@ -5,9 +5,8 @@ yum clean all
 yum install -y zabbix-server-mysql zabbix-web-mysql
 yum install -y zabbix-agent
 
-
-wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-rpm -ivh mysql-community-release-el7-5.noarch.rpm
+# wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+# rpm -ivh mysql-community-release-el7-5.noarch.rpm
 yum repolist enabled | grep "mysql.*-community.*"
 yum install mysql-community-server -y
 systemctl enable mysqld

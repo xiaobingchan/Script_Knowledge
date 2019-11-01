@@ -95,6 +95,9 @@ awk  ————行运算命令
 <=  小于等于(需要双括号),如:(("$a" <= "$b"))
 >  大于(需要双括号),如:(("$a" > "$b"))
 >=  大于等于(需要双括号),如:(("$a" >= "$b"))
+
+17，特殊符号输出： echo "\$ \""
+
 #########################比较大小#########################
 errorTimes=4
 if [ $errorTimes -gt 5 ];then
@@ -206,6 +209,12 @@ cat > a.txt << EOF
 1234567
 EOF
 
+33，查询rpm包安装路径：
+rqm -qa | grep jenkins
+rpm -ql jenkins-2.176.3-1.1.noarch
+
+34，
+
 命令返回放入数组:
 text=($($sqlplus_path -s $USER/$PASSWD << EOF
 EOF
@@ -274,6 +283,8 @@ rpm忽略依赖包：--nodeps
 yum清除缓存：yum clean all
 yum安装rpm包不带公钥：yum install -y 包名 --nogpgcheck
 
+45，centos服务定义：https://www.cnblogs.com/wang-yc/p/8876155.html
+
 ********************  13，yum制作离线源
 yum install createrepo
 createrepo /home/cepuser/yumrepo
@@ -293,11 +304,11 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
 
 **********************  14 , 配置yum扩展阿里源
 rm -rf /etc/yum.repos.d/*.repo
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/redhat.repo
+wget -O /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
-sed -i '/aliyuncs/d' /etc/yum.repos.d/Centos-7.repo
+sed -i '/aliyuncs/d' /etc/yum.repos.d/CentOS-Base.repo
 sed -i '/aliyuncs/d' /etc/yum.repos.d/epel.repo
-sed -i 's/$releasever/7/g' /etc/yum.repos.d/Centos-7.repo
+sed -i 's/$releasever/7/g' /etc/yum.repos.d/CentOS-Base.repo
 yum clean all
 yum makecache
 

@@ -45,11 +45,19 @@ use admin
 db.createUser({user:"useradmin",pwd:"123456",roles:[{role:"userAdminAnyDatabase",db:"admin"}]})
 db.auth("useradmin","123456")
 
+查询角色权限：db.system.users.find()
+授予角色权限：db.grantRolesToUser( "admin" , [ { role: "root", db: "admin" } ])
+取校角色权限：db.revokeRolesFromUser( "admin" , [ { role: "root", db: "admin" } ]
+
 7，必定要先用admin库管理员登陆，创建普通用户：
 use admin
 db.auth("useradmin","123456")
 use my1
 db.createUser({user:"useradmin2",pwd:"123456",roles:[{role:"read",db:"my1"}]})
+
+8，带用户名密码登陆：
+/usr/local/mongodb/bin/mongo --port=20000 -u "useradmin" -p "123456" --authenticationDatabase "admin"
+
 ################################
 Read：允许用户读取指定数据库
 readWrite：允许用户读写指定数据库
