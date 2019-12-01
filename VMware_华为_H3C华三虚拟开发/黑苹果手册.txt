@@ -1,0 +1,19 @@
+安装黑苹果参考：https://zuiyu1818.cn/posts/Hackintosh.html
+安装苹果驱动：https://zuiyu1818.cn/posts/z7m_Mojave.html
+
+系统要求：要安装win10，需要8G以上的U盘
+
+下载软件：TransMac、DiskGenius、黑果小兵的苹果原装dmg镜像、GitHub的硬件驱动EFI
+
+TransMac：https://www.techspot.com/downloads/6397-transmac.html
+DiskGenius：http://www.diskgenius.cn/
+苹果原装dmg镜像：https://blog.daliansky.net/archives/
+
+1，查看硬件是否能装黑苹果：Github上面搜索 "电脑型号" 查看是否有EFI或Clover，记住驱动的硬件型号和支持的苹果镜像类型
+2，TransMac制作系统U盘，参考：https://zuiyu1818.cn/posts/Hackintosh.html
+3，DiskGenius制作Mac OS分区和EFI引导：https://zuiyu1818.cn/posts/Hackintosh.html
+4，安装完成后，装黑苹果显卡、网卡、声卡、蓝牙、触摸板、独显驱动
+
+台式机安装：https://blog.csdn.net/mier9042/article/details/80541368
+跳过读条安装Clover：http://www.miui.com/thread-11363672-1-1.html
+百分百成功：

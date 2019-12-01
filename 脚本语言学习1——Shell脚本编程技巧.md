@@ -285,6 +285,13 @@ yum安装rpm包不带公钥：yum install -y 包名 --nogpgcheck
 
 45，centos服务定义：https://www.cnblogs.com/wang-yc/p/8876155.html
 
+46，grep正则排除注释行和空行：grep -Ev '^$|#' /etc/ssh/sshd_config
+
+47，配置ssh免密登陆：ssh-keygen -t rsa -P ''
+cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
+chmod 600 /root/.ssh/authorized_keys
+
+
 ********************  13，yum制作离线源
 yum install createrepo
 createrepo /home/cepuser/yumrepo

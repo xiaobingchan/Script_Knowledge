@@ -110,7 +110,17 @@ docker run -p 8888:80  --name=nginx -i -t 540a289bab6c
 21，目录映射：
 docker run -p 8888:80  --name=nginx -i -t -v /home/test/nginx/html:/usr/share/nginx/html 540a289bab6c 
 
-22，
+22，运行中的容器添加端口映射：
+docker inspect `nginx` | grep IPAddress  #  获取容器IP地址
+iptables -t nat -A  DOCKER -p tcp --dport 8002 -j DNAT --to-destination 172.17.0.4:80
+
+23，删除存在端口规则
+iptables -t nat -vnL DOCKER --line-number
+iptables -t nat -D DOCKER 3
+
+docker inspect `nginx` | grep IPAddress  #  获取容器IP地址
+
+
 
 https://boxueio.com/series/docker-basics/ebook/418
 https://blog.csdn.net/qq_25406669/article/details/88339513

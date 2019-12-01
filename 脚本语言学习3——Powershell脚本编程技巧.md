@@ -2,6 +2,7 @@
 2，输出一个变量值：[Console]::WriteLine($output)
 3，获取Windows系统的全局配置：secedit /export /cfg config.cfg /quiet
 4，执行CMD命令：cmd /c (secedit /export /cfg config.cfg /quiet)
+5，更改文件编码：| Out-File -Encoding ascii d:\2.txt
    特殊符号：`$  `" `'
    往文件直接写入一行："connect" | Out-File   -Append   -Encoding "ascii"  in.py
    往文件追加插入文字："connect" | Out-File   -Append   -Encoding "ascii"  in.py
