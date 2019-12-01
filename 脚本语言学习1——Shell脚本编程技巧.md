@@ -213,7 +213,10 @@ EOF
 rqm -qa | grep jenkins
 rpm -ql jenkins-2.176.3-1.1.noarch
 
-34，
+34，编辑当前用户的环境变量
+[gitlab-runner@localhost ~]#vi ~/.bash_profile
+末尾加上内容：PATH="$HOME/.local/bin:$PATH"
+[gitlab-runner@localhost ~]#source ~/.bash_profile
 
 命令返回放入数组:
 text=($($sqlplus_path -s $USER/$PASSWD << EOF
